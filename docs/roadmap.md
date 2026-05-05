@@ -205,7 +205,7 @@ This timeline assumes one primary author plus community contributions. Dates are
 
 ## How to Contribute
 
-See [CONTRIBUTING.md](../CONTRIBUTING.md) for detailed guidelines. The highest-impact contributions right now are:
+See [CONTRIBUTING.md](../.github/CONTRIBUTING.md) for detailed guidelines. The highest-impact contributions right now are:
 
 1. **Implement a Phase 1 notebook.** Pick any technique from 01-11, follow the README outline in its folder, and submit a PR with a complete Jupyter notebook.
 2. **Review existing notebooks.** Test them, find bugs, suggest improvements.

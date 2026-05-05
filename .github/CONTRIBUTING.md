@@ -100,7 +100,7 @@ Before you open a pull request, confirm:
 - [ ] No API keys or credentials are committed.
 - [ ] `python3 utils/validate_style.py` reports `OK` for the files you changed.
 - [ ] `python3 utils/validate_cells.py` reports `long=0 no-md=0` for the notebook.
-- [ ] No em dashes anywhere. No banned marketing words from the list in [CONTENT_STANDARDS.md](CONTENT_STANDARDS.md).
+- [ ] No em dashes anywhere. No banned marketing words from the list in [CONTENT_STANDARDS.md](../docs/CONTENT_STANDARDS.md).
 - [ ] Architecture diagram exists at `images/diagrams/NN_<name>.svg` and is embedded in the sub-README.
 - [ ] Install the pre-commit hooks first: `pip install pre-commit && pre-commit install`.
 
@@ -108,7 +108,7 @@ Before you open a pull request, confirm:
 
 New to the repo? Any of these are a great starting point:
 
-- Pick a task from [ROADMAP.md](ROADMAP.md) and open an issue saying "I'm taking this on."
+- Pick a task from [ROADMAP.md](../ROADMAP.md) and open an issue saying "I'm taking this on."
 - Improve the analogy in a technique's Description section.
 - Add a small dataset sample to `data/` for one of the long-term memory techniques.
 - Translate one sub-README into another language (open an issue first to discuss).

@@ -19,7 +19,7 @@
   <a href="https://jupyter.org/"><img src="https://img.shields.io/badge/Jupyter-Notebook-orange.svg" alt="Jupyter"></a>
   <a href="https://github.com/NirDiamant/Agent_Memory_Techniques/stargazers"><img src="https://img.shields.io/github/stars/NirDiamant/Agent_Memory_Techniques?style=social" alt="GitHub Stars"></a>
   <a href="https://github.com/NirDiamant/Agent_Memory_Techniques/issues"><img src="https://img.shields.io/github/issues/NirDiamant/Agent_Memory_Techniques" alt="Issues"></a>
-  <a href="CONTRIBUTING.md"><img src="https://img.shields.io/badge/contributions-welcome-brightgreen.svg" alt="Contributions Welcome"></a>
+  <a href=".github/CONTRIBUTING.md"><img src="https://img.shields.io/badge/contributions-welcome-brightgreen.svg" alt="Contributions Welcome"></a>
 </p>
 
 ---
@@ -326,30 +326,46 @@ jupyter notebook all_techniques/01_conversation_buffer_memory/
 ```
 Agent_Memory_Techniques/
 ├── README.md                           # You are here
-├── ROADMAP.md                          # Project roadmap and phases
+├── ROADMAP.md                          # Current state and what's next
+├── LICENSE                             # Apache 2.0
+├── CITATION.cff                        # How to cite this work
+├── requirements.txt                    # Python dependencies
+├── .env.example                        # API key template
+├── llms.txt                            # LLM-discoverability index
+│
 ├── all_techniques/                     # 30 technique folders, each with notebook + README
 │   ├── 01_conversation_buffer_memory/
 │   ├── 02_sliding_window_memory/
 │   ├── ...
 │   └── 30_production_memory_patterns/
-├── docs/
+│
+├── docs/                               # Project documentation
 │   ├── architecture.md                 # Memory system design patterns
+│   ├── comparison.md                   # Side-by-side comparison of all 30 techniques
 │   ├── glossary.md                     # Key terms and definitions
 │   ├── learning_path.md                # Detailed learning path guide
-│   └── roadmap.md                      # Detailed project roadmap
-├── utils/
-│   ├── __init__.py
-│   ├── helpers.py                      # Shared helpers (env loading, LLM clients, cosine, tokens)
-│   ├── validate_cells.py               # Notebook cell structure validator
-│   └── validate_style.py               # Prose style + banned-words validator
+│   ├── topics.md                       # Keyword index
+│   ├── roadmap.md                      # Original planning archive
+│   ├── FAQ.md                          # Frequently asked questions
+│   └── CONTENT_STANDARDS.md            # Writing-style rules
+│
+├── .github/                            # GitHub community files
+│   ├── CONTRIBUTING.md                 # How to contribute
+│   ├── CODE_OF_CONDUCT.md              # Community guidelines
+│   ├── SECURITY.md                     # Security policy
+│   ├── FUNDING.yml                     # Sponsorship config
+│   ├── ISSUE_TEMPLATE/                 # Issue templates
+│   ├── pull_request_template.md        # PR template
+│   └── workflows/                      # CI workflows
+│
+├── utils/                              # Shared helpers and validators
+│   ├── helpers.py                      # Env loading, LLM clients, cosine, tokens
+│   ├── validate_cells.py               # Notebook cell-structure validator
+│   └── validate_style.py               # Prose-style validator
+│
 ├── tests/                              # pytest smoke tests
-├── data/                               # Small sample datasets used by notebooks
-├── images/                             # Diagrams and visuals
-├── requirements.txt
-├── .env.example
-├── LICENSE
-├── CONTRIBUTING.md
-└── CODE_OF_CONDUCT.md
+├── data/                               # Small sample datasets
+└── images/                             # Diagrams and visuals
 ```
 
 ---
@@ -363,7 +379,7 @@ Agent_Memory_Techniques/
 
 We welcome contributions. You can fill in a notebook, fix a bug, improve the docs, or propose a new technique. Every contribution helps the next reader.
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) for the details.
+See [CONTRIBUTING.md](.github/CONTRIBUTING.md) for the details.
 
 **Where we need help the most:**
 - More techniques we haven't covered yet (propose one via an issue)

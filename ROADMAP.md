@@ -45,7 +45,7 @@ Each technique will gain a short "Production gotchas" section covering the failu
 
 ## Contributing
 
-Good first issues will focus on the work above. If you're looking for a specific task, see [CONTRIBUTING.md](CONTRIBUTING.md) or open an issue.
+Good first issues will focus on the work above. If you're looking for a specific task, see [CONTRIBUTING.md](.github/CONTRIBUTING.md) or open an issue.
 
 ---
 

@@ -5,8 +5,8 @@
 ## Core Documents
 
 - [README](https://github.com/NirDiamant/Agent_Memory_Techniques/blob/main/README.md): Project overview, decision tree, learning paths, full technique index, and quick start.
-- [CONTENT_STANDARDS](https://github.com/NirDiamant/Agent_Memory_Techniques/blob/main/CONTENT_STANDARDS.md): Writing-style rules enforced across the repository (short sentences, active voice, banned marketing words, analogy-first teaching).
-- [CONTRIBUTING](https://github.com/NirDiamant/Agent_Memory_Techniques/blob/main/CONTRIBUTING.md): How to add a technique, the pre-PR checklist, and the helper module reference.
+- [CONTENT_STANDARDS](https://github.com/NirDiamant/Agent_Memory_Techniques/blob/main/docs/CONTENT_STANDARDS.md): Writing-style rules enforced across the repository (short sentences, active voice, banned marketing words, analogy-first teaching).
+- [CONTRIBUTING](https://github.com/NirDiamant/Agent_Memory_Techniques/blob/main/.github/CONTRIBUTING.md): How to add a technique, the pre-PR checklist, and the helper module reference.
 - [ROADMAP](https://github.com/NirDiamant/Agent_Memory_Techniques/blob/main/ROADMAP.md): Current state and upcoming work.
 - [Glossary](https://github.com/NirDiamant/Agent_Memory_Techniques/blob/main/docs/glossary.md): Definitions for every technical term used across the techniques.
 - [Learning Paths](https://github.com/NirDiamant/Agent_Memory_Techniques/blob/main/docs/learning_path.md): Four progressive paths (Beginner, Intermediate, Advanced, Practitioner) through the 30 techniques.
@@ -63,6 +63,6 @@
 ## Optional
 
 - [Decision Tree](https://github.com/NirDiamant/Agent_Memory_Techniques/blob/main/images/decision_tree.svg): Visual picker that maps user goals to specific techniques.
-- [FAQ](https://github.com/NirDiamant/Agent_Memory_Techniques/blob/main/FAQ.md): Frequently asked questions about agent memory and how the techniques relate.
+- [FAQ](https://github.com/NirDiamant/Agent_Memory_Techniques/blob/main/docs/FAQ.md): Frequently asked questions about agent memory and how the techniques relate.
 - [Helpers Module](https://github.com/NirDiamant/Agent_Memory_Techniques/blob/main/utils/helpers.py): Shared boilerplate for new notebooks (env loading, LLM clients, token counting, cosine similarity).
-- [Validators](https://github.com/NirDiamant/Agent_Memory_Techniques/tree/main/utils): Cell-structure and prose-style validators that enforce the writing standards in CONTENT_STANDARDS.md.
+- [Validators](https://github.com/NirDiamant/Agent_Memory_Techniques/tree/main/utils): Cell-structure and prose-style validators that enforce the writing standards in docs/CONTENT_STANDARDS.md.
