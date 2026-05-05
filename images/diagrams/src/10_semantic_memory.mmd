@@ -1,0 +1,13 @@
+flowchart LR
+    Conv["Conversation"] --> Extractor["Fact Extractor\n(LLM call)"]
+    Extractor --> DedupCheck["Dedup / Conflict\nChecker"]
+    DedupCheck -- "new fact" --> KB["Knowledge Base\n(facts + confidence\n+ timestamps)"]
+    DedupCheck -- "duplicate" --> Merge["Merge / Update\nConfidence"]
+    Merge --> KB
+    DedupCheck -- "contradiction" --> Resolve["Resolve Conflict\n(prefer recent)"]
+    Resolve --> KB
+    NewQuery["New Query"] --> Search["Semantic Search\n(embedding similarity)"]
+    KB --> Search
+    Search --> Injection["Context Injection"]
+    Injection --> LLM["LLM"]
+    LLM --> Response["Response"]

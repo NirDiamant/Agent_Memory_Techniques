@@ -1,0 +1,97 @@
+<svg viewBox="0 0 1400 680" xmlns="http://www.w3.org/2000/svg" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <linearGradient id="gInput" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#667eea"/><stop offset="100%" style="stop-color:#764ba2"/></linearGradient>
+    <linearGradient id="gPipe" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#4facfe"/><stop offset="100%" style="stop-color:#00f2fe"/></linearGradient>
+    <linearGradient id="gExtract" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#11998e"/><stop offset="100%" style="stop-color:#38ef7d"/></linearGradient>
+    <linearGradient id="gResolve" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#FFB75E"/><stop offset="100%" style="stop-color:#ED8F03"/></linearGradient>
+    <linearGradient id="gGraph" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#4f46e5"/><stop offset="100%" style="stop-color:#7c3aed"/></linearGradient>
+    <linearGradient id="gQuery" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#f093fb"/><stop offset="100%" style="stop-color:#f5576c"/></linearGradient>
+    <linearGradient id="gOut" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#2196F3"/><stop offset="100%" style="stop-color:#21CBF3"/></linearGradient>
+    <filter id="shadow"><feDropShadow dx="1.5" dy="2" stdDeviation="2.5" flood-color="#000" flood-opacity="0.18"/></filter>
+    <filter id="soft"><feDropShadow dx="1" dy="1.5" stdDeviation="1.5" flood-color="#000" flood-opacity="0.12"/></filter>
+    <marker id="arrMain" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 L3,5 Z" fill="#2563eb"/></marker>
+    <marker id="arrOK" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 L3,5 Z" fill="#059669"/></marker>
+    <marker id="arrGraph" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 L3,5 Z" fill="#7c3aed"/></marker>
+  </defs>
+
+  <rect width="1400" height="680" fill="#f8f9fa"/>
+  <text x="700" y="38" text-anchor="middle" font-size="24" font-weight="bold" fill="#1f2937">Graphiti Graph Memory</text>
+  <text x="700" y="62" text-anchor="middle" font-size="13" fill="#6b7280">Extract entities and relationships from conversation episodes, resolve duplicates, and build a temporal knowledge graph in Neo4j.</text>
+
+  <!-- Input panel -->
+  <rect x="40" y="100" width="180" height="260" rx="14" fill="url(#gInput)" opacity="0.12" filter="url(#shadow)"/>
+  <rect x="40" y="100" width="180" height="38" rx="14" fill="url(#gInput)" opacity="0.95"/>
+  <text x="130" y="125" text-anchor="middle" font-size="14" font-weight="bold" fill="white">💬  Input</text>
+  <g><rect x="60" y="155" width="140" height="80" rx="12" fill="white" filter="url(#soft)"/><text x="130" y="183" text-anchor="middle" font-size="13" font-weight="bold" fill="#1f2937">📝  Episodes</text><text x="130" y="203" text-anchor="middle" font-size="11" fill="#6b7280">conversation</text><text x="130" y="219" text-anchor="middle" font-size="11" fill="#6b7280">turns / events</text></g>
+
+  <!-- Pipeline panel -->
+  <rect x="260" y="100" width="440" height="380" rx="14" fill="url(#gPipe)" opacity="0.12" filter="url(#shadow)"/>
+  <rect x="260" y="100" width="440" height="38" rx="14" fill="url(#gPipe)" opacity="0.95"/>
+  <text x="480" y="125" text-anchor="middle" font-size="14" font-weight="bold" fill="white">⚙  Graphiti Ingestion Pipeline</text>
+
+  <!-- Episode Processor -->
+  <g><rect x="290" y="155" width="180" height="60" rx="12" fill="white" filter="url(#soft)"/><text x="380" y="180" text-anchor="middle" font-size="13" font-weight="bold" fill="#1f2937">📋  Episode Processor</text><text x="380" y="200" text-anchor="middle" font-size="11" fill="#6b7280">parse + chunk</text></g>
+
+  <!-- Entity Extractor -->
+  <g><rect x="290" y="240" width="180" height="60" rx="12" fill="url(#gExtract)" opacity="0.92" filter="url(#soft)"/><text x="380" y="265" text-anchor="middle" font-size="13" font-weight="bold" fill="white">🏷  Entity Extractor</text><text x="380" y="283" text-anchor="middle" font-size="11" fill="#d1fae5">people, places, concepts</text></g>
+
+  <!-- Relationship Extractor -->
+  <g><rect x="490" y="240" width="190" height="60" rx="12" fill="url(#gExtract)" opacity="0.92" filter="url(#soft)"/><text x="585" y="265" text-anchor="middle" font-size="13" font-weight="bold" fill="white">🔗  Relation Extractor</text><text x="585" y="283" text-anchor="middle" font-size="11" fill="#d1fae5">verbs, associations</text></g>
+
+  <!-- Entity Resolver -->
+  <g><rect x="370" y="330" width="230" height="70" rx="14" fill="url(#gResolve)" opacity="0.92" filter="url(#shadow)"/><text x="485" y="358" text-anchor="middle" font-size="14" font-weight="bold" fill="white">⚖  Entity Resolver</text><text x="485" y="378" text-anchor="middle" font-size="11" fill="#fff7ed">deduplicate, merge, invalidate</text><text x="485" y="394" text-anchor="middle" font-size="11" fill="#fff7ed">stale facts</text></g>
+
+  <!-- Neo4j Graph -->
+  <g>
+    <ellipse cx="900" cy="200" rx="140" ry="32" fill="url(#gGraph)" opacity="0.95" filter="url(#shadow)"/>
+    <rect x="760" y="200" width="280" height="150" fill="url(#gGraph)" opacity="0.95"/>
+    <ellipse cx="900" cy="350" rx="140" ry="32" fill="url(#gGraph)" opacity="0.95"/>
+    <ellipse cx="900" cy="200" rx="140" ry="32" fill="none" stroke="#312e81" stroke-width="1"/>
+    <text x="900" y="254" text-anchor="middle" font-size="16" font-weight="bold" fill="white">🗄  Neo4j</text>
+    <text x="900" y="278" text-anchor="middle" font-size="12" fill="#ede9fe">Entity Nodes</text>
+    <text x="900" y="298" text-anchor="middle" font-size="12" fill="#ede9fe">Temporal Edges</text>
+    <text x="900" y="318" text-anchor="middle" font-size="12" fill="#ede9fe">Communities</text>
+  </g>
+
+  <!-- Query Layer panel -->
+  <rect x="760" y="420" width="600" height="160" rx="14" fill="url(#gQuery)" opacity="0.12" filter="url(#shadow)"/>
+  <rect x="760" y="420" width="600" height="38" rx="14" fill="url(#gQuery)" opacity="0.95"/>
+  <text x="1060" y="445" text-anchor="middle" font-size="14" font-weight="bold" fill="white">🔍  Query Layer</text>
+
+  <g><rect x="785" y="475" width="170" height="55" rx="12" fill="white" filter="url(#soft)"/><text x="870" y="500" text-anchor="middle" font-size="12" font-weight="bold" fill="#1f2937">🗣  Graph Search</text><text x="870" y="518" text-anchor="middle" font-size="11" fill="#6b7280">natural language</text></g>
+  <g><rect x="975" y="475" width="170" height="55" rx="12" fill="white" filter="url(#soft)"/><text x="1060" y="500" text-anchor="middle" font-size="12" font-weight="bold" fill="#1f2937">🏘  Community</text><text x="1060" y="518" text-anchor="middle" font-size="11" fill="#6b7280">detection / clusters</text></g>
+  <g><rect x="1165" y="475" width="170" height="55" rx="12" fill="white" filter="url(#soft)"/><text x="1250" y="500" text-anchor="middle" font-size="12" font-weight="bold" fill="#1f2937">🕐  Temporal Filter</text><text x="1250" y="518" text-anchor="middle" font-size="11" fill="#6b7280">valid_from / valid_to</text></g>
+
+  <!-- Agent Context output -->
+  <g><rect x="40" y="500" width="320" height="90" rx="14" fill="url(#gOut)" opacity="0.92" filter="url(#shadow)"/><text x="200" y="530" text-anchor="middle" font-size="14" font-weight="bold" fill="white">📤  Agent Context</text><text x="200" y="552" text-anchor="middle" font-size="11" fill="#e0f2fe">Retrieved Entities + Relationships + Facts</text><text x="200" y="570" text-anchor="middle" font-size="11" fill="#e0f2fe">injected into the LLM prompt</text></g>
+
+  <!-- Arrows: Input -> Pipeline -->
+  <line x1="200" y1="195" x2="288" y2="183" stroke="#2563eb" stroke-width="2.5" marker-end="url(#arrMain)"/>
+
+  <!-- Episode Processor -> Extractors -->
+  <path d="M 380 215 L 380 238" stroke="#2563eb" stroke-width="2.5" marker-end="url(#arrMain)"/>
+  <path d="M 430 215 Q 510 225 560 238" stroke="#2563eb" stroke-width="2.5" fill="none" marker-end="url(#arrMain)"/>
+
+  <!-- Extractors -> Resolver -->
+  <path d="M 380 300 Q 400 315 430 328" stroke="#2563eb" stroke-width="2.5" fill="none" marker-end="url(#arrMain)"/>
+  <path d="M 585 300 Q 550 315 530 328" stroke="#2563eb" stroke-width="2.5" fill="none" marker-end="url(#arrMain)"/>
+
+  <!-- Resolver -> Neo4j -->
+  <path d="M 600 365 Q 680 340 758 300" stroke="#059669" stroke-width="3" fill="none" marker-end="url(#arrOK)"/>
+  <rect x="640" y="320" width="120" height="20" rx="6" fill="white" stroke="#059669"/><text x="700" y="335" text-anchor="middle" font-size="10" font-weight="bold" fill="#047857">merge / create</text>
+
+  <!-- Neo4j -> Query Layer -->
+  <line x1="900" y1="382" x2="900" y2="418" stroke="#7c3aed" stroke-width="2.5" marker-end="url(#arrGraph)"/>
+
+  <!-- Query -> Agent Context -->
+  <path d="M 785 510 Q 500 530 362 540" stroke="#2563eb" stroke-width="2.5" fill="none" marker-end="url(#arrMain)"/>
+
+  <!-- Legend -->
+  <g>
+    <line x1="40" y1="640" x2="70" y2="640" stroke="#2563eb" stroke-width="2.5" marker-end="url(#arrMain)"/><text x="80" y="644" font-size="11" fill="#374151">data flow</text>
+    <line x1="220" y1="640" x2="250" y2="640" stroke="#059669" stroke-width="3" marker-end="url(#arrOK)"/><text x="260" y="644" font-size="11" fill="#374151">graph write (merge/create)</text>
+    <line x1="460" y1="640" x2="490" y2="640" stroke="#7c3aed" stroke-width="2.5" marker-end="url(#arrGraph)"/><text x="500" y="644" font-size="11" fill="#374151">graph read (query)</text>
+  </g>
+
+  <text x="700" y="672" text-anchor="middle" font-size="12" fill="#64748b" font-style="italic">The graph answers multi-hop questions the entity store cannot. Temporal edges let the agent know when a fact was true.</text>
+</svg>

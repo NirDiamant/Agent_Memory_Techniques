@@ -1,0 +1,29 @@
+sequenceDiagram
+    participant U as User
+    participant W as Sliding Window (k=4 messages)
+    participant L as LLM (Claude)
+
+    Note over W: Window: []
+
+    U->>W: "Hi, I'm Alice" (msg 1)
+    W->>L: [msg1]
+    L-->>W: "Hello Alice!" (msg 2)
+    Note over W: Window: [msg1, msg2]
+
+    U->>W: "I like Python" (msg 3)
+    W->>L: [msg1, msg2, msg3]
+    L-->>W: "Python is great!" (msg 4)
+    Note over W: Window: [msg1, msg2, msg3, msg4] - FULL
+
+    U->>W: "What's my name?" (msg 5)
+    Note over W: ⚠ Window full → drop msg1
+    W->>W: Evict msg1, append msg5
+    W->>L: [msg2, msg3, msg4, msg5]
+    L-->>W: "Your name is Alice." (msg 6)
+    Note over W: Drop msg2 → Window: [msg3, msg4, msg5, msg6]
+
+    U->>W: "What language do I like?"
+    Note over W: msg3 ("I like Python") still<br/>in window → agent remembers
+    W->>L: [msg4, msg5, msg6, msg7]
+    L-->>W: "You said you like Python!"
+    Note over W: Eventually msg3 slides out<br/>and that fact is forgotten

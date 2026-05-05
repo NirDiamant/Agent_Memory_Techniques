@@ -1,0 +1,22 @@
+flowchart LR
+    subgraph Ingestion["Ingestion (after each turn)"]
+        A["User message +\nAssistant reply"] --> B["Embedding\nModel"]
+        B --> C["Vector +\nMetadata"]
+        C --> D[("ChromaDB\n(in-memory)")]
+    end
+
+    subgraph Retrieval["Retrieval (before each LLM call)"]
+        E["New user\nquery"] --> F["Embedding\nModel"]
+        F --> G["Cosine\nSimilarity Search"]
+        D --> G
+        G --> H["Top-K\nRelevant Turns"]
+    end
+
+    subgraph Generation["Generation"]
+        H --> I["Build Prompt:\nsystem + retrieved\nmemories + recent buffer"]
+        I --> J["LLM\n(Claude)"]
+        J --> K["Response"]
+    end
+
+    style D fill:#4f46e5,color:#fff
+    style J fill:#059669,color:#fff

@@ -1,0 +1,90 @@
+<svg viewBox="0 0 1400 620" xmlns="http://www.w3.org/2000/svg" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <linearGradient id="gQuery" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#667eea"/><stop offset="100%" style="stop-color:#764ba2"/></linearGradient>
+    <linearGradient id="gQT" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#4f46e5"/><stop offset="100%" style="stop-color:#7c3aed"/></linearGradient>
+    <linearGradient id="gSem" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#4facfe"/><stop offset="100%" style="stop-color:#00f2fe"/></linearGradient>
+    <linearGradient id="gBM25" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#f093fb"/><stop offset="100%" style="stop-color:#f5576c"/></linearGradient>
+    <linearGradient id="gFuse" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#FFB75E"/><stop offset="100%" style="stop-color:#ED8F03"/></linearGradient>
+    <linearGradient id="gRR" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#ef4444"/><stop offset="100%" style="stop-color:#b91c1c"/></linearGradient>
+    <linearGradient id="gMMR" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#11998e"/><stop offset="100%" style="stop-color:#38ef7d"/></linearGradient>
+    <linearGradient id="gOK" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#11998e"/><stop offset="100%" style="stop-color:#38ef7d"/></linearGradient>
+    <filter id="shadow"><feDropShadow dx="1.5" dy="2" stdDeviation="2.5" flood-color="#000" flood-opacity="0.18"/></filter>
+    <filter id="soft"><feDropShadow dx="1" dy="1.5" stdDeviation="1.5" flood-color="#000" flood-opacity="0.12"/></filter>
+    <marker id="arrMain" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 L3,5 Z" fill="#2563eb"/></marker>
+    <marker id="arrOK" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 L3,5 Z" fill="#059669"/></marker>
+  </defs>
+
+  <rect width="1400" height="620" fill="#f8f9fa"/>
+  <text x="700" y="38" text-anchor="middle" font-size="24" font-weight="bold" fill="#1f2937">Memory Retrieval Patterns</text>
+  <text x="700" y="62" text-anchor="middle" font-size="13" fill="#6b7280">A multi-stage pipeline: transform the query, search two indexes, fuse scores, filter, re-rank, and diversify.</text>
+
+  <!-- Row 1: Query -> Query Transformer -->
+  <g><rect x="40" y="130" width="140" height="70" rx="14" fill="url(#gQuery)" opacity="0.92" filter="url(#shadow)"/><text x="110" y="162" text-anchor="middle" font-size="15" font-weight="bold" fill="white">🔎  Query</text><text x="110" y="180" text-anchor="middle" font-size="11" fill="#e9e3ff">user question</text></g>
+
+  <!-- Query Transformer -->
+  <g><rect x="240" y="110" width="200" height="110" rx="14" fill="url(#gQT)" opacity="0.18" filter="url(#shadow)"/><rect x="240" y="110" width="200" height="36" rx="14" fill="url(#gQT)" opacity="0.95"/><text x="340" y="135" text-anchor="middle" font-size="13" font-weight="bold" fill="white">✨  Query Transformer</text><text x="340" y="165" text-anchor="middle" font-size="12" fill="#1f2937">HyDE: generate</text><text x="340" y="183" text-anchor="middle" font-size="12" fill="#1f2937">hypothetical answer</text><text x="340" y="203" text-anchor="middle" font-size="11" fill="#6b7280">+ query expansion</text></g>
+
+  <!-- Parallel search panel -->
+  <rect x="500" y="88" width="280" height="260" rx="14" fill="url(#gSem)" opacity="0.06" filter="url(#shadow)"/>
+  <rect x="500" y="88" width="280" height="36" rx="14" fill="url(#gSem)" opacity="0.95"/>
+  <text x="640" y="112" text-anchor="middle" font-size="14" font-weight="bold" fill="white">🔍  Parallel Search</text>
+
+  <!-- Semantic Index -->
+  <g><rect x="530" y="140" width="220" height="70" rx="12" fill="url(#gSem)" opacity="0.92" filter="url(#soft)"/><text x="640" y="168" text-anchor="middle" font-size="13" font-weight="bold" fill="white">📐  Semantic Index</text><text x="640" y="190" text-anchor="middle" font-size="11" fill="#e0f7fa">embeddings + ANN search</text></g>
+
+  <!-- BM25 Index -->
+  <g><rect x="530" y="230" width="220" height="70" rx="12" fill="url(#gBM25)" opacity="0.92" filter="url(#soft)"/><text x="640" y="258" text-anchor="middle" font-size="13" font-weight="bold" fill="white">📝  BM25 Index</text><text x="640" y="280" text-anchor="middle" font-size="11" fill="#fce7f3">lexical / keyword search</text></g>
+
+  <!-- Score Fusion -->
+  <g><rect x="840" y="150" width="200" height="110" rx="14" fill="url(#gFuse)" opacity="0.92" filter="url(#shadow)"/><text x="940" y="185" text-anchor="middle" font-size="14" font-weight="bold" fill="white">⚖  Score Fusion</text><text x="940" y="210" text-anchor="middle" font-size="11" fill="#fff7ed">Reciprocal Rank Fusion</text><text x="940" y="228" text-anchor="middle" font-size="11" fill="#fff7ed">merges both result sets</text></g>
+
+  <!-- Row 2: Refinement pipeline -->
+  <!-- Metadata Filter -->
+  <g><rect x="240" y="400" width="180" height="90" rx="12" fill="white" stroke="#94a3b8" stroke-width="2" filter="url(#soft)"/><text x="330" y="432" text-anchor="middle" font-size="13" font-weight="bold" fill="#1f2937">🏷  Metadata Filter</text><text x="330" y="454" text-anchor="middle" font-size="11" fill="#4b5563">user_id, source, tags</text><text x="330" y="472" text-anchor="middle" font-size="11" fill="#6b7280">prune by attributes</text></g>
+
+  <!-- Re-ranker -->
+  <g><rect x="480" y="400" width="200" height="90" rx="14" fill="url(#gRR)" opacity="0.92" filter="url(#shadow)"/><text x="580" y="432" text-anchor="middle" font-size="14" font-weight="bold" fill="white">🎯  Re-ranker</text><text x="580" y="454" text-anchor="middle" font-size="11" fill="#fecaca">cross-encoder</text><text x="580" y="472" text-anchor="middle" font-size="11" fill="#fecaca">query-doc pair scoring</text></g>
+
+  <!-- MMR Diversity -->
+  <g><rect x="740" y="400" width="200" height="90" rx="14" fill="url(#gMMR)" opacity="0.92" filter="url(#shadow)"/><text x="840" y="432" text-anchor="middle" font-size="14" font-weight="bold" fill="white">🌐  MMR Diversity</text><text x="840" y="454" text-anchor="middle" font-size="11" fill="#d1fae5">penalizes redundancy</text><text x="840" y="472" text-anchor="middle" font-size="11" fill="#d1fae5">maximizes marginal relevance</text></g>
+
+  <!-- Top-K Results -->
+  <g><rect x="1000" y="400" width="160" height="90" rx="14" fill="white" stroke="#059669" stroke-width="2" filter="url(#soft)"/><text x="1080" y="432" text-anchor="middle" font-size="14" font-weight="bold" fill="#065f46">✅  Top-K</text><text x="1080" y="454" text-anchor="middle" font-size="12" fill="#047857">Results</text><text x="1080" y="472" text-anchor="middle" font-size="11" fill="#6b7280">final selection</text></g>
+
+  <!-- Agent Context -->
+  <g><rect x="1220" y="400" width="140" height="90" rx="14" fill="url(#gQuery)" opacity="0.92" filter="url(#shadow)"/><text x="1290" y="435" text-anchor="middle" font-size="14" font-weight="bold" fill="white">👤  Agent</text><text x="1290" y="458" text-anchor="middle" font-size="14" font-weight="bold" fill="white">Context</text><text x="1290" y="478" text-anchor="middle" font-size="11" fill="#e9e3ff">injected into prompt</text></g>
+
+  <!-- Arrows: Row 1 -->
+  <line x1="182" y1="165" x2="238" y2="165" stroke="#2563eb" stroke-width="3" marker-end="url(#arrMain)"/>
+  <line x1="442" y1="155" x2="528" y2="170" stroke="#2563eb" stroke-width="2.5" marker-end="url(#arrMain)"/>
+  <line x1="442" y1="180" x2="528" y2="260" stroke="#2563eb" stroke-width="2.5" marker-end="url(#arrMain)"/>
+  <line x1="752" y1="175" x2="838" y2="195" stroke="#2563eb" stroke-width="2.5" marker-end="url(#arrMain)"/>
+  <line x1="752" y1="265" x2="838" y2="230" stroke="#2563eb" stroke-width="2.5" marker-end="url(#arrMain)"/>
+
+  <!-- Arrow: Score Fusion down to Metadata Filter -->
+  <path d="M 940 262 Q 940 350 422 400" stroke="#2563eb" stroke-width="2.5" fill="none" marker-end="url(#arrMain)"/>
+
+  <!-- Arrows: Row 2 pipeline -->
+  <line x1="422" y1="445" x2="478" y2="445" stroke="#2563eb" stroke-width="3" marker-end="url(#arrMain)"/>
+  <line x1="682" y1="445" x2="738" y2="445" stroke="#2563eb" stroke-width="3" marker-end="url(#arrMain)"/>
+  <line x1="942" y1="445" x2="998" y2="445" stroke="#059669" stroke-width="3" marker-end="url(#arrOK)"/>
+  <line x1="1162" y1="445" x2="1218" y2="445" stroke="#059669" stroke-width="3" marker-end="url(#arrOK)"/>
+
+  <!-- Step numbers -->
+  <circle cx="110" cy="120" r="12" fill="#2563eb" opacity="0.9"/><text x="110" y="125" text-anchor="middle" font-size="11" font-weight="bold" fill="white">1</text>
+  <circle cx="340" cy="100" r="12" fill="#2563eb" opacity="0.9"/><text x="340" y="105" text-anchor="middle" font-size="11" font-weight="bold" fill="white">2</text>
+  <circle cx="640" cy="80" r="12" fill="#2563eb" opacity="0.9"/><text x="640" y="85" text-anchor="middle" font-size="11" font-weight="bold" fill="white">3</text>
+  <circle cx="940" cy="140" r="12" fill="#2563eb" opacity="0.9"/><text x="940" y="145" text-anchor="middle" font-size="11" font-weight="bold" fill="white">4</text>
+  <circle cx="330" cy="390" r="12" fill="#2563eb" opacity="0.9"/><text x="330" y="395" text-anchor="middle" font-size="11" font-weight="bold" fill="white">5</text>
+  <circle cx="580" cy="390" r="12" fill="#2563eb" opacity="0.9"/><text x="580" y="395" text-anchor="middle" font-size="11" font-weight="bold" fill="white">6</text>
+  <circle cx="840" cy="390" r="12" fill="#2563eb" opacity="0.9"/><text x="840" y="395" text-anchor="middle" font-size="11" font-weight="bold" fill="white">7</text>
+  <circle cx="1080" cy="390" r="12" fill="#059669" opacity="0.9"/><text x="1080" y="395" text-anchor="middle" font-size="11" font-weight="bold" fill="white">8</text>
+
+  <!-- Legend -->
+  <g>
+    <line x1="60" y1="565" x2="90" y2="565" stroke="#2563eb" stroke-width="3" marker-end="url(#arrMain)"/><text x="100" y="569" font-size="11" fill="#374151">pipeline flow</text>
+    <line x1="220" y1="565" x2="250" y2="565" stroke="#059669" stroke-width="3" marker-end="url(#arrOK)"/><text x="260" y="569" font-size="11" fill="#374151">final output</text>
+  </g>
+
+  <text x="700" y="600" text-anchor="middle" font-size="12" fill="#64748b" font-style="italic">Each stage narrows the set. HyDE bridges the vocabulary gap; RRF merges signals; cross-encoder re-ranks; MMR removes clones.</text>
+</svg>

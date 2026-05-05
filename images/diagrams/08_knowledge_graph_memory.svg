@@ -1,0 +1,88 @@
+<svg viewBox="0 0 1400 720" xmlns="http://www.w3.org/2000/svg" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <linearGradient id="gTurn" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#667eea"/><stop offset="100%" style="stop-color:#764ba2"/></linearGradient>
+    <linearGradient id="gGraph" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#4f46e5"/><stop offset="100%" style="stop-color:#7c3aed"/></linearGradient>
+    <linearGradient id="gResp" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#2196F3"/><stop offset="100%" style="stop-color:#21CBF3"/></linearGradient>
+    <linearGradient id="gPer" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#11998e"/><stop offset="100%" style="stop-color:#38ef7d"/></linearGradient>
+    <linearGradient id="gTool" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#FFB75E"/><stop offset="100%" style="stop-color:#ED8F03"/></linearGradient>
+    <linearGradient id="gLLM" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#f093fb"/><stop offset="100%" style="stop-color:#f5576c"/></linearGradient>
+    <filter id="shadow"><feDropShadow dx="1.5" dy="2" stdDeviation="2.5" flood-color="#000" flood-opacity="0.18"/></filter>
+    <filter id="soft"><feDropShadow dx="1" dy="1.5" stdDeviation="1.5" flood-color="#000" flood-opacity="0.12"/></filter>
+    <marker id="arrMain" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 L3,5 Z" fill="#2563eb"/></marker>
+    <marker id="arrGraph" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 L3,5 Z" fill="#4f46e5"/></marker>
+  </defs>
+
+  <rect width="1400" height="720" fill="#f8f9fa"/>
+  <text x="700" y="38" text-anchor="middle" font-size="24" font-weight="bold" fill="#1f2937">Knowledge Graph Memory</text>
+  <text x="700" y="62" text-anchor="middle" font-size="13" fill="#6b7280">Extract (subject, predicate, object) triples. Build a graph. Retrieve a subgraph around the entities in each new query.</text>
+
+  <!-- Extraction flow (left) -->
+  <rect x="30" y="90" width="420" height="240" rx="14" fill="url(#gTurn)" opacity="0.12" filter="url(#shadow)"/>
+  <rect x="30" y="90" width="420" height="40" rx="14" fill="url(#gTurn)" opacity="0.95"/>
+  <text x="240" y="116" text-anchor="middle" font-size="15" font-weight="bold" fill="white">💬  Each Conversation Turn</text>
+
+  <g><rect x="65" y="150" width="350" height="50" rx="12" fill="white" filter="url(#soft)"/><text x="240" y="180" text-anchor="middle" font-size="13" font-weight="bold" fill="#1f2937">👤  User Message</text></g>
+  <g><rect x="65" y="215" width="350" height="50" rx="12" fill="url(#gTool)" opacity="0.92" filter="url(#soft)"/><text x="240" y="237" text-anchor="middle" font-size="13" font-weight="bold" fill="white">🔧  Triple Extractor</text><text x="240" y="255" text-anchor="middle" font-size="11" fill="#fff7ed">Claude tool-use → (S, P, O)</text></g>
+  <g><rect x="65" y="280" width="350" height="40" rx="12" fill="white" filter="url(#soft)"/><text x="240" y="306" text-anchor="middle" font-size="12" font-family="monospace" fill="#1f2937">(Alice, manages, Bob)  ·  (Bob, works_on, ProjectX)</text></g>
+
+  <!-- Graph (center) -->
+  <rect x="490" y="140" width="420" height="270" rx="14" fill="url(#gGraph)" opacity="0.12" filter="url(#shadow)"/>
+  <rect x="490" y="140" width="420" height="40" rx="14" fill="url(#gGraph)" opacity="0.95"/>
+  <text x="700" y="167" text-anchor="middle" font-size="15" font-weight="bold" fill="white">🕸  Knowledge Graph · NetworkX</text>
+
+  <!-- tiny graph visualization -->
+  <g transform="translate(540, 195)">
+    <!-- edges -->
+    <line x1="90" y1="60" x2="200" y2="30" stroke="#4f46e5" stroke-width="2" marker-end="url(#arrGraph)"/>
+    <line x1="200" y1="45" x2="280" y2="110" stroke="#4f46e5" stroke-width="2" marker-end="url(#arrGraph)"/>
+    <line x1="90" y1="85" x2="200" y2="140" stroke="#4f46e5" stroke-width="2" marker-end="url(#arrGraph)"/>
+    <line x1="210" y1="145" x2="280" y2="135" stroke="#4f46e5" stroke-width="2" marker-end="url(#arrGraph)"/>
+    <!-- edge labels -->
+    <text x="130" y="35" font-size="10" fill="#4f46e5" font-style="italic">manages</text>
+    <text x="235" y="75" font-size="10" fill="#4f46e5" font-style="italic">works_on</text>
+    <text x="120" y="125" font-size="10" fill="#4f46e5" font-style="italic">reports_to</text>
+    <text x="235" y="155" font-size="10" fill="#4f46e5" font-style="italic">collab</text>
+    <!-- nodes -->
+    <circle cx="70" cy="75" r="30" fill="white" stroke="#4f46e5" stroke-width="2.5" filter="url(#soft)"/>
+    <text x="70" y="80" text-anchor="middle" font-size="12" font-weight="bold" fill="#1f2937">Alice</text>
+    <circle cx="210" cy="30" r="25" fill="white" stroke="#4f46e5" stroke-width="2.5" filter="url(#soft)"/>
+    <text x="210" y="34" text-anchor="middle" font-size="11" font-weight="bold" fill="#1f2937">Bob</text>
+    <circle cx="210" cy="150" r="25" fill="white" stroke="#4f46e5" stroke-width="2.5" filter="url(#soft)"/>
+    <text x="210" y="154" text-anchor="middle" font-size="11" font-weight="bold" fill="#1f2937">Carol</text>
+    <circle cx="310" cy="125" r="32" fill="white" stroke="#4f46e5" stroke-width="2.5" filter="url(#soft)"/>
+    <text x="310" y="120" text-anchor="middle" font-size="10" font-weight="bold" fill="#1f2937">Project</text>
+    <text x="310" y="134" text-anchor="middle" font-size="10" font-weight="bold" fill="#1f2937">X</text>
+  </g>
+
+  <!-- Response panel (right) -->
+  <rect x="950" y="90" width="420" height="320" rx="14" fill="url(#gResp)" opacity="0.12" filter="url(#shadow)"/>
+  <rect x="950" y="90" width="420" height="40" rx="14" fill="url(#gResp)" opacity="0.95"/>
+  <text x="1160" y="116" text-anchor="middle" font-size="15" font-weight="bold" fill="white">✨  Response Generation</text>
+
+  <g><rect x="985" y="150" width="350" height="50" rx="12" fill="white" filter="url(#soft)"/><text x="1160" y="180" text-anchor="middle" font-size="13" font-weight="bold" fill="#1f2937">🔎  Identify mentioned entities</text></g>
+  <g><rect x="985" y="215" width="350" height="60" rx="12" fill="white" filter="url(#soft)"/><text x="1160" y="240" text-anchor="middle" font-size="13" font-weight="bold" fill="#1f2937">🌐  Retrieve 1-2 hop subgraph</text><text x="1160" y="258" text-anchor="middle" font-size="11" fill="#6b7280">neighbors and neighbors-of-neighbors</text></g>
+  <g><rect x="985" y="290" width="350" height="60" rx="12" fill="white" filter="url(#soft)"/><text x="1160" y="315" text-anchor="middle" font-size="13" font-weight="bold" fill="#1f2937">🧩  Build Prompt</text><text x="1160" y="333" text-anchor="middle" font-size="11" fill="#6b7280">system + graph context + recent messages</text></g>
+  <g><rect x="985" y="362" width="350" height="40" rx="12" fill="url(#gLLM)" opacity="0.9" filter="url(#soft)"/><text x="1160" y="388" text-anchor="middle" font-size="13" font-weight="bold" fill="white">✨  LLM → Response</text></g>
+
+  <!-- Persistence panel -->
+  <rect x="220" y="470" width="960" height="180" rx="14" fill="url(#gPer)" opacity="0.12" filter="url(#shadow)"/>
+  <rect x="220" y="470" width="960" height="40" rx="14" fill="url(#gPer)" opacity="0.95"/>
+  <text x="700" y="496" text-anchor="middle" font-size="15" font-weight="bold" fill="white">💾  Persistence</text>
+  <g><rect x="260" y="530" width="260" height="90" rx="12" fill="white" filter="url(#soft)"/><text x="390" y="560" text-anchor="middle" font-size="13" font-weight="bold" fill="#1f2937">💾  Save edge list (JSON)</text><text x="390" y="580" text-anchor="middle" font-size="11" fill="#6b7280">nodes + edges + props</text></g>
+  <g><rect x="570" y="530" width="260" height="90" rx="12" fill="white" filter="url(#soft)"/><text x="700" y="560" text-anchor="middle" font-size="13" font-weight="bold" fill="#1f2937">📂  Load in new session</text><text x="700" y="580" text-anchor="middle" font-size="11" fill="#6b7280">rebuild NetworkX DiGraph</text></g>
+  <g><rect x="880" y="530" width="260" height="90" rx="12" fill="white" filter="url(#soft)"/><text x="1010" y="560" text-anchor="middle" font-size="13" font-weight="bold" fill="#1f2937">♻  Graph reloaded</text><text x="1010" y="580" text-anchor="middle" font-size="11" fill="#6b7280">queries keep working</text></g>
+
+  <!-- arrows -->
+  <line x1="240" y1="202" x2="240" y2="212" stroke="#2563eb" stroke-width="2.5" marker-end="url(#arrMain)"/>
+  <line x1="240" y1="267" x2="240" y2="277" stroke="#2563eb" stroke-width="2.5" marker-end="url(#arrMain)"/>
+  <path d="M 415 300 Q 460 280 488 270" stroke="#2563eb" stroke-width="2.5" fill="none" marker-end="url(#arrMain)"/>
+  <path d="M 910 260 Q 940 230 983 195" stroke="#2563eb" stroke-width="2.5" fill="none" marker-end="url(#arrMain)"/>
+  <line x1="1160" y1="202" x2="1160" y2="212" stroke="#2563eb" stroke-width="2.5" marker-end="url(#arrMain)"/>
+  <line x1="1160" y1="277" x2="1160" y2="287" stroke="#2563eb" stroke-width="2.5" marker-end="url(#arrMain)"/>
+  <line x1="1160" y1="352" x2="1160" y2="362" stroke="#2563eb" stroke-width="2.5" marker-end="url(#arrMain)"/>
+  <path d="M 700 410 Q 500 440 390 528" stroke="#2563eb" stroke-width="2.5" fill="none" marker-end="url(#arrMain)"/>
+  <line x1="520" y1="575" x2="568" y2="575" stroke="#2563eb" stroke-width="2.5" marker-end="url(#arrMain)"/>
+  <line x1="830" y1="575" x2="878" y2="575" stroke="#2563eb" stroke-width="2.5" marker-end="url(#arrMain)"/>
+
+  <text x="700" y="695" text-anchor="middle" font-size="12" fill="#64748b" font-style="italic">Every triple becomes a directed edge. The graph answers multi-hop questions the entity store can't.</text>
+</svg>

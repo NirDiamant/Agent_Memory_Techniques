@@ -1,0 +1,250 @@
+<svg viewBox="0 0 1400 600" xmlns="http://www.w3.org/2000/svg" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1"/>
+    </linearGradient>
+    <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2196F3;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#21CBF3;stop-opacity:1"/>
+    </linearGradient>
+    <linearGradient id="grad3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f093fb;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#f5576c;stop-opacity:1"/>
+    </linearGradient>
+    <linearGradient id="grad4" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4facfe;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#00f2fe;stop-opacity:1"/>
+    </linearGradient>
+    <linearGradient id="grad5" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFB75E;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#ED8F03;stop-opacity:1"/>
+    </linearGradient>
+    <linearGradient id="grad6" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#11998e;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#38ef7d;stop-opacity:1"/>
+    </linearGradient>
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="1.5" dy="2" stdDeviation="2.5" flood-color="#000" flood-opacity="0.18"/>
+    </filter>
+    <filter id="softShadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="1" dy="1.5" stdDeviation="1.5" flood-color="#000" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+
+  <rect width="1400" height="600" fill="#f8f9fa"/>
+
+  <text x="700" y="36" text-anchor="middle" font-size="26" font-weight="bold" fill="#1f2937">Which Agent Memory Technique Do I Need?</text>
+  <text x="700" y="62" text-anchor="middle" font-size="14" fill="#6b7280">30 techniques grouped by what you are building. Pick the group that matches your goal, then open the technique.</text>
+
+  <!-- ROW 1 -->
+
+  <!-- Group 1: Current Conversation (01-05) -->
+  <g>
+    <rect x="40" y="100" width="420" height="200" rx="12" fill="url(#grad1)" opacity="0.18" filter="url(#shadow)"/>
+    <text x="250" y="132" text-anchor="middle" font-size="18" font-weight="bold" fill="#1f2937">💬  Current Conversation</text>
+    <text x="250" y="154" text-anchor="middle" font-size="12" fill="#4b5563">Keep the in-progress chat inside the context window</text>
+
+    <g filter="url(#softShadow)">
+      <rect x="56" y="170" width="96" height="50" rx="8" fill="white"/>
+      <text x="104" y="192" text-anchor="middle" font-size="12" font-weight="bold" fill="#1f2937">01</text>
+      <text x="104" y="210" text-anchor="middle" font-size="11" fill="#374151">Conv Buffer</text>
+    </g>
+    <g filter="url(#softShadow)">
+      <rect x="160" y="170" width="96" height="50" rx="8" fill="white"/>
+      <text x="208" y="192" text-anchor="middle" font-size="12" font-weight="bold" fill="#1f2937">02</text>
+      <text x="208" y="210" text-anchor="middle" font-size="11" fill="#374151">Sliding Window</text>
+    </g>
+    <g filter="url(#softShadow)">
+      <rect x="264" y="170" width="96" height="50" rx="8" fill="white"/>
+      <text x="312" y="192" text-anchor="middle" font-size="12" font-weight="bold" fill="#1f2937">03</text>
+      <text x="312" y="210" text-anchor="middle" font-size="11" fill="#374151">Summary</text>
+    </g>
+    <g filter="url(#softShadow)">
+      <rect x="368" y="170" width="76" height="50" rx="8" fill="white"/>
+      <text x="406" y="192" text-anchor="middle" font-size="12" font-weight="bold" fill="#1f2937">04</text>
+      <text x="406" y="210" text-anchor="middle" font-size="10" fill="#374151">Summ Buffer</text>
+    </g>
+    <g filter="url(#softShadow)">
+      <rect x="56" y="230" width="96" height="50" rx="8" fill="white"/>
+      <text x="104" y="252" text-anchor="middle" font-size="12" font-weight="bold" fill="#1f2937">05</text>
+      <text x="104" y="270" text-anchor="middle" font-size="11" fill="#374151">Token Buffer</text>
+    </g>
+  </g>
+
+  <!-- Group 2: Long-Term Storage (06-11) -->
+  <g>
+    <rect x="490" y="100" width="420" height="200" rx="12" fill="url(#grad2)" opacity="0.18" filter="url(#shadow)"/>
+    <text x="700" y="132" text-anchor="middle" font-size="18" font-weight="bold" fill="#1f2937">🗄️  Long-Term Storage</text>
+    <text x="700" y="154" text-anchor="middle" font-size="12" fill="#4b5563">Persist knowledge across sessions, users, and time</text>
+
+    <g filter="url(#softShadow)">
+      <rect x="506" y="170" width="96" height="50" rx="8" fill="white"/>
+      <text x="554" y="192" text-anchor="middle" font-size="12" font-weight="bold" fill="#1f2937">06</text>
+      <text x="554" y="210" text-anchor="middle" font-size="11" fill="#374151">Vector Store</text>
+    </g>
+    <g filter="url(#softShadow)">
+      <rect x="610" y="170" width="96" height="50" rx="8" fill="white"/>
+      <text x="658" y="192" text-anchor="middle" font-size="12" font-weight="bold" fill="#1f2937">07</text>
+      <text x="658" y="210" text-anchor="middle" font-size="11" fill="#374151">Entity</text>
+    </g>
+    <g filter="url(#softShadow)">
+      <rect x="714" y="170" width="96" height="50" rx="8" fill="white"/>
+      <text x="762" y="192" text-anchor="middle" font-size="12" font-weight="bold" fill="#1f2937">08</text>
+      <text x="762" y="210" text-anchor="middle" font-size="10" fill="#374151">Knowledge Graph</text>
+    </g>
+    <g filter="url(#softShadow)">
+      <rect x="818" y="170" width="76" height="50" rx="8" fill="white"/>
+      <text x="856" y="192" text-anchor="middle" font-size="12" font-weight="bold" fill="#1f2937">09</text>
+      <text x="856" y="210" text-anchor="middle" font-size="11" fill="#374151">Episodic</text>
+    </g>
+    <g filter="url(#softShadow)">
+      <rect x="506" y="230" width="96" height="50" rx="8" fill="white"/>
+      <text x="554" y="252" text-anchor="middle" font-size="12" font-weight="bold" fill="#1f2937">10</text>
+      <text x="554" y="270" text-anchor="middle" font-size="11" fill="#374151">Semantic</text>
+    </g>
+    <g filter="url(#softShadow)">
+      <rect x="610" y="230" width="96" height="50" rx="8" fill="white"/>
+      <text x="658" y="252" text-anchor="middle" font-size="12" font-weight="bold" fill="#1f2937">11</text>
+      <text x="658" y="270" text-anchor="middle" font-size="11" fill="#374151">Procedural</text>
+    </g>
+  </g>
+
+  <!-- Group 3: Cognitive Architecture (12-19) -->
+  <g>
+    <rect x="940" y="100" width="420" height="200" rx="12" fill="url(#grad3)" opacity="0.18" filter="url(#shadow)"/>
+    <text x="1150" y="132" text-anchor="middle" font-size="18" font-weight="bold" fill="#1f2937">🧠  Cognitive Architecture</text>
+    <text x="1150" y="154" text-anchor="middle" font-size="12" fill="#4b5563">Orchestrate multiple memory stores with policies</text>
+
+    <g filter="url(#softShadow)">
+      <rect x="956" y="170" width="96" height="50" rx="8" fill="white"/>
+      <text x="1004" y="192" text-anchor="middle" font-size="12" font-weight="bold" fill="#1f2937">12</text>
+      <text x="1004" y="210" text-anchor="middle" font-size="11" fill="#374151">Working Mem</text>
+    </g>
+    <g filter="url(#softShadow)">
+      <rect x="1060" y="170" width="96" height="50" rx="8" fill="white"/>
+      <text x="1108" y="192" text-anchor="middle" font-size="12" font-weight="bold" fill="#1f2937">13</text>
+      <text x="1108" y="210" text-anchor="middle" font-size="11" fill="#374151">Hierarchical</text>
+    </g>
+    <g filter="url(#softShadow)">
+      <rect x="1164" y="170" width="96" height="50" rx="8" fill="white"/>
+      <text x="1212" y="192" text-anchor="middle" font-size="12" font-weight="bold" fill="#1f2937">14</text>
+      <text x="1212" y="210" text-anchor="middle" font-size="11" fill="#374151">Consolidation</text>
+    </g>
+    <g filter="url(#softShadow)">
+      <rect x="1268" y="170" width="76" height="50" rx="8" fill="white"/>
+      <text x="1306" y="192" text-anchor="middle" font-size="12" font-weight="bold" fill="#1f2937">15</text>
+      <text x="1306" y="210" text-anchor="middle" font-size="11" fill="#374151">Compaction</text>
+    </g>
+    <g filter="url(#softShadow)">
+      <rect x="956" y="230" width="96" height="50" rx="8" fill="white"/>
+      <text x="1004" y="252" text-anchor="middle" font-size="12" font-weight="bold" fill="#1f2937">16</text>
+      <text x="1004" y="270" text-anchor="middle" font-size="10" fill="#374151">Self-Reflection</text>
+    </g>
+    <g filter="url(#softShadow)">
+      <rect x="1060" y="230" width="96" height="50" rx="8" fill="white"/>
+      <text x="1108" y="252" text-anchor="middle" font-size="12" font-weight="bold" fill="#1f2937">17</text>
+      <text x="1108" y="270" text-anchor="middle" font-size="11" fill="#374151">Routing</text>
+    </g>
+    <g filter="url(#softShadow)">
+      <rect x="1164" y="230" width="96" height="50" rx="8" fill="white"/>
+      <text x="1212" y="252" text-anchor="middle" font-size="12" font-weight="bold" fill="#1f2937">18</text>
+      <text x="1212" y="270" text-anchor="middle" font-size="11" fill="#374151">Temporal</text>
+    </g>
+    <g filter="url(#softShadow)">
+      <rect x="1268" y="230" width="76" height="50" rx="8" fill="white"/>
+      <text x="1306" y="252" text-anchor="middle" font-size="12" font-weight="bold" fill="#1f2937">19</text>
+      <text x="1306" y="270" text-anchor="middle" font-size="11" fill="#374151">Forgetting</text>
+    </g>
+  </g>
+
+  <!-- ROW 2 -->
+
+  <!-- Group 4: Retrieval & Sharing (20-23) -->
+  <g>
+    <rect x="40" y="320" width="420" height="200" rx="12" fill="url(#grad4)" opacity="0.18" filter="url(#shadow)"/>
+    <text x="250" y="352" text-anchor="middle" font-size="18" font-weight="bold" fill="#1f2937">🔍  Retrieval &amp; Sharing</text>
+    <text x="250" y="374" text-anchor="middle" font-size="12" fill="#4b5563">How memory is retrieved, shared, and used as tools</text>
+
+    <g filter="url(#softShadow)">
+      <rect x="56" y="395" width="96" height="50" rx="8" fill="white"/>
+      <text x="104" y="417" text-anchor="middle" font-size="12" font-weight="bold" fill="#1f2937">20</text>
+      <text x="104" y="435" text-anchor="middle" font-size="10" fill="#374151">Retrieval Patt.</text>
+    </g>
+    <g filter="url(#softShadow)">
+      <rect x="160" y="395" width="96" height="50" rx="8" fill="white"/>
+      <text x="208" y="417" text-anchor="middle" font-size="12" font-weight="bold" fill="#1f2937">21</text>
+      <text x="208" y="435" text-anchor="middle" font-size="11" fill="#374151">Cross-Session</text>
+    </g>
+    <g filter="url(#softShadow)">
+      <rect x="264" y="395" width="96" height="50" rx="8" fill="white"/>
+      <text x="312" y="417" text-anchor="middle" font-size="12" font-weight="bold" fill="#1f2937">22</text>
+      <text x="312" y="435" text-anchor="middle" font-size="11" fill="#374151">Multi-Agent</text>
+    </g>
+    <g filter="url(#softShadow)">
+      <rect x="368" y="395" width="76" height="50" rx="8" fill="white"/>
+      <text x="406" y="417" text-anchor="middle" font-size="12" font-weight="bold" fill="#1f2937">23</text>
+      <text x="406" y="435" text-anchor="middle" font-size="10" fill="#374151">Mem as Tools</text>
+    </g>
+  </g>
+
+  <!-- Group 5: Frameworks (24-27) -->
+  <g>
+    <rect x="490" y="320" width="420" height="200" rx="12" fill="url(#grad5)" opacity="0.18" filter="url(#shadow)"/>
+    <text x="700" y="352" text-anchor="middle" font-size="18" font-weight="bold" fill="#1f2937">🧩  Frameworks</text>
+    <text x="700" y="374" text-anchor="middle" font-size="12" fill="#4b5563">Batteries-included libraries and platforms</text>
+
+    <g filter="url(#softShadow)">
+      <rect x="506" y="395" width="96" height="50" rx="8" fill="white"/>
+      <text x="554" y="417" text-anchor="middle" font-size="12" font-weight="bold" fill="#1f2937">24</text>
+      <text x="554" y="435" text-anchor="middle" font-size="11" fill="#374151">Graphiti</text>
+    </g>
+    <g filter="url(#softShadow)">
+      <rect x="610" y="395" width="96" height="50" rx="8" fill="white"/>
+      <text x="658" y="417" text-anchor="middle" font-size="12" font-weight="bold" fill="#1f2937">25</text>
+      <text x="658" y="435" text-anchor="middle" font-size="11" fill="#374151">Mem0</text>
+    </g>
+    <g filter="url(#softShadow)">
+      <rect x="714" y="395" width="96" height="50" rx="8" fill="white"/>
+      <text x="762" y="417" text-anchor="middle" font-size="12" font-weight="bold" fill="#1f2937">26</text>
+      <text x="762" y="435" text-anchor="middle" font-size="11" fill="#374151">Letta</text>
+    </g>
+    <g filter="url(#softShadow)">
+      <rect x="818" y="395" width="76" height="50" rx="8" fill="white"/>
+      <text x="856" y="417" text-anchor="middle" font-size="12" font-weight="bold" fill="#1f2937">27</text>
+      <text x="856" y="435" text-anchor="middle" font-size="11" fill="#374151">Zep</text>
+    </g>
+  </g>
+
+  <!-- Group 6: Evaluation & Production (28-30) -->
+  <g>
+    <rect x="940" y="320" width="420" height="200" rx="12" fill="url(#grad6)" opacity="0.18" filter="url(#shadow)"/>
+    <text x="1150" y="352" text-anchor="middle" font-size="18" font-weight="bold" fill="#1f2937">📊  Evaluation &amp; Production</text>
+    <text x="1150" y="374" text-anchor="middle" font-size="12" fill="#4b5563">Measure quality, benchmark, and ship reliably</text>
+
+    <g filter="url(#softShadow)">
+      <rect x="980" y="395" width="110" height="50" rx="8" fill="white"/>
+      <text x="1035" y="417" text-anchor="middle" font-size="12" font-weight="bold" fill="#1f2937">28</text>
+      <text x="1035" y="435" text-anchor="middle" font-size="11" fill="#374151">Evaluation</text>
+    </g>
+    <g filter="url(#softShadow)">
+      <rect x="1095" y="395" width="110" height="50" rx="8" fill="white"/>
+      <text x="1150" y="417" text-anchor="middle" font-size="12" font-weight="bold" fill="#1f2937">29</text>
+      <text x="1150" y="435" text-anchor="middle" font-size="11" fill="#374151">LoCoMo</text>
+    </g>
+    <g filter="url(#softShadow)">
+      <rect x="1210" y="395" width="110" height="50" rx="8" fill="white"/>
+      <text x="1265" y="417" text-anchor="middle" font-size="12" font-weight="bold" fill="#1f2937">30</text>
+      <text x="1265" y="435" text-anchor="middle" font-size="11" fill="#374151">Production</text>
+    </g>
+  </g>
+
+  <!-- Footer: start-here hint -->
+  <g>
+    <rect x="440" y="545" width="520" height="40" rx="10" fill="white" stroke="#e5e7eb" stroke-width="1" filter="url(#softShadow)"/>
+    <text x="700" y="570" text-anchor="middle" font-size="13" fill="#374151">
+      <tspan font-weight="bold">Not sure where to start?</tspan>
+      <tspan dx="6">Open 01 Conversation Buffer. Most other techniques build on it.</tspan>
+    </text>
+  </g>
+</svg>

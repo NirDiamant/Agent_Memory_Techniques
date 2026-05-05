@@ -1,0 +1,18 @@
+flowchart LR
+    IS["Info Sources\n(User, Tools, Memory)"] --> SS["Salience Scorer"]
+    SS --> PQ["Priority Queue"]
+    PQ --> CW["Context Window"]
+
+    subgraph CW["Context Window"]
+        PZ["Pinned Zone\n(System prompt,\ncore instructions)"]
+        DZ["Dynamic Zone\n(Scored & ranked\ncontext items)"]
+    end
+
+    CW --> LLM["LLM"]
+    DZ --> EE["Eviction Engine"]
+    EE --> EMS["External Memory Store"]
+    EMS -->|"Retrieval on demand"| SS
+
+    style PZ fill:#2d5a2d,stroke:#4a9,color:#fff
+    style DZ fill:#2d4a7a,stroke:#49a,color:#fff
+    style EE fill:#7a2d2d,stroke:#a44,color:#fff

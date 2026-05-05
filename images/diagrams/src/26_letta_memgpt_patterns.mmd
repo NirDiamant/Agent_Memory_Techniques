@@ -1,0 +1,42 @@
+flowchart TB
+    subgraph Context["LLM Context Window (limited)"]
+        SYS["System prompt\n+ Core Memory blocks"]
+        RECENT["Recent messages\n(sliding window)"]
+        SYS --> RECENT
+    end
+
+    subgraph CoreMem["Core Memory (always in-context)"]
+        P["Persona block\n'I am a helpful assistant\nwho remembers everything'"]
+        H["Human block\n'Alice is a vegetarian\nwho works at Google'"]
+    end
+
+    subgraph RecallMem["Recall Memory (external)"]
+        R[("Full conversation\nhistory\n─────────\nSearchable by\nkeyword / date")]
+    end
+
+    subgraph ArchivalMem["Archival Memory (external)"]
+        A[("Long-term facts\n& documents\n─────────\nVector search\nor keyword")]
+    end
+
+    subgraph AgentLoop["Agent Loop"]
+        IM["Inner monologue\n(private thinking)"]
+        FC["Function calls:\ncore_memory_replace\ncore_memory_append\nrecall_memory_search\narchival_memory_insert\narchival_memory_search"]
+        HB["Heartbeat\n(request more steps)"]
+        RESP["User-visible response"]
+    end
+
+    CoreMem -->|"injected into"| SYS
+    IM --> FC
+    FC -->|"read/write"| CoreMem
+    FC -->|"search"| RecallMem
+    FC -->|"insert/search"| ArchivalMem
+    FC -->|"request_heartbeat=true"| HB
+    HB -->|"another turn"| IM
+    IM --> RESP
+
+    style P fill:#059669,color:#fff
+    style H fill:#059669,color:#fff
+    style R fill:#4f46e5,color:#fff
+    style A fill:#7c3aed,color:#fff
+    style IM fill:#d97706,color:#fff
+    style FC fill:#dc2626,color:#fff

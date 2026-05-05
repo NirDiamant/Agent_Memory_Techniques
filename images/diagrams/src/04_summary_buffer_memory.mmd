@@ -1,0 +1,12 @@
+flowchart LR
+    User["User Message"] --> Buffer["Buffer\n(recent K messages)"]
+    Buffer --> ThresholdCheck{"Buffer exceeds\nthreshold?"}
+    ThresholdCheck -- No --> PromptAssembly["Prompt Assembly"]
+    ThresholdCheck -- Yes --> Evict["Evict oldest\nmessages"]
+    Evict --> Summarizer["Summarizer\n(LLM call)"]
+    Summarizer --> SummaryStore["Summary Store\n(running summary)"]
+    SummaryStore --> PromptAssembly
+    Buffer --> PromptAssembly
+    PromptAssembly --> LLM["LLM\n[summary] + [buffer]"]
+    LLM --> Response["Response"]
+    Response --> Buffer

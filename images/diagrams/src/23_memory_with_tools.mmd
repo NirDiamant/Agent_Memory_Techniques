@@ -1,0 +1,28 @@
+flowchart TD
+    subgraph AgentLoop["Agentic Tool-Use Loop"]
+        A["User Message"] --> B["LLM\n(with tool definitions)"]
+        B -->|"tool_use: save_memory"| C["save_memory(content, tags)"]
+        B -->|"tool_use: search_memory"| D["search_memory(query, top_k)"]
+        B -->|"tool_use: update_memory"| E["update_memory(id, new_content)"]
+        B -->|"tool_use: delete_memory"| F["delete_memory(id)"]
+        B -->|"tool_use: other_tool"| G["Web Search / API Call / etc."]
+        B -->|"no tool call"| H["Final Response"]
+    end
+
+    subgraph MemoryStore["Memory Store"]
+        I[("Vector DB / JSON Store\n─────────\nEmbeddings\nMetadata\nTimestamps")]
+    end
+
+    C -->|"store fact + embedding"| I
+    D -->|"semantic search"| I
+    E -->|"modify record"| I
+    F -->|"remove record"| I
+    I -->|"tool_result"| B
+    G -->|"tool_result"| B
+
+    style B fill:#6366f1,color:#fff
+    style I fill:#4f46e5,color:#fff
+    style C fill:#059669,color:#fff
+    style D fill:#d97706,color:#fff
+    style E fill:#0891b2,color:#fff
+    style F fill:#dc2626,color:#fff

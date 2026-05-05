@@ -1,0 +1,76 @@
+<svg viewBox="0 0 1400 720" xmlns="http://www.w3.org/2000/svg" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <linearGradient id="gTurn" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#667eea"/><stop offset="100%" style="stop-color:#764ba2"/></linearGradient>
+    <linearGradient id="gStore" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#4f46e5"/><stop offset="100%" style="stop-color:#7c3aed"/></linearGradient>
+    <linearGradient id="gResp" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#2196F3"/><stop offset="100%" style="stop-color:#21CBF3"/></linearGradient>
+    <linearGradient id="gPer" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#11998e"/><stop offset="100%" style="stop-color:#38ef7d"/></linearGradient>
+    <linearGradient id="gTool" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#FFB75E"/><stop offset="100%" style="stop-color:#ED8F03"/></linearGradient>
+    <linearGradient id="gLLM" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#f093fb"/><stop offset="100%" style="stop-color:#f5576c"/></linearGradient>
+    <filter id="shadow"><feDropShadow dx="1.5" dy="2" stdDeviation="2.5" flood-color="#000" flood-opacity="0.18"/></filter>
+    <filter id="soft"><feDropShadow dx="1" dy="1.5" stdDeviation="1.5" flood-color="#000" flood-opacity="0.12"/></filter>
+    <marker id="arrMain" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 L3,5 Z" fill="#2563eb"/></marker>
+  </defs>
+
+  <rect width="1400" height="720" fill="#f8f9fa"/>
+  <text x="700" y="38" text-anchor="middle" font-size="24" font-weight="bold" fill="#1f2937">Entity Memory</text>
+  <text x="700" y="62" text-anchor="middle" font-size="13" fill="#6b7280">Extract named entities and facts about them. Keep one structured record per entity, looked up by name.</text>
+
+  <!-- Each Conversation Turn panel -->
+  <rect x="30" y="90" width="420" height="240" rx="14" fill="url(#gTurn)" opacity="0.12" filter="url(#shadow)"/>
+  <rect x="30" y="90" width="420" height="40" rx="14" fill="url(#gTurn)" opacity="0.95"/>
+  <text x="240" y="116" text-anchor="middle" font-size="15" font-weight="bold" fill="white">💬  Each Conversation Turn</text>
+
+  <g><rect x="65" y="150" width="350" height="50" rx="12" fill="white" filter="url(#soft)"/><text x="240" y="180" text-anchor="middle" font-size="13" font-weight="bold" fill="#1f2937">👤  User Message</text></g>
+  <g><rect x="65" y="215" width="350" height="50" rx="12" fill="url(#gTool)" opacity="0.92" filter="url(#soft)"/><text x="240" y="237" text-anchor="middle" font-size="13" font-weight="bold" fill="white">🔧  Entity Extractor</text><text x="240" y="255" text-anchor="middle" font-size="11" fill="#fff7ed">LLM tool call</text></g>
+  <g><rect x="65" y="280" width="350" height="40" rx="12" fill="white" filter="url(#soft)"/><text x="240" y="306" text-anchor="middle" font-size="12" fill="#1f2937">extracted entities + new facts</text></g>
+
+  <!-- Entity Store (central) -->
+  <rect x="540" y="140" width="320" height="190" rx="14" fill="url(#gStore)" opacity="0.12" filter="url(#shadow)"/>
+  <rect x="540" y="140" width="320" height="40" rx="14" fill="url(#gStore)" opacity="0.95"/>
+  <text x="700" y="167" text-anchor="middle" font-size="15" font-weight="bold" fill="white">🗂  Entity Store (key-value)</text>
+
+  <g><rect x="565" y="200" width="270" height="110" rx="10" fill="white" stroke="#c7d2fe" stroke-width="1.5" filter="url(#soft)"/>
+    <text x="580" y="222" font-size="12" font-family="monospace" fill="#1e293b">{ "Alice": {</text>
+    <text x="595" y="240" font-size="11" font-family="monospace" fill="#475569">  type: "person",</text>
+    <text x="595" y="257" font-size="11" font-family="monospace" fill="#475569">  facts: ["likes Python",</text>
+    <text x="610" y="273" font-size="11" font-family="monospace" fill="#475569">     "works at ACME"],</text>
+    <text x="595" y="290" font-size="11" font-family="monospace" fill="#475569">  first_seen, last_seen</text>
+    <text x="580" y="306" font-size="12" font-family="monospace" fill="#1e293b">}, ... }</text>
+  </g>
+
+  <!-- Response Generation panel -->
+  <rect x="950" y="90" width="420" height="300" rx="14" fill="url(#gResp)" opacity="0.12" filter="url(#shadow)"/>
+  <rect x="950" y="90" width="420" height="40" rx="14" fill="url(#gResp)" opacity="0.95"/>
+  <text x="1160" y="116" text-anchor="middle" font-size="15" font-weight="bold" fill="white">✨  Response Generation</text>
+
+  <g><rect x="985" y="150" width="350" height="50" rx="12" fill="white" filter="url(#soft)"/><text x="1160" y="180" text-anchor="middle" font-size="13" font-weight="bold" fill="#1f2937">🔎  Lookup mentioned entities</text></g>
+  <g><rect x="985" y="215" width="350" height="60" rx="12" fill="white" filter="url(#soft)"/><text x="1160" y="240" text-anchor="middle" font-size="13" font-weight="bold" fill="#1f2937">🧩  Build Prompt</text><text x="1160" y="258" text-anchor="middle" font-size="11" fill="#6b7280">system + entity context + recent messages</text></g>
+  <g><rect x="985" y="290" width="350" height="50" rx="12" fill="url(#gLLM)" opacity="0.9" filter="url(#soft)"/><text x="1160" y="320" text-anchor="middle" font-size="13" font-weight="bold" fill="white">✨  LLM → Response</text></g>
+
+  <!-- Persistence panel -->
+  <rect x="220" y="430" width="960" height="180" rx="14" fill="url(#gPer)" opacity="0.12" filter="url(#shadow)"/>
+  <rect x="220" y="430" width="960" height="40" rx="14" fill="url(#gPer)" opacity="0.95"/>
+  <text x="700" y="456" text-anchor="middle" font-size="15" font-weight="bold" fill="white">💾  Persistence (across sessions)</text>
+
+  <g><rect x="260" y="490" width="260" height="90" rx="12" fill="white" filter="url(#soft)"/><text x="390" y="520" text-anchor="middle" font-size="13" font-weight="bold" fill="#1f2937">💾  Save to JSON</text><text x="390" y="540" text-anchor="middle" font-size="11" fill="#6b7280">whole entity store</text><text x="390" y="560" text-anchor="middle" font-size="11" fill="#6b7280">flushed to disk</text></g>
+  <g><rect x="570" y="490" width="260" height="90" rx="12" fill="white" filter="url(#soft)"/><text x="700" y="520" text-anchor="middle" font-size="13" font-weight="bold" fill="#1f2937">📂  Load in new session</text><text x="700" y="540" text-anchor="middle" font-size="11" fill="#6b7280">rehydrate dict at boot</text></g>
+  <g><rect x="880" y="490" width="260" height="90" rx="12" fill="white" filter="url(#soft)"/><text x="1010" y="520" text-anchor="middle" font-size="13" font-weight="bold" fill="#1f2937">♻  Same Alice</text><text x="1010" y="540" text-anchor="middle" font-size="11" fill="#6b7280">agent recognizes her</text><text x="1010" y="560" text-anchor="middle" font-size="11" fill="#6b7280">next time she logs in</text></g>
+
+  <!-- arrows turn -->
+  <line x1="240" y1="202" x2="240" y2="212" stroke="#2563eb" stroke-width="2.5" marker-end="url(#arrMain)"/>
+  <line x1="240" y1="267" x2="240" y2="277" stroke="#2563eb" stroke-width="2.5" marker-end="url(#arrMain)"/>
+  <path d="M 415 300 Q 470 250 538 240" stroke="#2563eb" stroke-width="2.5" fill="none" marker-end="url(#arrMain)"/>
+
+  <!-- store to response -->
+  <path d="M 860 220 Q 910 200 983 180" stroke="#2563eb" stroke-width="2.5" fill="none" marker-end="url(#arrMain)"/>
+  <line x1="1160" y1="202" x2="1160" y2="212" stroke="#2563eb" stroke-width="2.5" marker-end="url(#arrMain)"/>
+  <line x1="1160" y1="277" x2="1160" y2="287" stroke="#2563eb" stroke-width="2.5" marker-end="url(#arrMain)"/>
+
+  <!-- store to save -->
+  <path d="M 700 330 Q 500 380 390 488" stroke="#2563eb" stroke-width="2.5" fill="none" marker-end="url(#arrMain)"/>
+  <line x1="520" y1="535" x2="568" y2="535" stroke="#2563eb" stroke-width="2.5" marker-end="url(#arrMain)"/>
+  <line x1="830" y1="535" x2="878" y2="535" stroke="#2563eb" stroke-width="2.5" marker-end="url(#arrMain)"/>
+  <path d="M 700 580 Q 700 640 700 330" stroke="#11998e" stroke-width="2" stroke-dasharray="5,4" fill="none" opacity="0.5"/>
+
+  <text x="700" y="660" text-anchor="middle" font-size="12" fill="#64748b" font-style="italic">Green dashed arc: restored store re-enters the same slot when a new session starts.</text>
+</svg>

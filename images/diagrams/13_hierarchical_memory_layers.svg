@@ -1,0 +1,71 @@
+<svg viewBox="0 0 1200 680" xmlns="http://www.w3.org/2000/svg" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <linearGradient id="gL1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#11998e"/><stop offset="100%" style="stop-color:#38ef7d"/></linearGradient>
+    <linearGradient id="gL2" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#FFB75E"/><stop offset="100%" style="stop-color:#ED8F03"/></linearGradient>
+    <linearGradient id="gL3" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#ef4444"/><stop offset="100%" style="stop-color:#b91c1c"/></linearGradient>
+    <linearGradient id="gQ" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#667eea"/><stop offset="100%" style="stop-color:#764ba2"/></linearGradient>
+    <linearGradient id="gAC" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#4f46e5"/><stop offset="100%" style="stop-color:#7c3aed"/></linearGradient>
+    <filter id="shadow"><feDropShadow dx="1.5" dy="2" stdDeviation="2.5" flood-color="#000" flood-opacity="0.18"/></filter>
+    <filter id="soft"><feDropShadow dx="1" dy="1.5" stdDeviation="1.5" flood-color="#000" flood-opacity="0.12"/></filter>
+    <marker id="arrMain" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 L3,5 Z" fill="#2563eb"/></marker>
+    <marker id="arrMiss" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 L3,5 Z" fill="#dc2626"/></marker>
+    <marker id="arrPromote" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 L3,5 Z" fill="#059669"/></marker>
+    <marker id="arrDemote" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 L3,5 Z" fill="#ea580c"/></marker>
+  </defs>
+
+  <rect width="1200" height="680" fill="#f8f9fa"/>
+  <text x="600" y="38" text-anchor="middle" font-size="24" font-weight="bold" fill="#1f2937">Hierarchical Memory Layers</text>
+  <text x="600" y="62" text-anchor="middle" font-size="13" fill="#6b7280">Like CPU cache hierarchies: hot items live in fast small storage, cold items get demoted to slower cheaper storage.</text>
+
+  <!-- Query -->
+  <g><rect x="60" y="280" width="150" height="80" rx="14" fill="url(#gQ)" opacity="0.92" filter="url(#shadow)"/><text x="135" y="310" text-anchor="middle" font-size="15" font-weight="bold" fill="white">👤  Query</text><text x="135" y="334" text-anchor="middle" font-size="11" fill="#e9e3ff">look up a memory</text></g>
+
+  <!-- L1 -->
+  <g><rect x="260" y="160" width="230" height="130" rx="14" fill="url(#gL1)" opacity="0.18" filter="url(#shadow)"/><rect x="260" y="160" width="230" height="40" rx="14" fill="url(#gL1)" opacity="0.95"/><text x="375" y="187" text-anchor="middle" font-size="14" font-weight="bold" fill="white">L1 · Context Window</text><text x="375" y="220" text-anchor="middle" font-size="13" font-weight="bold" fill="#065f46">Fastest · Smallest</text><text x="375" y="242" text-anchor="middle" font-size="12" fill="#047857">~4k-16k tokens</text><text x="375" y="264" text-anchor="middle" font-size="11" fill="#065f46" font-style="italic">in-memory, zero latency</text></g>
+
+  <!-- L2 -->
+  <g><rect x="540" y="280" width="230" height="130" rx="14" fill="url(#gL2)" opacity="0.18" filter="url(#shadow)"/><rect x="540" y="280" width="230" height="40" rx="14" fill="url(#gL2)" opacity="0.95"/><text x="655" y="307" text-anchor="middle" font-size="14" font-weight="bold" fill="white">L2 · Vector DB</text><text x="655" y="340" text-anchor="middle" font-size="13" font-weight="bold" fill="#92400e">Fast · Medium</text><text x="655" y="362" text-anchor="middle" font-size="12" fill="#b45309">~100k+ memories</text><text x="655" y="384" text-anchor="middle" font-size="11" fill="#92400e" font-style="italic">embedding lookup</text></g>
+
+  <!-- L3 -->
+  <g><rect x="820" y="400" width="230" height="130" rx="14" fill="url(#gL3)" opacity="0.18" filter="url(#shadow)"/><rect x="820" y="400" width="230" height="40" rx="14" fill="url(#gL3)" opacity="0.95"/><text x="935" y="427" text-anchor="middle" font-size="14" font-weight="bold" fill="white">L3 · Archive DB</text><text x="935" y="460" text-anchor="middle" font-size="13" font-weight="bold" fill="#991b1b">Slow · Largest</text><text x="935" y="482" text-anchor="middle" font-size="12" fill="#b91c1c">unlimited capacity</text><text x="935" y="504" text-anchor="middle" font-size="11" fill="#991b1b" font-style="italic">cold storage</text></g>
+
+  <!-- Query -> L1 -->
+  <line x1="212" y1="320" x2="258" y2="260" stroke="#2563eb" stroke-width="3" marker-end="url(#arrMain)"/>
+
+  <!-- L1 -> L2 (cache miss) -->
+  <path d="M 490 255 Q 510 260 540 300" stroke="#dc2626" stroke-width="2.5" fill="none" marker-end="url(#arrMiss)"/>
+  <rect x="495" y="258" width="70" height="22" rx="6" fill="white" stroke="#dc2626"/><text x="530" y="274" text-anchor="middle" font-size="11" font-weight="bold" fill="#991b1b">L1 miss</text>
+
+  <!-- L2 -> L3 (cache miss) -->
+  <path d="M 770 370 Q 790 380 820 420" stroke="#dc2626" stroke-width="2.5" fill="none" marker-end="url(#arrMiss)"/>
+  <rect x="772" y="378" width="70" height="22" rx="6" fill="white" stroke="#dc2626"/><text x="807" y="394" text-anchor="middle" font-size="11" font-weight="bold" fill="#991b1b">L2 miss</text>
+
+  <!-- Promote arrows -->
+  <path d="M 540 340 Q 430 300 490 220" stroke="#059669" stroke-width="2" stroke-dasharray="6,4" fill="none" marker-end="url(#arrPromote)"/>
+  <rect x="358" y="278" width="120" height="22" rx="6" fill="white" stroke="#059669"/><text x="418" y="294" text-anchor="middle" font-size="11" font-weight="bold" fill="#047857">↑ promote (hot)</text>
+
+  <path d="M 820 460 Q 730 430 770 360" stroke="#059669" stroke-width="2" stroke-dasharray="6,4" fill="none" marker-end="url(#arrPromote)"/>
+  <rect x="680" y="416" width="135" height="22" rx="6" fill="white" stroke="#059669"/><text x="748" y="432" text-anchor="middle" font-size="11" font-weight="bold" fill="#047857">↑ promote (reused)</text>
+
+  <!-- Demote arrows -->
+  <path d="M 490 280 Q 560 290 540 340" stroke="#ea580c" stroke-width="2" stroke-dasharray="6,4" fill="none" marker-end="url(#arrDemote)"/>
+  <rect x="500" y="308" width="120" height="22" rx="6" fill="white" stroke="#ea580c"/><text x="560" y="324" text-anchor="middle" font-size="11" font-weight="bold" fill="#c2410c">↓ demote (stale)</text>
+
+  <path d="M 770 400 Q 840 405 820 460" stroke="#ea580c" stroke-width="2" stroke-dasharray="6,4" fill="none" marker-end="url(#arrDemote)"/>
+  <rect x="780" y="425" width="130" height="22" rx="6" fill="white" stroke="#ea580c"/><text x="845" y="441" text-anchor="middle" font-size="11" font-weight="bold" fill="#c2410c">↓ demote (cold)</text>
+
+  <!-- Access counter -->
+  <g><rect x="400" y="570" width="400" height="70" rx="14" fill="url(#gAC)" opacity="0.95" filter="url(#shadow)"/><text x="600" y="600" text-anchor="middle" font-size="14" font-weight="bold" fill="white">🧮  Access Counter (per memory)</text><text x="600" y="622" text-anchor="middle" font-size="11" fill="#ede9fe">tracks read frequency and recency · drives promote/demote decisions</text></g>
+
+  <line x1="430" y1="570" x2="375" y2="295" stroke="#4f46e5" stroke-width="1.5" stroke-dasharray="3,3" opacity="0.5"/>
+  <line x1="600" y1="570" x2="655" y2="415" stroke="#4f46e5" stroke-width="1.5" stroke-dasharray="3,3" opacity="0.5"/>
+  <line x1="770" y1="570" x2="935" y2="535" stroke="#4f46e5" stroke-width="1.5" stroke-dasharray="3,3" opacity="0.5"/>
+
+  <!-- Legend -->
+  <g>
+    <line x1="60" y1="580" x2="90" y2="580" stroke="#2563eb" stroke-width="3" marker-end="url(#arrMain)"/><text x="100" y="584" font-size="11" fill="#374151">query path</text>
+    <line x1="60" y1="600" x2="90" y2="600" stroke="#dc2626" stroke-width="2.5" marker-end="url(#arrMiss)"/><text x="100" y="604" font-size="11" fill="#374151">cache miss (fall through)</text>
+    <line x1="60" y1="620" x2="90" y2="620" stroke="#059669" stroke-width="2" stroke-dasharray="6,4" marker-end="url(#arrPromote)"/><text x="100" y="624" font-size="11" fill="#374151">promote (hot)</text>
+    <line x1="260" y1="620" x2="290" y2="620" stroke="#ea580c" stroke-width="2" stroke-dasharray="6,4" marker-end="url(#arrDemote)"/><text x="300" y="624" font-size="11" fill="#374151">demote (cold)</text>
+  </g>
+</svg>

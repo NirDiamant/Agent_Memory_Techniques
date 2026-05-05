@@ -1,0 +1,75 @@
+<svg viewBox="0 0 1400 680" xmlns="http://www.w3.org/2000/svg" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <linearGradient id="gAtt" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#11998e"/><stop offset="100%" style="stop-color:#38ef7d"/></linearGradient>
+    <linearGradient id="gEval" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#ef4444"/><stop offset="100%" style="stop-color:#f97316"/></linearGradient>
+    <linearGradient id="gRef" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#FFB75E"/><stop offset="100%" style="stop-color:#ED8F03"/></linearGradient>
+    <linearGradient id="gStore" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#4f46e5"/><stop offset="100%" style="stop-color:#7c3aed"/></linearGradient>
+    <filter id="shadow"><feDropShadow dx="1.5" dy="2" stdDeviation="2.5" flood-color="#000" flood-opacity="0.18"/></filter>
+    <filter id="soft"><feDropShadow dx="1" dy="1.5" stdDeviation="1.5" flood-color="#000" flood-opacity="0.12"/></filter>
+    <marker id="arrMain" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 L3,5 Z" fill="#2563eb"/></marker>
+    <marker id="arrFail" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 L3,5 Z" fill="#dc2626"/></marker>
+    <marker id="arrOK" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 L3,5 Z" fill="#059669"/></marker>
+    <marker id="arrFB" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 L3,5 Z" fill="#7c3aed"/></marker>
+  </defs>
+
+  <rect width="1400" height="680" fill="#f8f9fa"/>
+  <text x="700" y="38" text-anchor="middle" font-size="24" font-weight="bold" fill="#1f2937">Self-Reflection Memory</text>
+  <text x="700" y="62" text-anchor="middle" font-size="13" fill="#6b7280">After each task, ask the agent what went right or wrong. Store the insight. Retrieve it next time the same kind of task shows up.</text>
+
+  <!-- Attempt -->
+  <rect x="30" y="100" width="390" height="250" rx="14" fill="url(#gAtt)" opacity="0.12" filter="url(#shadow)"/>
+  <rect x="30" y="100" width="390" height="36" rx="14" fill="url(#gAtt)" opacity="0.95"/>
+  <text x="225" y="123" text-anchor="middle" font-size="14" font-weight="bold" fill="white">🎯  Task Attempt</text>
+  <g><rect x="60" y="150" width="330" height="50" rx="10" fill="white" filter="url(#soft)"/><text x="225" y="180" text-anchor="middle" font-size="12" font-weight="bold" fill="#1f2937">📋  Task prompt</text></g>
+  <g><rect x="60" y="210" width="330" height="50" rx="10" fill="white" filter="url(#soft)"/><text x="225" y="232" text-anchor="middle" font-size="12" font-weight="bold" fill="#1f2937">🔎  Retrieve relevant past reflections</text><text x="225" y="250" text-anchor="middle" font-size="10" fill="#6b7280">"how did we handle this before?"</text></g>
+  <g><rect x="60" y="270" width="330" height="60" rx="10" fill="url(#gAtt)" opacity="0.92" filter="url(#soft)"/><text x="225" y="295" text-anchor="middle" font-size="13" font-weight="bold" fill="white">⚙  Agent executes task</text><text x="225" y="313" text-anchor="middle" font-size="11" fill="#d1fae5">reflections live in the system prompt</text></g>
+
+  <!-- Evaluate -->
+  <rect x="460" y="100" width="310" height="250" rx="14" fill="url(#gEval)" opacity="0.12" filter="url(#shadow)"/>
+  <rect x="460" y="100" width="310" height="36" rx="14" fill="url(#gEval)" opacity="0.95"/>
+  <text x="615" y="123" text-anchor="middle" font-size="14" font-weight="bold" fill="white">🧐  Outcome Evaluation</text>
+  <g><rect x="490" y="150" width="250" height="50" rx="10" fill="white" filter="url(#soft)"/><text x="615" y="175" text-anchor="middle" font-size="12" font-weight="bold" fill="#1f2937">📤  Output</text><text x="615" y="192" text-anchor="middle" font-size="10" fill="#6b7280">what the agent produced</text></g>
+  <g><rect x="490" y="210" width="250" height="50" rx="10" fill="white" filter="url(#soft)"/><text x="615" y="232" text-anchor="middle" font-size="12" font-weight="bold" fill="#1f2937">⚖  Compare vs. expected</text></g>
+  <g><polygon points="495,290 615,270 735,290 615,330" fill="url(#gEval)" opacity="0.95" filter="url(#shadow)"/><text x="615" y="300" text-anchor="middle" font-size="13" font-weight="bold" fill="white">Success?</text></g>
+
+  <!-- Reflect -->
+  <rect x="810" y="100" width="440" height="410" rx="14" fill="url(#gRef)" opacity="0.12" filter="url(#shadow)"/>
+  <rect x="810" y="100" width="440" height="36" rx="14" fill="url(#gRef)" opacity="0.95"/>
+  <text x="1030" y="123" text-anchor="middle" font-size="14" font-weight="bold" fill="white">💭  Reflection Loop</text>
+
+  <g><rect x="840" y="150" width="180" height="80" rx="10" fill="white" stroke="#dc2626" stroke-width="1.5" filter="url(#soft)"/><text x="930" y="174" text-anchor="middle" font-size="12" font-weight="bold" fill="#991b1b">⚠  fail / partial</text><text x="930" y="196" text-anchor="middle" font-size="10" fill="#7f1d1d">What went wrong?</text><text x="930" y="212" text-anchor="middle" font-size="10" fill="#7f1d1d">Root cause?</text></g>
+
+  <g><rect x="1040" y="150" width="180" height="80" rx="10" fill="white" stroke="#059669" stroke-width="1.5" filter="url(#soft)"/><text x="1130" y="174" text-anchor="middle" font-size="12" font-weight="bold" fill="#065f46">✅  success</text><text x="1130" y="196" text-anchor="middle" font-size="10" fill="#065f46">What worked well?</text><text x="1130" y="212" text-anchor="middle" font-size="10" fill="#065f46">Key strategy?</text></g>
+
+  <g><rect x="870" y="260" width="320" height="60" rx="10" fill="url(#gRef)" opacity="0.9" filter="url(#soft)"/><text x="1030" y="284" text-anchor="middle" font-size="13" font-weight="bold" fill="white">📝  Generate structured reflection</text><text x="1030" y="304" text-anchor="middle" font-size="11" fill="#fff7ed">LLM call with a reflection template</text></g>
+
+  <g><rect x="870" y="340" width="320" height="60" rx="10" fill="white" filter="url(#soft)"/><text x="1030" y="364" text-anchor="middle" font-size="13" font-weight="bold" fill="#1f2937">💎  Extract concise insight</text><text x="1030" y="384" text-anchor="middle" font-size="11" fill="#6b7280">1-3 sentences, reusable</text></g>
+
+  <g><rect x="870" y="420" width="320" height="70" rx="14" fill="url(#gStore)" opacity="0.92" filter="url(#shadow)"/><text x="1030" y="450" text-anchor="middle" font-size="14" font-weight="bold" fill="white">🗄  Reflection Store</text><text x="1030" y="472" text-anchor="middle" font-size="11" font-family="monospace" fill="#ede9fe">{task_type, outcome, insight, timestamp}</text></g>
+
+  <!-- arrows -->
+  <line x1="225" y1="200" x2="225" y2="208" stroke="#2563eb" stroke-width="2.5" marker-end="url(#arrMain)"/>
+  <line x1="225" y1="260" x2="225" y2="268" stroke="#2563eb" stroke-width="2.5" marker-end="url(#arrMain)"/>
+  <path d="M 390 310 Q 430 320 488 180" stroke="#2563eb" stroke-width="2.5" fill="none" marker-end="url(#arrMain)"/>
+  <line x1="615" y1="200" x2="615" y2="208" stroke="#2563eb" stroke-width="2.5" marker-end="url(#arrMain)"/>
+  <line x1="615" y1="260" x2="615" y2="268" stroke="#2563eb" stroke-width="2.5" marker-end="url(#arrMain)"/>
+
+  <!-- success/fail -->
+  <path d="M 615 330 Q 760 370 930 230" stroke="#dc2626" stroke-width="2.5" fill="none" marker-end="url(#arrFail)"/>
+  <rect x="760" y="340" width="78" height="22" rx="6" fill="white" stroke="#dc2626"/><text x="799" y="356" text-anchor="middle" font-size="11" font-weight="bold" fill="#991b1b">fail/partial</text>
+
+  <path d="M 735 305 Q 880 270 1040 200" stroke="#059669" stroke-width="2.5" fill="none" marker-end="url(#arrOK)"/>
+  <rect x="860" y="252" width="70" height="22" rx="6" fill="white" stroke="#059669"/><text x="895" y="268" text-anchor="middle" font-size="11" font-weight="bold" fill="#047857">success</text>
+
+  <line x1="930" y1="230" x2="960" y2="258" stroke="#2563eb" stroke-width="2.5" marker-end="url(#arrMain)"/>
+  <line x1="1130" y1="230" x2="1100" y2="258" stroke="#2563eb" stroke-width="2.5" marker-end="url(#arrMain)"/>
+  <line x1="1030" y1="320" x2="1030" y2="338" stroke="#2563eb" stroke-width="2.5" marker-end="url(#arrMain)"/>
+  <line x1="1030" y1="400" x2="1030" y2="418" stroke="#2563eb" stroke-width="2.5" marker-end="url(#arrMain)"/>
+
+  <!-- Store feedback to Attempt -->
+  <path d="M 870 455 Q 500 555 225 260" stroke="#7c3aed" stroke-width="2" stroke-dasharray="6,4" fill="none" marker-end="url(#arrFB)"/>
+  <rect x="420" y="525" width="340" height="22" rx="6" fill="white" stroke="#7c3aed"/>
+  <text x="590" y="541" text-anchor="middle" font-size="11" font-weight="bold" fill="#5b21b6">next task retrieves relevant reflections</text>
+
+  <text x="700" y="625" text-anchor="middle" font-size="12" fill="#64748b" font-style="italic">The loop closes. Past insights ride along with every new task of the same type.</text>
+</svg>

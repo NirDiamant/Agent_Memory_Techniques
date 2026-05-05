@@ -1,0 +1,31 @@
+flowchart TD
+    subgraph Inputs["Evaluation Inputs"]
+        MS[("Memory Store\n─────────\nrecords\ntimestamps\nsupersedes")]
+        ED["Eval Dataset\n─────────\nqueries\nrelevant_ids\nexpected answers"]
+    end
+
+    subgraph Pipeline["Eval Harness"]
+        direction TB
+        R["Retrieval Metrics\nRecall@K · Precision@K · MRR"]
+        F["Faithfulness Scorer\n(LLM-as-Judge)"]
+        T["Temporal Accuracy\nChecker"]
+        C["Contradiction\nDetector"]
+    end
+
+    subgraph Report["Eval Report"]
+        S["Aggregate Scores"]
+        D["Per-Query Detail"]
+        V["Visualizations"]
+    end
+
+    MS --> R & T & C
+    ED --> R & F
+    R --> S
+    F --> S
+    T --> S
+    C --> S
+    S --> D --> V
+
+    style MS fill:#4f46e5,color:#fff
+    style ED fill:#059669,color:#fff
+    style S fill:#d97706,color:#fff

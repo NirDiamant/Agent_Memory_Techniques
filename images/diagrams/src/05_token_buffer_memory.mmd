@@ -1,0 +1,10 @@
+flowchart LR
+    NewMsg["New Message"] --> Tokenizer["Tokenizer\n(tiktoken)"]
+    Tokenizer --> Counter["Token Counter\n(sum all messages)"]
+    Counter --> BudgetCheck{"Total > \nmax_token_limit?"}
+    BudgetCheck -- No --> TrimmedHistory["Trimmed History"]
+    BudgetCheck -- Yes --> Evict["Evict Oldest\nMessage"]
+    Evict --> Counter
+    TrimmedHistory --> LLM["LLM"]
+    LLM --> Response["Response"]
+    Response --> NewMsg

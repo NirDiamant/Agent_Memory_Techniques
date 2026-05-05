@@ -1,0 +1,10 @@
+flowchart LR
+    Task["Task Execution\n(step-by-step)"] --> SuccessCheck{"Task\nSucceeded?"}
+    SuccessCheck -- No --> Discard["Discard / Log\nfor debugging"]
+    SuccessCheck -- Yes --> Extractor["Procedure Extractor\n(LLM call)"]
+    Extractor --> Template["Workflow Template\n(parameterized steps)"]
+    Template --> Library["Skill Library\n(indexed by task type)"]
+    NewTask["New Task"] --> Retrieval["Retrieval\n(task-type matching)"]
+    Library --> Retrieval
+    Retrieval --> Adaptation["Adaptation\n(fill parameters)"]
+    Adaptation --> Execution["Execute Adapted\nProcedure"]

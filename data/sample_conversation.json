@@ -1,0 +1,12 @@
+[
+  {"role": "user", "content": "Hi, I'm Alice. I work on a team building analytics dashboards."},
+  {"role": "assistant", "content": "Nice to meet you, Alice. What kind of data does your team work with?"},
+  {"role": "user", "content": "Mostly user engagement events from our mobile app."},
+  {"role": "assistant", "content": "Got it. Are you using a specific tool for the dashboards, or a custom stack?"},
+  {"role": "user", "content": "We use Looker for customers and a custom React dashboard for internal teams."},
+  {"role": "assistant", "content": "Makes sense. Is there a specific dashboard problem you're trying to solve today?"},
+  {"role": "user", "content": "Yeah, I want to make session replays easier to surface inside Looker."},
+  {"role": "assistant", "content": "Looker's iframe embed supports linking to external URLs. What replay tool do you use?"},
+  {"role": "user", "content": "We use FullStory. Is embedding the replay iframe the cleanest path?"},
+  {"role": "assistant", "content": "If FullStory exposes a session URL per user, iframes work. Otherwise, a link button per row may be simpler."}
+]

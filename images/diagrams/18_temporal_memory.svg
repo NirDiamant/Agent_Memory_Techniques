@@ -1,0 +1,103 @@
+<svg viewBox="0 0 1400 680" xmlns="http://www.w3.org/2000/svg" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <linearGradient id="gQuery" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#667eea"/><stop offset="100%" style="stop-color:#764ba2"/></linearGradient>
+    <linearGradient id="gStore" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#4f46e5"/><stop offset="100%" style="stop-color:#7c3aed"/></linearGradient>
+    <linearGradient id="gFilter" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#4facfe"/><stop offset="100%" style="stop-color:#00f2fe"/></linearGradient>
+    <linearGradient id="gSem" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#11998e"/><stop offset="100%" style="stop-color:#38ef7d"/></linearGradient>
+    <linearGradient id="gDecay" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#ef4444"/><stop offset="100%" style="stop-color:#b91c1c"/></linearGradient>
+    <linearGradient id="gRank" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#FFB75E"/><stop offset="100%" style="stop-color:#ED8F03"/></linearGradient>
+    <linearGradient id="gOK" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#11998e"/><stop offset="100%" style="stop-color:#38ef7d"/></linearGradient>
+    <linearGradient id="gTL" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#f093fb"/><stop offset="100%" style="stop-color:#f5576c"/></linearGradient>
+    <filter id="shadow"><feDropShadow dx="1.5" dy="2" stdDeviation="2.5" flood-color="#000" flood-opacity="0.18"/></filter>
+    <filter id="soft"><feDropShadow dx="1" dy="1.5" stdDeviation="1.5" flood-color="#000" flood-opacity="0.12"/></filter>
+    <marker id="arrMain" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 L3,5 Z" fill="#2563eb"/></marker>
+    <marker id="arrTime" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 L3,5 Z" fill="#dc2626"/></marker>
+    <marker id="arrOK" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 L3,5 Z" fill="#059669"/></marker>
+    <marker id="arrTL" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 L3,5 Z" fill="#d946ef"/></marker>
+  </defs>
+
+  <rect width="1400" height="680" fill="#f8f9fa"/>
+  <text x="700" y="38" text-anchor="middle" font-size="24" font-weight="bold" fill="#1f2937">Temporal Memory</text>
+  <text x="700" y="62" text-anchor="middle" font-size="13" fill="#6b7280">Time-aware retrieval: filter by date range, blend semantic and recency scores, and build event timelines.</text>
+
+  <!-- Memory Store (drum shape) -->
+  <g filter="url(#shadow)">
+    <ellipse cx="130" cy="290" rx="85" ry="16" fill="url(#gStore)" opacity="0.95"/>
+    <rect x="45" y="290" width="170" height="80" fill="url(#gStore)" opacity="0.95"/>
+    <ellipse cx="130" cy="370" rx="85" ry="16" fill="url(#gStore)" opacity="0.85"/>
+    <ellipse cx="130" cy="290" rx="85" ry="16" fill="url(#gStore)" opacity="1"/>
+    <text x="130" y="325" text-anchor="middle" font-size="14" font-weight="bold" fill="white">🗄  Memory Store</text>
+    <text x="130" y="348" text-anchor="middle" font-size="11" fill="#ede9fe">with timestamps</text>
+  </g>
+
+  <!-- Query node -->
+  <g><rect x="40" y="130" width="180" height="80" rx="14" fill="url(#gQuery)" opacity="0.92" filter="url(#shadow)"/><text x="130" y="162" text-anchor="middle" font-size="15" font-weight="bold" fill="white">🔎  Query</text><text x="130" y="186" text-anchor="middle" font-size="11" fill="#e9e3ff">+ optional time constraints</text></g>
+
+  <!-- Retrieval Pipeline Panel -->
+  <rect x="290" y="88" width="720" height="340" rx="14" fill="url(#gFilter)" opacity="0.08" filter="url(#shadow)"/>
+  <rect x="290" y="88" width="720" height="36" rx="14" fill="url(#gFilter)" opacity="0.95"/>
+  <text x="650" y="112" text-anchor="middle" font-size="14" font-weight="bold" fill="white">⚙  Retrieval Pipeline</text>
+
+  <!-- Time Range Filter -->
+  <g><rect x="320" y="150" width="180" height="90" rx="12" fill="url(#gFilter)" opacity="0.18" filter="url(#soft)"/><rect x="320" y="150" width="180" height="34" rx="12" fill="url(#gFilter)" opacity="0.95"/><text x="410" y="173" text-anchor="middle" font-size="13" font-weight="bold" fill="white">🕐  Time Range Filter</text><text x="410" y="208" text-anchor="middle" font-size="11" fill="#1f2937">WHERE timestamp</text><text x="410" y="226" text-anchor="middle" font-size="11" fill="#1f2937">BETWEEN start AND end</text></g>
+
+  <!-- Semantic Scorer -->
+  <g><rect x="560" y="140" width="180" height="80" rx="12" fill="url(#gSem)" opacity="0.92" filter="url(#soft)"/><text x="650" y="170" text-anchor="middle" font-size="13" font-weight="bold" fill="white">📐  Semantic Scorer</text><text x="650" y="194" text-anchor="middle" font-size="11" fill="#d1fae5">embedding cosine similarity</text></g>
+
+  <!-- Temporal Scorer -->
+  <g><rect x="560" y="250" width="180" height="80" rx="12" fill="url(#gDecay)" opacity="0.92" filter="url(#soft)"/><text x="650" y="280" text-anchor="middle" font-size="13" font-weight="bold" fill="white">⏳  Temporal Scorer</text><text x="650" y="304" text-anchor="middle" font-size="11" fill="#fecaca">exponential decay function</text></g>
+
+  <!-- Combined Ranking -->
+  <g><rect x="800" y="180" width="180" height="90" rx="12" fill="url(#gRank)" opacity="0.92" filter="url(#shadow)"/><text x="890" y="212" text-anchor="middle" font-size="13" font-weight="bold" fill="white">⚖  Combined Ranking</text><text x="890" y="236" text-anchor="middle" font-size="11" fill="#fff7ed">w1 * semantic</text><text x="890" y="252" text-anchor="middle" font-size="11" fill="#fff7ed">+ w2 * recency</text></g>
+
+  <!-- Top-K Results -->
+  <g><rect x="800" y="310" width="180" height="70" rx="14" fill="url(#gOK)" opacity="0.92" filter="url(#shadow)"/><text x="890" y="340" text-anchor="middle" font-size="14" font-weight="bold" fill="white">✅  Top-K Results</text><text x="890" y="362" text-anchor="middle" font-size="11" fill="#d1fae5">ranked by blended score</text></g>
+
+  <!-- Timeline Branch Panel -->
+  <rect x="290" y="460" width="720" height="130" rx="14" fill="url(#gTL)" opacity="0.08" filter="url(#shadow)"/>
+  <rect x="290" y="460" width="720" height="36" rx="14" fill="url(#gTL)" opacity="0.95"/>
+  <text x="650" y="484" text-anchor="middle" font-size="14" font-weight="bold" fill="white">📅  Timeline Branch</text>
+
+  <!-- Timeline Constructor -->
+  <g><rect x="320" y="510" width="180" height="60" rx="12" fill="white" filter="url(#soft)"/><text x="410" y="537" text-anchor="middle" font-size="13" font-weight="bold" fill="#1f2937">🔨  Timeline Constructor</text><text x="410" y="556" text-anchor="middle" font-size="11" fill="#4b5563">group by time windows</text></g>
+
+  <!-- Event Timeline -->
+  <g><rect x="580" y="510" width="200" height="60" rx="12" fill="url(#gTL)" opacity="0.92" filter="url(#soft)"/><text x="680" y="537" text-anchor="middle" font-size="13" font-weight="bold" fill="white">📊  Event Timeline</text><text x="680" y="556" text-anchor="middle" font-size="11" fill="#fce7f3">ordered sequence of events</text></g>
+
+  <!-- Arrows: Query -> Time Range Filter -->
+  <line x1="222" y1="170" x2="318" y2="185" stroke="#2563eb" stroke-width="3" marker-end="url(#arrMain)"/>
+
+  <!-- Memory Store -> Time Range Filter -->
+  <path d="M 217 310 Q 270 270 318 210" stroke="#2563eb" stroke-width="2.5" fill="none" marker-end="url(#arrMain)"/>
+
+  <!-- Time Range Filter -> Semantic Scorer -->
+  <line x1="502" y1="180" x2="558" y2="178" stroke="#2563eb" stroke-width="2.5" marker-end="url(#arrMain)"/>
+
+  <!-- Time Range Filter -> Temporal Scorer -->
+  <path d="M 502 220 Q 530 250 558 275" stroke="#dc2626" stroke-width="2.5" fill="none" marker-end="url(#arrTime)"/>
+
+  <!-- Semantic Scorer -> Combined Ranking -->
+  <line x1="742" y1="180" x2="798" y2="210" stroke="#2563eb" stroke-width="2.5" marker-end="url(#arrMain)"/>
+
+  <!-- Temporal Scorer -> Combined Ranking -->
+  <line x1="742" y1="290" x2="798" y2="245" stroke="#dc2626" stroke-width="2.5" marker-end="url(#arrTime)"/>
+
+  <!-- Combined Ranking -> Top-K -->
+  <line x1="890" y1="272" x2="890" y2="308" stroke="#059669" stroke-width="3" marker-end="url(#arrOK)"/>
+
+  <!-- Memory Store -> Timeline Constructor -->
+  <path d="M 130 372 Q 130 540 318 540" stroke="#d946ef" stroke-width="2.5" fill="none" marker-end="url(#arrTL)"/>
+
+  <!-- Timeline Constructor -> Event Timeline -->
+  <line x1="502" y1="540" x2="578" y2="540" stroke="#d946ef" stroke-width="2.5" marker-end="url(#arrTL)"/>
+
+  <!-- Legend -->
+  <g>
+    <line x1="60" y1="635" x2="90" y2="635" stroke="#2563eb" stroke-width="3" marker-end="url(#arrMain)"/><text x="100" y="639" font-size="11" fill="#374151">main retrieval flow</text>
+    <line x1="260" y1="635" x2="290" y2="635" stroke="#dc2626" stroke-width="2.5" marker-end="url(#arrTime)"/><text x="300" y="639" font-size="11" fill="#374151">temporal scoring</text>
+    <line x1="430" y1="635" x2="460" y2="635" stroke="#059669" stroke-width="2.5" marker-end="url(#arrOK)"/><text x="470" y="639" font-size="11" fill="#374151">ranked output</text>
+    <line x1="570" y1="635" x2="600" y2="635" stroke="#d946ef" stroke-width="2.5" marker-end="url(#arrTL)"/><text x="610" y="639" font-size="11" fill="#374151">timeline branch</text>
+  </g>
+
+  <text x="700" y="670" text-anchor="middle" font-size="12" fill="#64748b" font-style="italic">Recency weighting prevents stale facts from drowning out fresh ones. The timeline branch gives narrative context.</text>
+</svg>

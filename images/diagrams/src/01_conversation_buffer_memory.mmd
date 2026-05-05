@@ -1,0 +1,18 @@
+sequenceDiagram
+    participant U as User
+    participant B as Buffer Memory
+    participant L as LLM (Claude)
+
+    U->>B: "Hi, I'm Alice"
+    B->>B: Append {role: user, content: "Hi, I'm Alice"}
+    B->>L: [msg1]
+    L-->>B: "Hello Alice! How can I help?"
+    B->>B: Append {role: assistant, content: "Hello Alice!..."}
+
+    U->>B: "What's my name?"
+    B->>B: Append {role: user, content: "What's my name?"}
+    B->>L: [msg1, msg2, msg3]
+    L-->>B: "Your name is Alice."
+    B->>B: Append {role: assistant, content: "Your name is Alice."}
+
+    Note over B: Buffer grows with every turn.<br/>All messages re-sent each call.

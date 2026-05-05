@@ -1,0 +1,174 @@
+<svg viewBox="0 0 1400 720" xmlns="http://www.w3.org/2000/svg" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <linearGradient id="gEnd" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#11998e"/><stop offset="100%" style="stop-color:#38ef7d"/></linearGradient>
+    <linearGradient id="gNew" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#4facfe"/><stop offset="100%" style="stop-color:#00f2fe"/></linearGradient>
+    <linearGradient id="gCold" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#ef4444"/><stop offset="100%" style="stop-color:#b91c1c"/></linearGradient>
+    <linearGradient id="gStore" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#4f46e5"/><stop offset="100%" style="stop-color:#7c3aed"/></linearGradient>
+    <linearGradient id="gUID" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#845ef7"/><stop offset="100%" style="stop-color:#5b21b6"/></linearGradient>
+    <linearGradient id="gDec" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#FFB75E"/><stop offset="100%" style="stop-color:#ED8F03"/></linearGradient>
+    <linearGradient id="gCtx" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#667eea"/><stop offset="100%" style="stop-color:#764ba2"/></linearGradient>
+    <filter id="shadow"><feDropShadow dx="1.5" dy="2" stdDeviation="2.5" flood-color="#000" flood-opacity="0.18"/></filter>
+    <filter id="soft"><feDropShadow dx="1" dy="1.5" stdDeviation="1.5" flood-color="#000" flood-opacity="0.12"/></filter>
+    <marker id="arrMain" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 L3,5 Z" fill="#2563eb"/></marker>
+    <marker id="arrOK" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 L3,5 Z" fill="#059669"/></marker>
+    <marker id="arrCold" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 L3,5 Z" fill="#dc2626"/></marker>
+    <marker id="arrStore" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 L3,5 Z" fill="#7c3aed"/></marker>
+  </defs>
+
+  <rect width="1400" height="720" fill="#f8f9fa"/>
+  <text x="700" y="38" text-anchor="middle" font-size="24" font-weight="bold" fill="#1f2937">Cross-Session Memory</text>
+  <text x="700" y="62" text-anchor="middle" font-size="13" fill="#6b7280">Serialize agent state at session end. Deserialize and reload it when a new session begins for the same user.</text>
+
+  <!-- ═══ Session End Panel (top-left) ═══ -->
+  <rect x="30" y="100" width="400" height="200" rx="14" fill="url(#gEnd)" opacity="0.12" filter="url(#shadow)"/>
+  <rect x="30" y="100" width="400" height="36" rx="14" fill="url(#gEnd)" opacity="0.95"/>
+  <text x="230" y="123" text-anchor="middle" font-size="14" font-weight="bold" fill="white">🔚  Session End</text>
+
+  <!-- Agent State -->
+  <g><rect x="60" y="155" width="150" height="60" rx="10" fill="white" filter="url(#soft)"/>
+  <text x="135" y="182" text-anchor="middle" font-size="13" font-weight="bold" fill="#1f2937">🤖  Agent State</text>
+  <text x="135" y="200" text-anchor="middle" font-size="10" fill="#6b7280">messages, facts, prefs</text></g>
+
+  <!-- Serializer -->
+  <g><rect x="250" y="155" width="150" height="60" rx="10" fill="url(#gEnd)" opacity="0.92" filter="url(#soft)"/>
+  <text x="325" y="182" text-anchor="middle" font-size="13" font-weight="bold" fill="white">📦  Serializer</text>
+  <text x="325" y="200" text-anchor="middle" font-size="11" fill="#d1fae5">JSON / pickle</text></g>
+
+  <!-- Arrow: Agent State -> Serializer -->
+  <line x1="212" y1="185" x2="248" y2="185" stroke="#2563eb" stroke-width="2.5" marker-end="url(#arrMain)"/>
+
+  <!-- ═══ Storage Backend (center, drum shape) ═══ -->
+  <g filter="url(#shadow)">
+    <ellipse cx="570" cy="322" rx="90" ry="16" fill="url(#gStore)" opacity="0.95"/>
+    <rect x="480" y="322" width="180" height="80" fill="url(#gStore)" opacity="0.92"/>
+    <ellipse cx="570" cy="402" rx="90" ry="16" fill="url(#gStore)" opacity="0.85"/>
+    <text x="570" y="355" text-anchor="middle" font-size="14" font-weight="bold" fill="white">🗄  Storage Backend</text>
+    <text x="570" y="378" text-anchor="middle" font-size="11" fill="#ede9fe">Redis / SQLite / S3</text>
+  </g>
+
+  <!-- Arrow: Serializer -> Storage Backend -->
+  <path d="M 400 195 Q 440 195 480 310" stroke="#2563eb" stroke-width="2.5" fill="none" marker-end="url(#arrMain)"/>
+
+  <!-- ═══ New Session Panel (right side, large) ═══ -->
+  <rect x="700" y="100" width="670" height="400" rx="14" fill="url(#gNew)" opacity="0.08" filter="url(#shadow)"/>
+  <rect x="700" y="100" width="670" height="36" rx="14" fill="url(#gNew)" opacity="0.95"/>
+  <text x="1035" y="123" text-anchor="middle" font-size="14" font-weight="bold" fill="white">🆕  New Session</text>
+
+  <!-- Incoming Request -->
+  <g><rect x="730" y="160" width="150" height="55" rx="10" fill="white" filter="url(#soft)"/>
+  <text x="805" y="185" text-anchor="middle" font-size="13" font-weight="bold" fill="#1f2937">📨  Request</text>
+  <text x="805" y="203" text-anchor="middle" font-size="10" fill="#6b7280">incoming session</text></g>
+
+  <!-- User Identifier -->
+  <g><rect x="730" y="235" width="150" height="55" rx="10" fill="url(#gUID)" opacity="0.92" filter="url(#soft)"/>
+  <text x="805" y="260" text-anchor="middle" font-size="13" font-weight="bold" fill="white">🔑  User Identifier</text>
+  <text x="805" y="278" text-anchor="middle" font-size="11" fill="#ede9fe">user_id lookup</text></g>
+
+  <!-- Memory Loader -->
+  <g><rect x="730" y="310" width="150" height="55" rx="10" fill="white" filter="url(#soft)"/>
+  <text x="805" y="335" text-anchor="middle" font-size="13" font-weight="bold" fill="#1f2937">📥  Memory Loader</text>
+  <text x="805" y="353" text-anchor="middle" font-size="10" fill="#6b7280">fetch stored state</text></g>
+
+  <!-- Loading Strategy Diamond -->
+  <g><polygon points="960,360 1040,320 1120,360 1040,400" fill="url(#gDec)" opacity="0.92" filter="url(#shadow)"/>
+  <text x="1040" y="355" text-anchor="middle" font-size="12" font-weight="bold" fill="white">Loading</text>
+  <text x="1040" y="372" text-anchor="middle" font-size="12" font-weight="bold" fill="white">Strategy</text></g>
+
+  <!-- Three strategy options -->
+  <!-- Full History -->
+  <g><rect x="1160" y="250" width="170" height="50" rx="10" fill="white" stroke="#059669" stroke-width="1.5" filter="url(#soft)"/>
+  <text x="1245" y="272" text-anchor="middle" font-size="12" font-weight="bold" fill="#065f46">📚  Full History</text>
+  <text x="1245" y="290" text-anchor="middle" font-size="10" fill="#047857">all past messages</text></g>
+
+  <!-- Last-N Turns -->
+  <g><rect x="1160" y="320" width="170" height="50" rx="10" fill="white" stroke="#059669" stroke-width="1.5" filter="url(#soft)"/>
+  <text x="1245" y="342" text-anchor="middle" font-size="12" font-weight="bold" fill="#065f46">📋  Last-N Turns</text>
+  <text x="1245" y="360" text-anchor="middle" font-size="10" fill="#047857">recent window only</text></g>
+
+  <!-- Summary Only -->
+  <g><rect x="1160" y="390" width="170" height="50" rx="10" fill="white" stroke="#059669" stroke-width="1.5" filter="url(#soft)"/>
+  <text x="1245" y="412" text-anchor="middle" font-size="12" font-weight="bold" fill="#065f46">📝  Summary Only</text>
+  <text x="1245" y="430" text-anchor="middle" font-size="10" fill="#047857">compressed recap</text></g>
+
+  <!-- Agent Context (destination) -->
+  <g><rect x="1160" y="160" width="170" height="60" rx="14" fill="url(#gCtx)" opacity="0.92" filter="url(#shadow)"/>
+  <text x="1245" y="186" text-anchor="middle" font-size="14" font-weight="bold" fill="white">👤  Agent Context</text>
+  <text x="1245" y="206" text-anchor="middle" font-size="11" fill="#e9e3ff">hydrated prompt</text></g>
+
+  <!-- Arrows inside New Session panel -->
+  <!-- Request -> User Identifier -->
+  <line x1="805" y1="215" x2="805" y2="233" stroke="#2563eb" stroke-width="2.5" marker-end="url(#arrMain)"/>
+  <!-- User Identifier -> Memory Loader -->
+  <line x1="805" y1="290" x2="805" y2="308" stroke="#2563eb" stroke-width="2.5" marker-end="url(#arrMain)"/>
+  <!-- Memory Loader -> Loading Strategy -->
+  <line x1="882" y1="340" x2="958" y2="355" stroke="#2563eb" stroke-width="2.5" marker-end="url(#arrMain)"/>
+  <!-- Loading Strategy -> Full History -->
+  <path d="M 1120 340 Q 1140 290 1158 275" stroke="#059669" stroke-width="2" fill="none" marker-end="url(#arrOK)"/>
+  <text x="1125" y="298" font-size="10" fill="#059669" font-weight="bold">full</text>
+  <!-- Loading Strategy -> Last-N Turns -->
+  <line x1="1122" y1="360" x2="1158" y2="350" stroke="#059669" stroke-width="2" marker-end="url(#arrOK)"/>
+  <text x="1125" y="350" font-size="10" fill="#059669" font-weight="bold">partial</text>
+  <!-- Loading Strategy -> Summary Only -->
+  <path d="M 1120 380 Q 1140 400 1158 415" stroke="#059669" stroke-width="2" fill="none" marker-end="url(#arrOK)"/>
+  <text x="1125" y="402" font-size="10" fill="#059669" font-weight="bold">summary</text>
+
+  <!-- All three strategies -> Agent Context -->
+  <path d="M 1245 250 L 1245 222" stroke="#059669" stroke-width="2" fill="none" marker-end="url(#arrOK)"/>
+  <path d="M 1245 320 Q 1310 270 1310 222" stroke="#059669" stroke-width="1.5" fill="none" marker-end="url(#arrOK)"/>
+  <path d="M 1330 400 Q 1360 300 1330 222" stroke="#059669" stroke-width="1.5" fill="none" marker-end="url(#arrOK)"/>
+
+  <!-- Storage Backend -> Memory Loader -->
+  <path d="M 660 360 Q 700 360 728 345" stroke="#7c3aed" stroke-width="2.5" fill="none" marker-end="url(#arrStore)"/>
+  <rect x="655" y="340" width="78" height="20" rx="6" fill="white" stroke="#7c3aed"/>
+  <text x="694" y="355" text-anchor="middle" font-size="10" font-weight="bold" fill="#5b21b6">stored state</text>
+
+  <!-- ═══ Cold Start Panel (bottom) ═══ -->
+  <rect x="30" y="530" width="620" height="150" rx="14" fill="url(#gCold)" opacity="0.10" filter="url(#shadow)"/>
+  <rect x="30" y="530" width="620" height="36" rx="14" fill="url(#gCold)" opacity="0.95"/>
+  <text x="340" y="553" text-anchor="middle" font-size="14" font-weight="bold" fill="white">❄  Cold Start Path</text>
+
+  <!-- No prior state label -->
+  <g><rect x="60" y="585" width="150" height="55" rx="10" fill="white" filter="url(#soft)"/>
+  <text x="135" y="608" text-anchor="middle" font-size="12" font-weight="bold" fill="#991b1b">🚫  No Prior State</text>
+  <text x="135" y="626" text-anchor="middle" font-size="10" fill="#7f1d1d">user_id not found</text></g>
+
+  <!-- Cold Start Handler -->
+  <g><rect x="260" y="585" width="170" height="55" rx="10" fill="url(#gCold)" opacity="0.92" filter="url(#soft)"/>
+  <text x="345" y="608" text-anchor="middle" font-size="13" font-weight="bold" fill="white">🧊  Cold Start Handler</text>
+  <text x="345" y="626" text-anchor="middle" font-size="10" fill="#fecaca">defaults + onboarding</text></g>
+
+  <!-- Arrow to Agent Context from Cold Start -->
+  <g><rect x="480" y="585" width="140" height="55" rx="10" fill="white" filter="url(#soft)"/>
+  <text x="550" y="608" text-anchor="middle" font-size="12" font-weight="bold" fill="#1f2937">➡  To Agent Context</text>
+  <text x="550" y="626" text-anchor="middle" font-size="10" fill="#6b7280">minimal bootstrap</text></g>
+
+  <!-- Cold Start arrows -->
+  <line x1="212" y1="612" x2="258" y2="612" stroke="#dc2626" stroke-width="2.5" marker-end="url(#arrCold)"/>
+  <line x1="432" y1="612" x2="478" y2="612" stroke="#dc2626" stroke-width="2.5" marker-end="url(#arrCold)"/>
+
+  <!-- Dashed arrow: User Identifier -> No Prior State (cold start trigger) -->
+  <path d="M 805 290 Q 805 450 500 530 Q 300 570 212 585" stroke="#dc2626" stroke-width="2" stroke-dasharray="6,4" fill="none" marker-end="url(#arrCold)"/>
+  <rect x="470" y="490" width="110" height="20" rx="6" fill="white" stroke="#dc2626"/>
+  <text x="525" y="505" text-anchor="middle" font-size="10" font-weight="bold" fill="#991b1b">no prior state</text>
+
+  <!-- Cold Start output -> Agent Context (long dashed) -->
+  <path d="M 620 600 Q 900 600 1100 400 Q 1200 300 1245 222" stroke="#dc2626" stroke-width="2" stroke-dasharray="6,4" fill="none" marker-end="url(#arrCold)"/>
+
+  <!-- Step numbers -->
+  <circle cx="135" cy="145" r="12" fill="#2563eb" opacity="0.9"/><text x="135" y="150" text-anchor="middle" font-size="11" font-weight="bold" fill="white">1</text>
+  <circle cx="325" cy="145" r="12" fill="#2563eb" opacity="0.9"/><text x="325" y="150" text-anchor="middle" font-size="11" font-weight="bold" fill="white">2</text>
+  <circle cx="570" cy="300" r="12" fill="#7c3aed" opacity="0.9"/><text x="570" y="305" text-anchor="middle" font-size="11" font-weight="bold" fill="white">3</text>
+  <circle cx="805" cy="150" r="12" fill="#2563eb" opacity="0.9"/><text x="805" y="155" text-anchor="middle" font-size="11" font-weight="bold" fill="white">4</text>
+  <circle cx="1040" cy="308" r="12" fill="#2563eb" opacity="0.9"/><text x="1040" y="313" text-anchor="middle" font-size="11" font-weight="bold" fill="white">5</text>
+  <circle cx="1245" cy="150" r="12" fill="#059669" opacity="0.9"/><text x="1245" y="155" text-anchor="middle" font-size="11" font-weight="bold" fill="white">6</text>
+
+  <!-- Legend -->
+  <g>
+    <line x1="60" y1="695" x2="90" y2="695" stroke="#2563eb" stroke-width="3" marker-end="url(#arrMain)"/><text x="100" y="699" font-size="11" fill="#374151">pipeline flow</text>
+    <line x1="220" y1="695" x2="250" y2="695" stroke="#059669" stroke-width="2" marker-end="url(#arrOK)"/><text x="260" y="699" font-size="11" fill="#374151">strategy output</text>
+    <line x1="400" y1="695" x2="430" y2="695" stroke="#7c3aed" stroke-width="2.5" marker-end="url(#arrStore)"/><text x="440" y="699" font-size="11" fill="#374151">stored state</text>
+    <line x1="560" y1="695" x2="590" y2="695" stroke="#dc2626" stroke-width="2" stroke-dasharray="6,4" marker-end="url(#arrCold)"/><text x="600" y="699" font-size="11" fill="#374151">cold start path</text>
+  </g>
+
+  <text x="700" y="680" text-anchor="middle" font-size="12" fill="#64748b" font-style="italic">State persists across sessions. Returning users get hydrated context; new users get a clean bootstrap.</text>
+</svg>

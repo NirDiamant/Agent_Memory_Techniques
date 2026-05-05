@@ -1,0 +1,35 @@
+flowchart TD
+    subgraph "Agent A (Researcher)"
+        PA[Private<br/>Scratchpad A]
+    end
+
+    subgraph "Agent B (Coder)"
+        PB[Private<br/>Scratchpad B]
+    end
+
+    subgraph "Agent C (Reviewer)"
+        PC[Private<br/>Scratchpad C]
+    end
+
+    PA --> ACL[Access Control<br/>Layer]
+    PB --> ACL
+    PC --> ACL
+
+    subgraph "Shared Memory Pool"
+        NS1["research/<br/>findings & sources"]
+        NS2["code/<br/>artifacts & specs"]
+        NS3["review/<br/>feedback & issues"]
+    end
+
+    ACL <-->|read/write| NS1
+    ACL <-->|read/write| NS2
+    ACL <-->|read/write| NS3
+
+    NS1 --> CR[Conflict<br/>Resolution]
+    NS2 --> CR
+    NS3 --> CR
+    CR --> BB[Blackboard<br/>partial solutions]
+
+    style ACL fill:#845ef7,color:#fff
+    style CR fill:#ff6b6b,color:#fff
+    style BB fill:#51cf66,color:#fff

@@ -1,0 +1,29 @@
+flowchart LR
+    subgraph Turn["Each Conversation Turn"]
+        A["User message"] --> B["Triple Extractor\n(Claude tool-use)"]
+        B --> C["Extracted triples\n(S, P, O)"]
+        C --> D["Update\nKnowledge Graph"]
+    end
+
+    subgraph Graph["Knowledge Graph (NetworkX DiGraph)"]
+        D --> E[("Nodes = entities\nEdges = predicates\n(Alice)--manages-->(Bob)")]
+    end
+
+    subgraph Response["Response Generation"]
+        A --> F["Identify mentioned\nentities"]
+        E --> F
+        F --> G["Retrieve subgraph\n(1-2 hop neighborhood)"]
+        G --> H["Build prompt:\nsystem + graph context\n+ recent messages"]
+        H --> I["LLM\n(Claude)"]
+        I --> J["Response"]
+    end
+
+    subgraph Persist["Persistence"]
+        E --> K["Save edge list\n(JSON)"]
+        K --> L["Load in\nnew session"]
+        L --> E
+    end
+
+    style E fill:#4f46e5,color:#fff
+    style I fill:#059669,color:#fff
+    style B fill:#d97706,color:#fff

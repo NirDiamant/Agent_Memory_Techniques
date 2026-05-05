@@ -1,0 +1,19 @@
+flowchart LR
+    subgraph Storage
+        MS[(Memory Store<br/>with timestamps)]
+    end
+
+    Q["Query + optional<br/>time constraints"] --> TRF[Time Range<br/>Filter]
+    MS --> TRF
+    TRF --> SS[Semantic<br/>Scorer]
+    TRF --> TS[Temporal Scorer<br/>decay function]
+    SS --> CR[Combined<br/>Ranking]
+    TS --> CR
+    CR --> TopK[Top-K<br/>Results]
+
+    MS --> TL[Timeline<br/>Constructor]
+    TL --> ET[Event<br/>Timeline]
+
+    style MS fill:#4a9eff,color:#fff
+    style TS fill:#ff6b6b,color:#fff
+    style CR fill:#51cf66,color:#fff

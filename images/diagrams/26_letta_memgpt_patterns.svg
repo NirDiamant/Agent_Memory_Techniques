@@ -1,0 +1,117 @@
+<svg viewBox="0 0 1400 720" xmlns="http://www.w3.org/2000/svg" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <linearGradient id="gCtx" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#f093fb"/><stop offset="100%" style="stop-color:#f5576c"/></linearGradient>
+    <linearGradient id="gCore" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#11998e"/><stop offset="100%" style="stop-color:#38ef7d"/></linearGradient>
+    <linearGradient id="gRecall" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#4f46e5"/><stop offset="100%" style="stop-color:#7c3aed"/></linearGradient>
+    <linearGradient id="gArchival" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#667eea"/><stop offset="100%" style="stop-color:#764ba2"/></linearGradient>
+    <linearGradient id="gLoop" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#FFB75E"/><stop offset="100%" style="stop-color:#ED8F03"/></linearGradient>
+    <linearGradient id="gFC" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#ef4444"/><stop offset="100%" style="stop-color:#b91c1c"/></linearGradient>
+    <linearGradient id="gHB" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#4facfe"/><stop offset="100%" style="stop-color:#00f2fe"/></linearGradient>
+    <filter id="shadow"><feDropShadow dx="1.5" dy="2" stdDeviation="2.5" flood-color="#000" flood-opacity="0.18"/></filter>
+    <filter id="soft"><feDropShadow dx="1" dy="1.5" stdDeviation="1.5" flood-color="#000" flood-opacity="0.12"/></filter>
+    <marker id="arrMain" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 L3,5 Z" fill="#2563eb"/></marker>
+    <marker id="arrCore" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 L3,5 Z" fill="#059669"/></marker>
+    <marker id="arrFC" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 L3,5 Z" fill="#dc2626"/></marker>
+    <marker id="arrHB" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 L3,5 Z" fill="#0284c7"/></marker>
+    <marker id="arrStore" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 L3,5 Z" fill="#7c3aed"/></marker>
+  </defs>
+
+  <rect width="1400" height="720" fill="#f8f9fa"/>
+  <text x="700" y="38" text-anchor="middle" font-size="24" font-weight="bold" fill="#1f2937">Letta / MemGPT Patterns</text>
+  <text x="700" y="62" text-anchor="middle" font-size="13" fill="#6b7280">Three memory tiers: Core Memory (always in-context), Recall Memory (conversation history), and Archival Memory (long-term vector store).</text>
+
+  <!-- Context Window panel -->
+  <rect x="40" y="100" width="400" height="190" rx="14" fill="url(#gCtx)" opacity="0.12" filter="url(#shadow)"/>
+  <rect x="40" y="100" width="400" height="38" rx="14" fill="url(#gCtx)" opacity="0.95"/>
+  <text x="240" y="125" text-anchor="middle" font-size="14" font-weight="bold" fill="white">🪟  LLM Context Window (limited)</text>
+
+  <g><rect x="65" y="155" width="175" height="55" rx="12" fill="white" filter="url(#soft)"/><text x="153" y="178" text-anchor="middle" font-size="12" font-weight="bold" fill="#1f2937">📜  System Prompt</text><text x="153" y="196" text-anchor="middle" font-size="11" fill="#6b7280">+ Core Memory blocks</text></g>
+  <g><rect x="255" y="155" width="170" height="55" rx="12" fill="white" filter="url(#soft)"/><text x="340" y="178" text-anchor="middle" font-size="12" font-weight="bold" fill="#1f2937">💬  Recent Messages</text><text x="340" y="196" text-anchor="middle" font-size="11" fill="#6b7280">sliding window</text></g>
+
+  <!-- Arrow system -> recent -->
+  <line x1="242" y1="182" x2="253" y2="182" stroke="#2563eb" stroke-width="2" marker-end="url(#arrMain)"/>
+
+  <!-- Core Memory panel -->
+  <rect x="500" y="100" width="410" height="190" rx="14" fill="url(#gCore)" opacity="0.12" filter="url(#shadow)"/>
+  <rect x="500" y="100" width="410" height="38" rx="14" fill="url(#gCore)" opacity="0.95"/>
+  <text x="705" y="125" text-anchor="middle" font-size="14" font-weight="bold" fill="white">🧠  Core Memory (always in-context)</text>
+
+  <g><rect x="525" y="155" width="180" height="115" rx="12" fill="url(#gCore)" opacity="0.9" filter="url(#soft)"/><text x="615" y="178" text-anchor="middle" font-size="13" font-weight="bold" fill="white">👤  Persona Block</text><text x="615" y="200" text-anchor="middle" font-size="11" fill="#d1fae5">"I am a helpful</text><text x="615" y="216" text-anchor="middle" font-size="11" fill="#d1fae5">assistant who</text><text x="615" y="232" text-anchor="middle" font-size="11" fill="#d1fae5">remembers everything"</text><text x="615" y="256" text-anchor="middle" font-size="10" fill="#a7f3d0" font-style="italic">editable by agent</text></g>
+
+  <g><rect x="720" y="155" width="180" height="115" rx="12" fill="url(#gCore)" opacity="0.9" filter="url(#soft)"/><text x="810" y="178" text-anchor="middle" font-size="13" font-weight="bold" fill="white">📋  Human Block</text><text x="810" y="200" text-anchor="middle" font-size="11" fill="#d1fae5">"Alice is a vegetarian</text><text x="810" y="216" text-anchor="middle" font-size="11" fill="#d1fae5">who works at Google"</text><text x="810" y="240" text-anchor="middle" font-size="10" fill="#a7f3d0" font-style="italic">updated via</text><text x="810" y="256" text-anchor="middle" font-size="10" fill="#a7f3d0" font-style="italic">core_memory_replace</text></g>
+
+  <!-- Core Memory -> System prompt (injected) -->
+  <path d="M 500 200 Q 460 200 442 192" stroke="#059669" stroke-width="2.5" fill="none" marker-end="url(#arrCore)"/>
+  <rect x="445" y="214" width="90" height="18" rx="6" fill="white" stroke="#059669"/><text x="490" y="227" text-anchor="middle" font-size="10" font-weight="bold" fill="#047857">injected into</text>
+
+  <!-- Recall Memory -->
+  <g>
+    <ellipse cx="200" cy="360" rx="140" ry="28" fill="url(#gRecall)" opacity="0.95" filter="url(#shadow)"/>
+    <rect x="60" y="360" width="280" height="100" fill="url(#gRecall)" opacity="0.95"/>
+    <ellipse cx="200" cy="460" rx="140" ry="28" fill="url(#gRecall)" opacity="0.95"/>
+    <ellipse cx="200" cy="360" rx="140" ry="28" fill="none" stroke="#312e81" stroke-width="1"/>
+    <text x="200" y="406" text-anchor="middle" font-size="14" font-weight="bold" fill="white">🗄  Recall Memory</text>
+    <text x="200" y="426" text-anchor="middle" font-size="11" fill="#ede9fe">Full conversation history</text>
+    <text x="200" y="444" text-anchor="middle" font-size="11" fill="#ede9fe">Searchable by keyword / date</text>
+  </g>
+
+  <!-- Archival Memory -->
+  <g>
+    <ellipse cx="560" cy="360" rx="140" ry="28" fill="url(#gArchival)" opacity="0.95" filter="url(#shadow)"/>
+    <rect x="420" y="360" width="280" height="100" fill="url(#gArchival)" opacity="0.95"/>
+    <ellipse cx="560" cy="460" rx="140" ry="28" fill="url(#gArchival)" opacity="0.95"/>
+    <ellipse cx="560" cy="360" rx="140" ry="28" fill="none" stroke="#312e81" stroke-width="1"/>
+    <text x="560" y="406" text-anchor="middle" font-size="14" font-weight="bold" fill="white">📚  Archival Memory</text>
+    <text x="560" y="426" text-anchor="middle" font-size="11" fill="#e9e3ff">Long-term facts + documents</text>
+    <text x="560" y="444" text-anchor="middle" font-size="11" fill="#e9e3ff">Vector search or keyword</text>
+  </g>
+
+  <!-- Agent Loop panel -->
+  <rect x="780" y="320" width="580" height="310" rx="14" fill="url(#gLoop)" opacity="0.12" filter="url(#shadow)"/>
+  <rect x="780" y="320" width="580" height="38" rx="14" fill="url(#gLoop)" opacity="0.95"/>
+  <text x="1070" y="345" text-anchor="middle" font-size="14" font-weight="bold" fill="white">🔄  Agent Loop</text>
+
+  <!-- Inner Monologue -->
+  <g><rect x="810" y="380" width="240" height="60" rx="12" fill="url(#gLoop)" opacity="0.92" filter="url(#soft)"/><text x="930" y="405" text-anchor="middle" font-size="13" font-weight="bold" fill="white">💭  Inner Monologue</text><text x="930" y="425" text-anchor="middle" font-size="11" fill="#fff7ed">private thinking (not shown to user)</text></g>
+
+  <!-- Function Calls -->
+  <g><rect x="810" y="460" width="240" height="110" rx="12" fill="url(#gFC)" opacity="0.92" filter="url(#soft)"/><text x="930" y="483" text-anchor="middle" font-size="13" font-weight="bold" fill="white">🔧  Function Calls</text><text x="930" y="505" text-anchor="middle" font-size="10" font-family="monospace" fill="#fecaca">core_memory_replace</text><text x="930" y="522" text-anchor="middle" font-size="10" font-family="monospace" fill="#fecaca">core_memory_append</text><text x="930" y="539" text-anchor="middle" font-size="10" font-family="monospace" fill="#fecaca">recall_memory_search</text><text x="930" y="556" text-anchor="middle" font-size="10" font-family="monospace" fill="#fecaca">archival_memory_insert/search</text></g>
+
+  <!-- Heartbeat -->
+  <g><rect x="1090" y="380" width="240" height="60" rx="12" fill="url(#gHB)" opacity="0.92" filter="url(#soft)"/><text x="1210" y="405" text-anchor="middle" font-size="13" font-weight="bold" fill="white">💓  Heartbeat</text><text x="1210" y="425" text-anchor="middle" font-size="11" fill="#e0f2fe">request_heartbeat=true</text></g>
+
+  <!-- Response -->
+  <g><rect x="1090" y="460" width="240" height="60" rx="12" fill="white" stroke="#2563eb" stroke-width="2" filter="url(#soft)"/><text x="1210" y="488" text-anchor="middle" font-size="14" font-weight="bold" fill="#1e40af">↪  User Response</text><text x="1210" y="506" text-anchor="middle" font-size="11" fill="#6b7280">visible output</text></g>
+
+  <!-- Agent Loop internal arrows -->
+  <line x1="930" y1="440" x2="930" y2="458" stroke="#dc2626" stroke-width="2.5" marker-end="url(#arrFC)"/>
+  <path d="M 1050 415 L 1088 415" stroke="#2563eb" stroke-width="2.5" marker-end="url(#arrMain)"/>
+  <!-- Heartbeat -> Inner Monologue (loop back) -->
+  <path d="M 1210 440 Q 1340 450 1340 370 Q 1340 360 1050 390" stroke="#0284c7" stroke-width="2" stroke-dasharray="6,4" fill="none" marker-end="url(#arrHB)"/>
+  <rect x="1268" y="348" width="90" height="18" rx="6" fill="white" stroke="#0284c7"/><text x="1313" y="361" text-anchor="middle" font-size="10" font-weight="bold" fill="#0369a1">another turn</text>
+
+  <!-- Inner Monologue -> Response -->
+  <path d="M 1050 420 Q 1070 440 1130 470" stroke="#2563eb" stroke-width="2" stroke-dasharray="6,4" fill="none" marker-end="url(#arrMain)"/>
+
+  <!-- Function Calls -> Core Memory -->
+  <path d="M 810 510 Q 750 420 740 295" stroke="#dc2626" stroke-width="2.5" fill="none" marker-end="url(#arrFC)"/>
+  <rect x="750" y="400" width="60" height="18" rx="6" fill="white" stroke="#dc2626"/><text x="780" y="413" text-anchor="middle" font-size="10" font-weight="bold" fill="#991b1b">r / w</text>
+
+  <!-- Function Calls -> Recall Memory -->
+  <path d="M 810 540 Q 500 550 280 470" stroke="#7c3aed" stroke-width="2" fill="none" marker-end="url(#arrStore)"/>
+  <rect x="490" y="540" width="60" height="18" rx="6" fill="white" stroke="#7c3aed"/><text x="520" y="553" text-anchor="middle" font-size="10" font-weight="bold" fill="#5b21b6">search</text>
+
+  <!-- Function Calls -> Archival Memory -->
+  <path d="M 810 530 Q 660 510 620 470" stroke="#7c3aed" stroke-width="2" fill="none" marker-end="url(#arrStore)"/>
+  <rect x="670" y="502" width="90" height="18" rx="6" fill="white" stroke="#7c3aed"/><text x="715" y="515" text-anchor="middle" font-size="10" font-weight="bold" fill="#5b21b6">insert / search</text>
+
+  <!-- Legend -->
+  <g>
+    <line x1="40" y1="660" x2="70" y2="660" stroke="#059669" stroke-width="2.5" marker-end="url(#arrCore)"/><text x="80" y="664" font-size="11" fill="#374151">core memory injection</text>
+    <line x1="280" y1="660" x2="310" y2="660" stroke="#dc2626" stroke-width="2.5" marker-end="url(#arrFC)"/><text x="320" y="664" font-size="11" fill="#374151">function call (read/write)</text>
+    <line x1="530" y1="660" x2="560" y2="660" stroke="#7c3aed" stroke-width="2" marker-end="url(#arrStore)"/><text x="570" y="664" font-size="11" fill="#374151">external memory access</text>
+    <line x1="770" y1="660" x2="800" y2="660" stroke="#0284c7" stroke-width="2" stroke-dasharray="6,4" marker-end="url(#arrHB)"/><text x="810" y="664" font-size="11" fill="#374151">heartbeat (request more steps)</text>
+  </g>
+
+  <text x="700" y="700" text-anchor="middle" font-size="12" fill="#64748b" font-style="italic">Core memory edits survive across sessions. The agent self-manages what it remembers by calling memory functions in its inner loop.</text>
+</svg>

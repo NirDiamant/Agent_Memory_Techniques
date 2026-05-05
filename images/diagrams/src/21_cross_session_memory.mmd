@@ -1,0 +1,29 @@
+flowchart LR
+    subgraph "Session End"
+        AS[Agent State] --> SER[Serializer<br/>JSON / pickle]
+    end
+
+    SER --> SB[(Storage Backend<br/>Redis / SQLite / S3)]
+
+    subgraph "New Session"
+        REQ[Incoming Request] --> UID[User<br/>Identifier]
+        UID -->|user_id| ML[Memory<br/>Loader]
+        SB -->|stored state| ML
+        ML --> LS{Loading<br/>Strategy}
+        LS -->|full| CTX1[Full History]
+        LS -->|partial| CTX2[Last-N Turns]
+        LS -->|summary| CTX3[Summary Only]
+        CTX1 --> AC[Agent Context]
+        CTX2 --> AC
+        CTX3 --> AC
+    end
+
+    subgraph "Cold Start"
+        UID -->|no prior state| CS[Cold Start<br/>Handler]
+        CS -->|defaults +<br/>onboarding| AC
+    end
+
+    style SB fill:#4a9eff,color:#fff
+    style UID fill:#845ef7,color:#fff
+    style LS fill:#ffa94d,color:#fff
+    style CS fill:#ff6b6b,color:#fff

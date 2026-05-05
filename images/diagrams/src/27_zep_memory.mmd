@@ -1,0 +1,42 @@
+flowchart TD
+    subgraph App["Agent Application"]
+        A["User Messages"] --> B["Zep SDK\n(add_message)"]
+        K["Zep SDK\n(search_memory)"] --> L["Agent Context\nWindow"]
+    end
+
+    subgraph ZepService["Zep Service"]
+        B --> C["Message Store"]
+        C --> D["Background Pipelines"]
+
+        subgraph Pipelines["Async Processing"]
+            D --> E["Dialog\nClassifier"]
+            D --> F["Entity\nExtractor"]
+            D --> G["Fact\nExtractor"]
+            D --> H["Knowledge Graph\nBuilder (Graphiti)"]
+        end
+
+        subgraph Storage["Zep Storage"]
+            I[("Messages +\nFacts +\nEntities +\nGraph")]
+        end
+
+        E --> I
+        F --> I
+        G --> I
+        H --> I
+
+        subgraph Search["Search API"]
+            J["Semantic Search\n+ Graph Traversal\n+ Temporal Filter"]
+        end
+
+        I --> J
+    end
+
+    J --> K
+
+    style I fill:#4f46e5,color:#fff
+    style E fill:#059669,color:#fff
+    style F fill:#059669,color:#fff
+    style G fill:#059669,color:#fff
+    style H fill:#8b5cf6,color:#fff
+    style J fill:#d97706,color:#fff
+    style L fill:#6366f1,color:#fff

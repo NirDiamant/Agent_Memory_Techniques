@@ -1,0 +1,24 @@
+flowchart TD
+    subgraph Memory Store
+        M1["Memory A<br/>strength: 0.92"]
+        M2["Memory B<br/>strength: 0.45"]
+        M3["Memory C<br/>strength: 0.08"]
+    end
+
+    DE[Decay Engine<br/>exponential / linear] -->|reduces strength| M1
+    DE -->|reduces strength| M2
+    DE -->|reduces strength| M3
+
+    RET[Retrieval] -->|reinforcement<br/>boost strength| M1
+    RET -->|reinforcement<br/>boost strength| M2
+
+    M3 -->|below threshold| PE[Pruning Engine]
+    PE -->|soft delete| AR[(Archive)]
+    PE -->|hard delete| DEL[Deleted]
+
+    SP[Storage Pressure<br/>Monitor] -->|adjusts threshold| PE
+
+    style DE fill:#ff6b6b,color:#fff
+    style RET fill:#51cf66,color:#fff
+    style PE fill:#ffa94d,color:#fff
+    style SP fill:#845ef7,color:#fff

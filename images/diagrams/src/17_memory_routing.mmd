@@ -1,0 +1,26 @@
+flowchart TB
+    Agent["Agent"] --> Router["Memory Router\n(Classifier)"]
+
+    subgraph Write Path
+        Router -->|"Episodic"| ES["Episodic Store\n(Conversations,\nevents)"]
+        Router -->|"Semantic"| SS["Semantic Store\n(Facts, knowledge)"]
+        Router -->|"Procedural"| PS["Procedural Store\n(Skills, workflows)"]
+    end
+
+    subgraph Read Path
+        Router -->|"Query"| ES
+        Router -->|"Query"| SS
+        Router -->|"Query"| PS
+        ES --> MR["Merge &\nRe-rank"]
+        SS --> MR
+        PS --> MR
+        MR --> Agent
+    end
+
+    REG["Store Registry\n(capabilities, schemas)"] -.-> Router
+
+    style Router fill:#2d4a7a,stroke:#49a,color:#fff
+    style ES fill:#2d5a2d,stroke:#4a9,color:#fff
+    style SS fill:#5a5a2d,stroke:#aa4,color:#fff
+    style PS fill:#5a2d5a,stroke:#a4a,color:#fff
+    style MR fill:#4a3a2d,stroke:#a84,color:#fff

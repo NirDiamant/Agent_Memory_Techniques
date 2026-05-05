@@ -1,0 +1,15 @@
+repos:
+  - repo: local
+    hooks:
+      - id: validate-cells
+        name: validate notebook cell structure
+        entry: python utils/validate_cells.py
+        language: system
+        pass_filenames: false
+        files: \.ipynb$
+      - id: validate-style
+        name: validate prose style (no em/en dashes, no banned words)
+        entry: python utils/validate_style.py
+        language: system
+        pass_filenames: false
+        files: \.(md|ipynb)$

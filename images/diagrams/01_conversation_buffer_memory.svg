@@ -1,0 +1,133 @@
+<svg viewBox="0 0 1200 820" xmlns="http://www.w3.org/2000/svg" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <linearGradient id="gUser" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1"/>
+    </linearGradient>
+    <linearGradient id="gBuf" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2196F3;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#21CBF3;stop-opacity:1"/>
+    </linearGradient>
+    <linearGradient id="gLLM" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f093fb;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#f5576c;stop-opacity:1"/>
+    </linearGradient>
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="1.5" dy="2" stdDeviation="2.5" flood-color="#000" flood-opacity="0.18"/>
+    </filter>
+    <filter id="soft" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="1" dy="1.5" stdDeviation="1.5" flood-color="#000" flood-opacity="0.12"/>
+    </filter>
+    <marker id="arrBlue" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 L3,5 Z" fill="#2563eb"/>
+    </marker>
+    <marker id="arrPink" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 L3,5 Z" fill="#d946ef"/>
+    </marker>
+    <marker id="arrSelf" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto">
+      <path d="M0,0 L9,4.5 L0,9 L3,4.5 Z" fill="#0ea5e9"/>
+    </marker>
+  </defs>
+
+  <rect width="1200" height="820" fill="#f8f9fa"/>
+
+  <text x="600" y="38" text-anchor="middle" font-size="24" font-weight="bold" fill="#1f2937">Conversation Buffer Memory</text>
+  <text x="600" y="62" text-anchor="middle" font-size="13" fill="#6b7280">Every turn is appended to the buffer and the full history is re-sent to the LLM on every call.</text>
+
+  <!-- actor headers -->
+  <g>
+    <rect x="120" y="90" width="180" height="62" rx="14" fill="url(#gUser)" opacity="0.92" filter="url(#shadow)"/>
+    <text x="210" y="120" text-anchor="middle" font-size="15" font-weight="bold" fill="white">👤  User</text>
+    <text x="210" y="140" text-anchor="middle" font-size="12" fill="#e9e3ff">Alice</text>
+  </g>
+  <g>
+    <rect x="510" y="90" width="180" height="62" rx="14" fill="url(#gBuf)" opacity="0.92" filter="url(#shadow)"/>
+    <text x="600" y="120" text-anchor="middle" font-size="15" font-weight="bold" fill="white">🧠  Buffer Memory</text>
+    <text x="600" y="140" text-anchor="middle" font-size="12" fill="#dff5ff">messages: list[dict]</text>
+  </g>
+  <g>
+    <rect x="900" y="90" width="180" height="62" rx="14" fill="url(#gLLM)" opacity="0.92" filter="url(#shadow)"/>
+    <text x="990" y="120" text-anchor="middle" font-size="15" font-weight="bold" fill="white">✨  LLM</text>
+    <text x="990" y="140" text-anchor="middle" font-size="12" fill="#ffe4f1">Claude</text>
+  </g>
+
+  <!-- lifelines -->
+  <line x1="210" y1="152" x2="210" y2="720" stroke="#cbd5e1" stroke-width="2" stroke-dasharray="4,4"/>
+  <line x1="600" y1="152" x2="600" y2="720" stroke="#cbd5e1" stroke-width="2" stroke-dasharray="4,4"/>
+  <line x1="990" y1="152" x2="990" y2="720" stroke="#cbd5e1" stroke-width="2" stroke-dasharray="4,4"/>
+
+  <!-- Turn 1 band -->
+  <rect x="80" y="172" width="1040" height="230" rx="10" fill="#eef2ff" opacity="0.55"/>
+  <text x="100" y="194" font-size="12" font-weight="bold" fill="#4f46e5" letter-spacing="1.5">TURN 1</text>
+
+  <!-- 1: User -> Buffer -->
+  <line x1="212" y1="220" x2="598" y2="220" stroke="#2563eb" stroke-width="2.5" marker-end="url(#arrBlue)"/>
+  <rect x="280" y="200" width="250" height="24" rx="6" fill="white" filter="url(#soft)"/>
+  <text x="405" y="217" text-anchor="middle" font-size="12" fill="#1f2937">"Hi, I'm Alice"</text>
+
+  <!-- 2: Buffer self-append -->
+  <path d="M 612 244 C 675 244 675 268 612 268" fill="none" stroke="#0ea5e9" stroke-width="2" marker-end="url(#arrSelf)"/>
+  <rect x="660" y="240" width="290" height="24" rx="6" fill="white" filter="url(#soft)"/>
+  <text x="805" y="257" text-anchor="middle" font-size="11" fill="#1f2937">append {role: "user", content: "Hi, I'm Alice"}</text>
+
+  <!-- 3: Buffer -> LLM -->
+  <line x1="602" y1="300" x2="988" y2="300" stroke="#2563eb" stroke-width="2.5" marker-end="url(#arrBlue)"/>
+  <rect x="720" y="280" width="150" height="24" rx="6" fill="white" filter="url(#soft)"/>
+  <text x="795" y="297" text-anchor="middle" font-size="12" font-weight="bold" fill="#1f2937">[msg1]</text>
+
+  <!-- 4: LLM -> Buffer (dashed response) -->
+  <line x1="988" y1="340" x2="602" y2="340" stroke="#d946ef" stroke-width="2.5" stroke-dasharray="7,4" marker-end="url(#arrPink)"/>
+  <rect x="640" y="320" width="310" height="24" rx="6" fill="white" filter="url(#soft)"/>
+  <text x="795" y="337" text-anchor="middle" font-size="12" fill="#1f2937">"Hello Alice! How can I help?"</text>
+
+  <!-- 5: Buffer self-append assistant -->
+  <path d="M 612 364 C 675 364 675 388 612 388" fill="none" stroke="#0ea5e9" stroke-width="2" marker-end="url(#arrSelf)"/>
+  <rect x="660" y="360" width="300" height="24" rx="6" fill="white" filter="url(#soft)"/>
+  <text x="810" y="377" text-anchor="middle" font-size="11" fill="#1f2937">append {role: "assistant", content: "..."}</text>
+
+  <!-- Turn 2 band -->
+  <rect x="80" y="420" width="1040" height="230" rx="10" fill="#fdf2f8" opacity="0.55"/>
+  <text x="100" y="442" font-size="12" font-weight="bold" fill="#be185d" letter-spacing="1.5">TURN 2</text>
+
+  <!-- 1: User -> Buffer -->
+  <line x1="212" y1="468" x2="598" y2="468" stroke="#2563eb" stroke-width="2.5" marker-end="url(#arrBlue)"/>
+  <rect x="300" y="448" width="210" height="24" rx="6" fill="white" filter="url(#soft)"/>
+  <text x="405" y="465" text-anchor="middle" font-size="12" fill="#1f2937">"What's my name?"</text>
+
+  <!-- 2: Buffer self-append -->
+  <path d="M 612 492 C 675 492 675 516 612 516" fill="none" stroke="#0ea5e9" stroke-width="2" marker-end="url(#arrSelf)"/>
+  <rect x="660" y="488" width="290" height="24" rx="6" fill="white" filter="url(#soft)"/>
+  <text x="805" y="505" text-anchor="middle" font-size="11" fill="#1f2937">append {role: "user", content: "What's my name?"}</text>
+
+  <!-- 3: Buffer -> LLM with growing history -->
+  <line x1="602" y1="548" x2="988" y2="548" stroke="#2563eb" stroke-width="2.5" marker-end="url(#arrBlue)"/>
+  <rect x="680" y="528" width="230" height="24" rx="6" fill="white" filter="url(#soft)"/>
+  <text x="795" y="545" text-anchor="middle" font-size="12" font-weight="bold" fill="#1f2937">[msg1, msg2, msg3]</text>
+
+  <!-- 4: LLM -> Buffer -->
+  <line x1="988" y1="588" x2="602" y2="588" stroke="#d946ef" stroke-width="2.5" stroke-dasharray="7,4" marker-end="url(#arrPink)"/>
+  <rect x="680" y="568" width="230" height="24" rx="6" fill="white" filter="url(#soft)"/>
+  <text x="795" y="585" text-anchor="middle" font-size="12" fill="#1f2937">"Your name is Alice."</text>
+
+  <!-- 5: Buffer self-append assistant -->
+  <path d="M 612 612 C 675 612 675 636 612 636" fill="none" stroke="#0ea5e9" stroke-width="2" marker-end="url(#arrSelf)"/>
+  <rect x="660" y="608" width="310" height="24" rx="6" fill="white" filter="url(#soft)"/>
+  <text x="815" y="625" text-anchor="middle" font-size="11" fill="#1f2937">append {role: "assistant", content: "..."}</text>
+
+  <!-- callout note -->
+  <g>
+    <rect x="270" y="686" width="660" height="58" rx="10" fill="#fffbeb" stroke="#fbbf24" stroke-width="1.5" filter="url(#soft)"/>
+    <text x="600" y="708" text-anchor="middle" font-size="13" font-weight="bold" fill="#92400e">⚠  The buffer grows with every turn.</text>
+    <text x="600" y="728" text-anchor="middle" font-size="12" fill="#78350f">All prior messages are re-sent on every LLM call. Token cost scales linearly with conversation length.</text>
+  </g>
+
+  <!-- legend -->
+  <g>
+    <line x1="80" y1="780" x2="110" y2="780" stroke="#2563eb" stroke-width="2.5" marker-end="url(#arrBlue)"/>
+    <text x="120" y="784" font-size="11" fill="#374151">request</text>
+    <line x1="200" y1="780" x2="230" y2="780" stroke="#d946ef" stroke-width="2.5" stroke-dasharray="7,4" marker-end="url(#arrPink)"/>
+    <text x="240" y="784" font-size="11" fill="#374151">response</text>
+    <path d="M 320 780 C 335 780 335 792 320 792" fill="none" stroke="#0ea5e9" stroke-width="2" marker-end="url(#arrSelf)"/>
+    <text x="350" y="784" font-size="11" fill="#374151">local append (no API call)</text>
+  </g>
+</svg>

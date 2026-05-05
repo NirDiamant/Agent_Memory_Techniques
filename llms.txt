@@ -1,0 +1,68 @@
+# Agent Memory Techniques
+
+> A hands-on cookbook for agent memory in Large Language Model (LLM) applications. 30 runnable Jupyter notebooks covering every major memory pattern: short-term conversation buffers, long-term storage, cognitive architectures, retrieval patterns, frameworks (Mem0, Letta/MemGPT, Zep, Graphiti), and production deployment. Each notebook is paired with a sub-README that explains the technique, when to use it, its limitations, and a per-technique architecture diagram. The repository is licensed Apache 2.0.
+
+## Core Documents
+
+- [README](https://github.com/NirDiamant/Agent_Memory_Techniques/blob/main/README.md): Project overview, decision tree, learning paths, full technique index, and quick start.
+- [CONTENT_STANDARDS](https://github.com/NirDiamant/Agent_Memory_Techniques/blob/main/CONTENT_STANDARDS.md): Writing-style rules enforced across the repository (short sentences, active voice, banned marketing words, analogy-first teaching).
+- [CONTRIBUTING](https://github.com/NirDiamant/Agent_Memory_Techniques/blob/main/CONTRIBUTING.md): How to add a technique, the pre-PR checklist, and the helper module reference.
+- [ROADMAP](https://github.com/NirDiamant/Agent_Memory_Techniques/blob/main/ROADMAP.md): Current state and upcoming work.
+- [Glossary](https://github.com/NirDiamant/Agent_Memory_Techniques/blob/main/docs/glossary.md): Definitions for every technical term used across the techniques.
+- [Learning Paths](https://github.com/NirDiamant/Agent_Memory_Techniques/blob/main/docs/learning_path.md): Four progressive paths (Beginner, Intermediate, Advanced, Practitioner) through the 30 techniques.
+- [Architecture Overview](https://github.com/NirDiamant/Agent_Memory_Techniques/blob/main/docs/architecture.md): How the techniques compose into larger systems.
+
+## Short-Term Memory Techniques (01-05)
+
+- [01 Conversation Buffer Memory](https://github.com/NirDiamant/Agent_Memory_Techniques/tree/main/all_techniques/01_conversation_buffer_memory): Save the entire conversation verbatim. Simplest pattern, baseline for all others. Token cost grows linearly with conversation length.
+- [02 Sliding Window Memory](https://github.com/NirDiamant/Agent_Memory_Techniques/tree/main/all_techniques/02_sliding_window_memory): Keep only the last k messages. Fixed-size window, constant cost, but older facts fall off the edge.
+- [03 Summary Memory](https://github.com/NirDiamant/Agent_Memory_Techniques/tree/main/all_techniques/03_summary_memory): Replace old turns with an LLM-generated summary. Trades fidelity for compression.
+- [04 Summary Buffer Memory](https://github.com/NirDiamant/Agent_Memory_Techniques/tree/main/all_techniques/04_summary_buffer_memory): Hybrid. Summarize older turns, keep recent messages verbatim. Best of both.
+- [05 Token Buffer Memory](https://github.com/NirDiamant/Agent_Memory_Techniques/tree/main/all_techniques/05_token_buffer_memory): Trim to a strict token budget. Drop oldest messages first.
+
+## Long-Term Memory Techniques (06-11)
+
+- [06 Vector Store Memory](https://github.com/NirDiamant/Agent_Memory_Techniques/tree/main/all_techniques/06_vector_store_memory): Embed past turns and retrieve by semantic similarity. Foundation for RAG-style memory.
+- [07 Entity Memory](https://github.com/NirDiamant/Agent_Memory_Techniques/tree/main/all_techniques/07_entity_memory): Extract named entities and store one structured record per entity, looked up by name.
+- [08 Knowledge Graph Memory](https://github.com/NirDiamant/Agent_Memory_Techniques/tree/main/all_techniques/08_knowledge_graph_memory): Build a graph of (subject, predicate, object) triples. Answers multi-hop questions.
+- [09 Episodic Memory](https://github.com/NirDiamant/Agent_Memory_Techniques/tree/main/all_techniques/09_episodic_memory): Group related turns into episodes. Index by time and topic.
+- [10 Semantic Memory](https://github.com/NirDiamant/Agent_Memory_Techniques/tree/main/all_techniques/10_semantic_memory): Extract standalone facts. Deduplicate, resolve conflicts, retrieve by similarity.
+- [11 Procedural Memory](https://github.com/NirDiamant/Agent_Memory_Techniques/tree/main/all_techniques/11_procedural_memory): Learn reusable procedures from successful task runs. Retrieve and adapt for new tasks.
+
+## Cognitive Architecture Techniques (12-19)
+
+- [12 Working Memory and Context Window Management](https://github.com/NirDiamant/Agent_Memory_Techniques/tree/main/all_techniques/12_working_memory_context_window): Score every incoming item, keep important ones pinned, page the rest in and out.
+- [13 Hierarchical Memory Layers](https://github.com/NirDiamant/Agent_Memory_Techniques/tree/main/all_techniques/13_hierarchical_memory_layers): CPU-cache-style hierarchy (context window, vector DB, archive) with promote/demote.
+- [14 Memory Consolidation](https://github.com/NirDiamant/Agent_Memory_Techniques/tree/main/all_techniques/14_memory_consolidation): Cluster related memories, merge duplicates, resolve conflicts, score importance.
+- [15 Memory Compaction](https://github.com/NirDiamant/Agent_Memory_Techniques/tree/main/all_techniques/15_memory_compaction): Progressively compress old memory (raw -> key points -> one-liner -> tags). Retrieve at the right level of detail.
+- [16 Self-Reflection Memory](https://github.com/NirDiamant/Agent_Memory_Techniques/tree/main/all_techniques/16_self_reflection_memory): After each task, ask the agent what worked. Store the insight. Retrieve next time.
+- [17 Memory Routing](https://github.com/NirDiamant/Agent_Memory_Techniques/tree/main/all_techniques/17_memory_routing): Classifier directs reads/writes to the right memory store (episodic, semantic, procedural).
+- [18 Temporal Memory](https://github.com/NirDiamant/Agent_Memory_Techniques/tree/main/all_techniques/18_temporal_memory): Time-range filter plus blended semantic-and-temporal scoring. Build event timelines.
+- [19 Forgetting and Decay](https://github.com/NirDiamant/Agent_Memory_Techniques/tree/main/all_techniques/19_forgetting_and_decay): Memories have strength scores that decay. Retrieval reinforces. Pruning archives or deletes weak ones.
+
+## Retrieval and Multi-Agent Techniques (20-23)
+
+- [20 Memory Retrieval Patterns](https://github.com/NirDiamant/Agent_Memory_Techniques/tree/main/all_techniques/20_memory_retrieval_patterns): Hybrid retrieval. HyDE, BM25, score fusion, metadata filters, re-ranker, MMR diversity.
+- [21 Cross-Session Memory](https://github.com/NirDiamant/Agent_Memory_Techniques/tree/main/all_techniques/21_cross_session_memory): Memory that survives across independent sessions, scoped per user.
+- [22 Multi-Agent Shared Memory](https://github.com/NirDiamant/Agent_Memory_Techniques/tree/main/all_techniques/22_multi_agent_shared_memory): Multiple agents share a common memory pool with read/write permissions.
+- [23 Memory with Tools](https://github.com/NirDiamant/Agent_Memory_Techniques/tree/main/all_techniques/23_memory_with_tools): Memory exposed as tools the agent calls explicitly (write, search, update, delete).
+
+## Frameworks and Platforms (24-27)
+
+- [24 Graph Memory with Graphiti](https://github.com/NirDiamant/Agent_Memory_Techniques/tree/main/all_techniques/24_graph_memory_graphiti): Temporal knowledge graph for agents using Neo4j. Episodic ingestion, entity resolution, temporal edges.
+- [25 Mem0 Patterns](https://github.com/NirDiamant/Agent_Memory_Techniques/tree/main/all_techniques/25_mem0_patterns): Managed memory layer for personalized AI agents.
+- [26 Letta and MemGPT Patterns](https://github.com/NirDiamant/Agent_Memory_Techniques/tree/main/all_techniques/26_letta_memgpt_patterns): Self-editing memory with inner/outer monologue. Three-tier memory (core, recall, archival).
+- [27 Zep Memory](https://github.com/NirDiamant/Agent_Memory_Techniques/tree/main/all_techniques/27_zep_memory): Temporal knowledge graphs for long-term agent memory.
+
+## Evaluation and Production (28-30)
+
+- [28 Memory Evaluation](https://github.com/NirDiamant/Agent_Memory_Techniques/tree/main/all_techniques/28_memory_evaluation): How to measure memory quality. Retrieval precision, recall, staleness, noise.
+- [29 Memory Benchmarks](https://github.com/NirDiamant/Agent_Memory_Techniques/tree/main/all_techniques/29_memory_benchmarks_LoCoMo): LoCoMo and LongMemEval. Long-conversation benchmarks for memory systems.
+- [30 Production Memory Patterns](https://github.com/NirDiamant/Agent_Memory_Techniques/tree/main/all_techniques/30_production_memory_patterns): Tiered hot/warm/cold storage, PII scanning, observability, cost guardrails.
+
+## Optional
+
+- [Decision Tree](https://github.com/NirDiamant/Agent_Memory_Techniques/blob/main/images/decision_tree.svg): Visual picker that maps user goals to specific techniques.
+- [FAQ](https://github.com/NirDiamant/Agent_Memory_Techniques/blob/main/FAQ.md): Frequently asked questions about agent memory and how the techniques relate.
+- [Helpers Module](https://github.com/NirDiamant/Agent_Memory_Techniques/blob/main/utils/helpers.py): Shared boilerplate for new notebooks (env loading, LLM clients, token counting, cosine similarity).
+- [Validators](https://github.com/NirDiamant/Agent_Memory_Techniques/tree/main/utils): Cell-structure and prose-style validators that enforce the writing standards in CONTENT_STANDARDS.md.

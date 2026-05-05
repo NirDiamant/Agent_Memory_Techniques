@@ -1,0 +1,29 @@
+flowchart LR
+    subgraph Attempt["Task Attempt"]
+        A["Task prompt"] --> B["Retrieve relevant\npast reflections"]
+        B --> C["Agent executes\ntask (with reflections\nin context)"]
+        C --> D["Output"]
+    end
+
+    subgraph Evaluate["Outcome Evaluation"]
+        D --> E["Compare output\nvs. expected"]
+        E --> F{"Success?"}
+    end
+
+    subgraph Reflect["Reflection Loop"]
+        F -->|"fail / partial"| G["Reflection prompt:\nWhat went wrong?\nRoot cause?\nLesson learned?"]
+        F -->|"success"| H["Reflection prompt:\nWhat worked well?\nKey strategy?"]
+        G --> I["Generate structured\nreflection"]
+        H --> I
+        I --> J["Extract concise\ninsight"]
+    end
+
+    subgraph Store["Reflection Memory"]
+        J --> K[("Reflection Store\n─────────────\ntask_type\noutcome\ninsight\ntimestamp")]
+        K --> B
+    end
+
+    style K fill:#4f46e5,color:#fff
+    style C fill:#059669,color:#fff
+    style I fill:#d97706,color:#fff
+    style F fill:#dc2626,color:#fff

@@ -1,0 +1,89 @@
+<svg viewBox="0 0 1400 640" xmlns="http://www.w3.org/2000/svg" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <linearGradient id="gIS" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#667eea"/><stop offset="100%" style="stop-color:#764ba2"/></linearGradient>
+    <linearGradient id="gSS" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#FFB75E"/><stop offset="100%" style="stop-color:#ED8F03"/></linearGradient>
+    <linearGradient id="gPQ" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#4facfe"/><stop offset="100%" style="stop-color:#00f2fe"/></linearGradient>
+    <linearGradient id="gPin" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#11998e"/><stop offset="100%" style="stop-color:#38ef7d"/></linearGradient>
+    <linearGradient id="gDyn" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#2196F3"/><stop offset="100%" style="stop-color:#21CBF3"/></linearGradient>
+    <linearGradient id="gEE" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#ef4444"/><stop offset="100%" style="stop-color:#f97316"/></linearGradient>
+    <linearGradient id="gEMS" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#4f46e5"/><stop offset="100%" style="stop-color:#7c3aed"/></linearGradient>
+    <linearGradient id="gLLM" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#f093fb"/><stop offset="100%" style="stop-color:#f5576c"/></linearGradient>
+    <filter id="shadow"><feDropShadow dx="1.5" dy="2" stdDeviation="2.5" flood-color="#000" flood-opacity="0.18"/></filter>
+    <filter id="soft"><feDropShadow dx="1" dy="1.5" stdDeviation="1.5" flood-color="#000" flood-opacity="0.12"/></filter>
+    <marker id="arrMain" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 L3,5 Z" fill="#2563eb"/></marker>
+    <marker id="arrEv" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 L3,5 Z" fill="#dc2626"/></marker>
+    <marker id="arrFB" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 L3,5 Z" fill="#7c3aed"/></marker>
+  </defs>
+
+  <rect width="1400" height="640" fill="#f8f9fa"/>
+  <text x="700" y="38" text-anchor="middle" font-size="24" font-weight="bold" fill="#1f2937">Working Memory &amp; Context Window Management</text>
+  <text x="700" y="62" text-anchor="middle" font-size="13" fill="#6b7280">Score every incoming item. Keep the important ones pinned. Page everything else in and out on demand.</text>
+
+  <!-- Left column: Sources -->
+  <g><rect x="40" y="150" width="210" height="260" rx="14" fill="url(#gIS)" opacity="0.18" filter="url(#shadow)"/><rect x="40" y="150" width="210" height="40" rx="14" fill="url(#gIS)" opacity="0.95"/><text x="145" y="176" text-anchor="middle" font-size="14" font-weight="bold" fill="white">📥  Info Sources</text>
+    <rect x="60" y="210" width="170" height="42" rx="8" fill="white" filter="url(#soft)"/><text x="145" y="235" text-anchor="middle" font-size="12" fill="#1f2937">👤  User turns</text>
+    <rect x="60" y="262" width="170" height="42" rx="8" fill="white" filter="url(#soft)"/><text x="145" y="287" text-anchor="middle" font-size="12" fill="#1f2937">🔧  Tool results</text>
+    <rect x="60" y="314" width="170" height="42" rx="8" fill="white" filter="url(#soft)"/><text x="145" y="339" text-anchor="middle" font-size="12" fill="#1f2937">🗃  Memory recalls</text>
+    <rect x="60" y="366" width="170" height="32" rx="8" fill="#eef2ff" stroke="#4f46e5" stroke-dasharray="4,3"/><text x="145" y="386" text-anchor="middle" font-size="11" font-style="italic" fill="#4338ca">+ system prompt</text>
+  </g>
+
+  <!-- Salience scorer -->
+  <g><rect x="290" y="210" width="180" height="130" rx="14" fill="url(#gSS)" opacity="0.92" filter="url(#shadow)"/><text x="380" y="242" text-anchor="middle" font-size="14" font-weight="bold" fill="white">⚖  Salience Scorer</text><text x="380" y="268" text-anchor="middle" font-size="11" fill="#fff7ed">recency</text><text x="380" y="286" text-anchor="middle" font-size="11" fill="#fff7ed">relevance to task</text><text x="380" y="304" text-anchor="middle" font-size="11" fill="#fff7ed">user-pinned flag</text><text x="380" y="324" text-anchor="middle" font-size="11" fill="#fff7ed">access frequency</text></g>
+
+  <!-- Priority queue -->
+  <g><rect x="510" y="210" width="180" height="130" rx="14" fill="url(#gPQ)" opacity="0.18" filter="url(#shadow)"/><rect x="510" y="210" width="180" height="36" rx="14" fill="url(#gPQ)" opacity="0.95"/><text x="600" y="234" text-anchor="middle" font-size="13" font-weight="bold" fill="white">📊  Priority Queue</text>
+    <rect x="525" y="256" width="150" height="18" rx="4" fill="white" stroke="#bae6fd"/><text x="600" y="270" text-anchor="middle" font-size="10" fill="#0c4a6e">item (score: 0.92)</text>
+    <rect x="525" y="278" width="150" height="18" rx="4" fill="white" stroke="#bae6fd"/><text x="600" y="292" text-anchor="middle" font-size="10" fill="#0c4a6e">item (score: 0.78)</text>
+    <rect x="525" y="300" width="150" height="18" rx="4" fill="white" stroke="#bae6fd"/><text x="600" y="314" text-anchor="middle" font-size="10" fill="#0c4a6e">item (score: 0.41)</text>
+    <text x="600" y="330" text-anchor="middle" font-size="10" fill="#64748b" font-style="italic">sorted by salience</text>
+  </g>
+
+  <!-- Context Window (big panel, two zones) -->
+  <g><rect x="730" y="140" width="440" height="260" rx="14" fill="#f1f5f9" stroke="#64748b" stroke-width="2" filter="url(#shadow)"/><text x="950" y="168" text-anchor="middle" font-size="15" font-weight="bold" fill="#1f2937">🪟  Context Window</text>
+    <rect x="750" y="190" width="200" height="190" rx="12" fill="url(#gPin)" opacity="0.18"/>
+    <rect x="750" y="190" width="200" height="34" rx="12" fill="url(#gPin)" opacity="0.95"/>
+    <text x="850" y="212" text-anchor="middle" font-size="12" font-weight="bold" fill="white">📌  Pinned Zone</text>
+    <text x="850" y="248" text-anchor="middle" font-size="11" fill="#1f2937">system prompt</text>
+    <text x="850" y="268" text-anchor="middle" font-size="11" fill="#1f2937">core instructions</text>
+    <text x="850" y="288" text-anchor="middle" font-size="11" fill="#1f2937">agent persona</text>
+    <text x="850" y="320" text-anchor="middle" font-size="10" fill="#4b5563" font-style="italic">never evicted</text>
+
+    <rect x="970" y="190" width="180" height="190" rx="12" fill="url(#gDyn)" opacity="0.18"/>
+    <rect x="970" y="190" width="180" height="34" rx="12" fill="url(#gDyn)" opacity="0.95"/>
+    <text x="1060" y="212" text-anchor="middle" font-size="12" font-weight="bold" fill="white">🌊  Dynamic Zone</text>
+    <text x="1060" y="248" text-anchor="middle" font-size="11" fill="#1f2937">ranked context</text>
+    <text x="1060" y="268" text-anchor="middle" font-size="11" fill="#1f2937">items (top-K)</text>
+    <text x="1060" y="300" text-anchor="middle" font-size="10" fill="#4b5563" font-style="italic">scored, ranked,</text>
+    <text x="1060" y="316" text-anchor="middle" font-size="10" fill="#4b5563" font-style="italic">evicted under pressure</text>
+  </g>
+
+  <!-- LLM -->
+  <g><rect x="1210" y="220" width="160" height="90" rx="14" fill="url(#gLLM)" opacity="0.92" filter="url(#shadow)"/><text x="1290" y="255" text-anchor="middle" font-size="14" font-weight="bold" fill="white">✨  LLM</text><text x="1290" y="278" text-anchor="middle" font-size="11" fill="#ffe4f1">reads full window</text></g>
+
+  <!-- Eviction Engine -->
+  <g><rect x="890" y="430" width="220" height="90" rx="14" fill="url(#gEE)" opacity="0.92" filter="url(#shadow)"/><text x="1000" y="462" text-anchor="middle" font-size="14" font-weight="bold" fill="white">🗑  Eviction Engine</text><text x="1000" y="484" text-anchor="middle" font-size="11" fill="#fff7ed">swap cold items out</text><text x="1000" y="502" text-anchor="middle" font-size="11" fill="#fff7ed">when window is full</text></g>
+
+  <!-- External Memory Store -->
+  <g>
+    <ellipse cx="1290" cy="440" rx="90" ry="20" fill="url(#gEMS)" opacity="0.95"/>
+    <rect x="1200" y="440" width="180" height="90" fill="url(#gEMS)" opacity="0.95"/>
+    <ellipse cx="1290" cy="530" rx="90" ry="20" fill="url(#gEMS)" opacity="0.95"/>
+    <ellipse cx="1290" cy="440" rx="90" ry="20" fill="none" stroke="#312e81" stroke-width="1"/>
+    <text x="1290" y="478" text-anchor="middle" font-size="13" font-weight="bold" fill="white">🗄  External</text>
+    <text x="1290" y="498" text-anchor="middle" font-size="13" font-weight="bold" fill="white">Memory Store</text>
+  </g>
+
+  <!-- arrows -->
+  <line x1="252" y1="280" x2="288" y2="280" stroke="#2563eb" stroke-width="3" marker-end="url(#arrMain)"/>
+  <line x1="472" y1="280" x2="508" y2="280" stroke="#2563eb" stroke-width="3" marker-end="url(#arrMain)"/>
+  <line x1="692" y1="280" x2="728" y2="280" stroke="#2563eb" stroke-width="3" marker-end="url(#arrMain)"/>
+  <line x1="1170" y1="265" x2="1208" y2="265" stroke="#2563eb" stroke-width="3" marker-end="url(#arrMain)"/>
+
+  <!-- Dynamic -> Eviction -->
+  <path d="M 1060 380 Q 1060 420 1000 430" stroke="#dc2626" stroke-width="2.5" fill="none" marker-end="url(#arrEv)"/>
+  <!-- Eviction -> EMS -->
+  <line x1="1110" y1="475" x2="1196" y2="475" stroke="#dc2626" stroke-width="2.5" marker-end="url(#arrEv)"/>
+  <!-- EMS -> Scorer (retrieval on demand, dashed) -->
+  <path d="M 1200 485 Q 800 570 380 345" stroke="#7c3aed" stroke-width="2" stroke-dasharray="6,4" fill="none" marker-end="url(#arrFB)"/>
+  <text x="720" y="580" text-anchor="middle" font-size="12" font-style="italic" fill="#5b21b6">retrieval on demand (re-enters the scorer when needed again)</text>
+</svg>

@@ -1,0 +1,73 @@
+<svg viewBox="0 0 1400 620" xmlns="http://www.w3.org/2000/svg" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <linearGradient id="gInput" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#667eea"/><stop offset="100%" style="stop-color:#764ba2"/></linearGradient>
+    <linearGradient id="gBuf" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#2196F3"/><stop offset="100%" style="stop-color:#21CBF3"/></linearGradient>
+    <linearGradient id="gDec" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#FFB75E"/><stop offset="100%" style="stop-color:#ED8F03"/></linearGradient>
+    <linearGradient id="gSum" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#11998e"/><stop offset="100%" style="stop-color:#38ef7d"/></linearGradient>
+    <linearGradient id="gLLM" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#f093fb"/><stop offset="100%" style="stop-color:#f5576c"/></linearGradient>
+    <filter id="shadow"><feDropShadow dx="1.5" dy="2" stdDeviation="2.5" flood-color="#000" flood-opacity="0.18"/></filter>
+    <filter id="soft"><feDropShadow dx="1" dy="1.5" stdDeviation="1.5" flood-color="#000" flood-opacity="0.12"/></filter>
+    <marker id="arrMain" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 L3,5 Z" fill="#2563eb"/></marker>
+    <marker id="arrYes" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 L3,5 Z" fill="#dc2626"/></marker>
+    <marker id="arrNo" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 L3,5 Z" fill="#059669"/></marker>
+    <marker id="arrFB" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 L3,5 Z" fill="#7c3aed"/></marker>
+  </defs>
+
+  <rect width="1400" height="620" fill="#f8f9fa"/>
+  <text x="700" y="38" text-anchor="middle" font-size="24" font-weight="bold" fill="#1f2937">Summary Buffer Memory</text>
+  <text x="700" y="62" text-anchor="middle" font-size="13" fill="#6b7280">Recent turns stay verbatim. Older turns get summarized and carried forward as a running summary.</text>
+
+  <!-- Nodes -->
+  <g><rect x="40" y="250" width="170" height="80" rx="14" fill="url(#gInput)" opacity="0.92" filter="url(#shadow)"/><text x="125" y="282" text-anchor="middle" font-size="15" font-weight="bold" fill="white">👤  User Message</text><text x="125" y="306" text-anchor="middle" font-size="11" fill="#e9e3ff">incoming turn</text></g>
+
+  <g><rect x="260" y="230" width="190" height="120" rx="14" fill="url(#gBuf)" opacity="0.18" filter="url(#shadow)"/><rect x="260" y="230" width="190" height="40" rx="14" fill="url(#gBuf)"/><text x="355" y="258" text-anchor="middle" font-size="15" font-weight="bold" fill="white">📥  Buffer</text><text x="355" y="295" text-anchor="middle" font-size="12" fill="#1f2937">last K messages</text><text x="355" y="316" text-anchor="middle" font-size="11" fill="#4b5563">(kept verbatim)</text></g>
+
+  <g><polygon points="550,290 650,250 750,290 650,330" fill="url(#gDec)" opacity="0.92" filter="url(#shadow)"/><text x="650" y="285" text-anchor="middle" font-size="13" font-weight="bold" fill="white">Buffer exceeds</text><text x="650" y="302" text-anchor="middle" font-size="13" font-weight="bold" fill="white">threshold?</text></g>
+
+  <g><rect x="830" y="120" width="220" height="110" rx="14" fill="#fee2e2" stroke="#dc2626" stroke-width="2" opacity="0.95" filter="url(#shadow)"/><text x="940" y="152" text-anchor="middle" font-size="15" font-weight="bold" fill="#991b1b">📤  Evict Oldest</text><text x="940" y="178" text-anchor="middle" font-size="12" fill="#7f1d1d">pop the earliest</text><text x="940" y="198" text-anchor="middle" font-size="12" fill="#7f1d1d">messages from buffer</text></g>
+
+  <g><rect x="1110" y="120" width="240" height="110" rx="14" fill="url(#gSum)" opacity="0.18" filter="url(#shadow)"/><rect x="1110" y="120" width="240" height="40" rx="14" fill="url(#gSum)"/><text x="1230" y="148" text-anchor="middle" font-size="15" font-weight="bold" fill="white">📝  Summarizer (LLM)</text><text x="1230" y="186" text-anchor="middle" font-size="12" fill="#1f2937">merge old summary + evicted</text><text x="1230" y="206" text-anchor="middle" font-size="12" fill="#1f2937">into new summary</text></g>
+
+  <g><rect x="1110" y="260" width="240" height="90" rx="14" fill="url(#gSum)" opacity="0.18" filter="url(#shadow)"/><rect x="1110" y="260" width="240" height="36" rx="14" fill="url(#gSum)"/><text x="1230" y="284" text-anchor="middle" font-size="14" font-weight="bold" fill="white">📘  Summary Store</text><text x="1230" y="320" text-anchor="middle" font-size="12" fill="#1f2937">running summary</text><text x="1230" y="338" text-anchor="middle" font-size="11" fill="#4b5563">(the long tail)</text></g>
+
+  <g><rect x="830" y="370" width="220" height="100" rx="14" fill="white" stroke="#94a3b8" stroke-width="2" filter="url(#shadow)"/><text x="940" y="400" text-anchor="middle" font-size="14" font-weight="bold" fill="#1f2937">🧩  Prompt Assembly</text><text x="940" y="424" text-anchor="middle" font-size="12" fill="#475569">[summary]</text><text x="940" y="442" text-anchor="middle" font-size="12" fill="#475569">+ [buffer]</text><text x="940" y="460" text-anchor="middle" font-size="12" fill="#475569">+ [new msg]</text></g>
+
+  <g><rect x="1110" y="380" width="240" height="80" rx="14" fill="url(#gLLM)" opacity="0.92" filter="url(#shadow)"/><text x="1230" y="412" text-anchor="middle" font-size="15" font-weight="bold" fill="white">✨  LLM</text><text x="1230" y="436" text-anchor="middle" font-size="12" fill="#ffe4f1">generates response</text></g>
+
+  <g><rect x="800" y="500" width="280" height="70" rx="14" fill="#f3e8ff" stroke="#7c3aed" stroke-width="2" filter="url(#shadow)"/><text x="940" y="528" text-anchor="middle" font-size="14" font-weight="bold" fill="#5b21b6">↩  Response returned</text><text x="940" y="550" text-anchor="middle" font-size="12" fill="#6d28d9">appended back to buffer</text></g>
+
+  <!-- Arrows: main path -->
+  <line x1="212" y1="290" x2="258" y2="290" stroke="#2563eb" stroke-width="3" marker-end="url(#arrMain)"/>
+  <line x1="452" y1="290" x2="548" y2="290" stroke="#2563eb" stroke-width="3" marker-end="url(#arrMain)"/>
+
+  <!-- threshold? No path -->
+  <path d="M 650 332 Q 650 420 830 420" stroke="#059669" stroke-width="2.5" fill="none" marker-end="url(#arrNo)"/>
+  <rect x="665" y="370" width="44" height="22" rx="6" fill="white" stroke="#059669"/><text x="687" y="386" text-anchor="middle" font-size="12" font-weight="bold" fill="#059669">No</text>
+
+  <!-- threshold? Yes path -->
+  <path d="M 720 272 Q 790 200 828 175" stroke="#dc2626" stroke-width="2.5" fill="none" marker-end="url(#arrYes)"/>
+  <rect x="745" y="207" width="44" height="22" rx="6" fill="white" stroke="#dc2626"/><text x="767" y="223" text-anchor="middle" font-size="12" font-weight="bold" fill="#dc2626">Yes</text>
+
+  <!-- Evict -> Summarizer -->
+  <line x1="1052" y1="175" x2="1108" y2="175" stroke="#2563eb" stroke-width="2.5" marker-end="url(#arrMain)"/>
+  <!-- Summarizer -> Summary Store -->
+  <line x1="1230" y1="232" x2="1230" y2="258" stroke="#2563eb" stroke-width="2.5" marker-end="url(#arrMain)"/>
+  <!-- Summary Store -> Prompt Assembly -->
+  <path d="M 1110 320 Q 1050 360 1052 400" stroke="#2563eb" stroke-width="2.5" fill="none" marker-end="url(#arrMain)"/>
+  <!-- Buffer -> Prompt Assembly (direct route) -->
+  <path d="M 355 352 Q 355 420 828 420" stroke="#2563eb" stroke-width="2.5" fill="none" marker-end="url(#arrMain)"/>
+  <!-- Prompt Assembly -> LLM -->
+  <line x1="1052" y1="420" x2="1108" y2="420" stroke="#2563eb" stroke-width="3" marker-end="url(#arrMain)"/>
+  <!-- LLM -> Response block -->
+  <path d="M 1230 460 Q 1230 510 1080 530" stroke="#2563eb" stroke-width="2.5" fill="none" marker-end="url(#arrMain)"/>
+  <!-- Response -> Buffer (feedback) -->
+  <path d="M 800 535 Q 500 540 355 352" stroke="#7c3aed" stroke-width="2" stroke-dasharray="6,4" fill="none" marker-end="url(#arrFB)"/>
+
+  <!-- Legend -->
+  <g>
+    <line x1="60" y1="585" x2="90" y2="585" stroke="#2563eb" stroke-width="3" marker-end="url(#arrMain)"/><text x="100" y="589" font-size="11" fill="#374151">main flow</text>
+    <line x1="180" y1="585" x2="210" y2="585" stroke="#059669" stroke-width="2.5" marker-end="url(#arrNo)"/><text x="220" y="589" font-size="11" fill="#374151">threshold not reached</text>
+    <line x1="360" y1="585" x2="390" y2="585" stroke="#dc2626" stroke-width="2.5" marker-end="url(#arrYes)"/><text x="400" y="589" font-size="11" fill="#374151">threshold reached</text>
+    <line x1="540" y1="585" x2="570" y2="585" stroke="#7c3aed" stroke-width="2" stroke-dasharray="6,4" marker-end="url(#arrFB)"/><text x="580" y="589" font-size="11" fill="#374151">response loops back</text>
+  </g>
+</svg>

@@ -1,0 +1,40 @@
+flowchart TD
+    subgraph Data["Benchmark Data"]
+        A["Multi-Session\nConversations"]
+        B["Question Sets\n─────────\nSingle-hop\nMulti-hop\nTemporal\nOpen-ended"]
+        C["Ground-Truth\nAnswers"]
+    end
+
+    subgraph System["Memory System Under Test"]
+        D["Ingest\nConversations"]
+        E["Memory Store\n(your system)"]
+        F["Answer\nQuestions"]
+    end
+
+    subgraph Scoring["Scoring Pipeline"]
+        G["BLEU"]
+        H["ROUGE"]
+        I["F1 / Exact Match"]
+        J["LLM-Judge\n(GPT-4 / Claude)"]
+    end
+
+    subgraph Analysis["Results"]
+        K["Per-Category\nScores"]
+        L["Weakness\nAnalysis"]
+        M["Comparison\nBaseline vs. System"]
+    end
+
+    A --> D
+    D --> E
+    B --> F
+    E --> F
+    F -->|"predictions"| G & H & I & J
+    C -->|"ground truth"| G & H & I & J
+    G & H & I & J --> K
+    K --> L
+    K --> M
+
+    style E fill:#4f46e5,color:#fff
+    style K fill:#059669,color:#fff
+    style L fill:#dc2626,color:#fff
+    style J fill:#d97706,color:#fff

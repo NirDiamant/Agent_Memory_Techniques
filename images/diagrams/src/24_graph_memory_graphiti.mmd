@@ -1,0 +1,45 @@
+flowchart LR
+    subgraph Input["Conversation Input"]
+        A["Conversation\nEpisodes"]
+    end
+
+    subgraph Pipeline["Graphiti Ingestion Pipeline"]
+        B["Episode\nProcessor"]
+        C["Entity\nExtractor"]
+        D["Relationship\nExtractor"]
+        E["Entity\nResolver"]
+    end
+
+    subgraph Graph["Temporal Knowledge Graph"]
+        F[("Neo4j\n─────────\nEntity Nodes\nTemporal Edges\nCommunities")]
+    end
+
+    subgraph Query["Query Layer"]
+        G["Graph Search\n(natural language)"]
+        H["Community\nDetection"]
+        I["Temporal\nFiltering"]
+    end
+
+    subgraph Output["Agent Context"]
+        J["Retrieved Entities\n+ Relationships\n+ Facts"]
+    end
+
+    A --> B
+    B --> C
+    B --> D
+    C --> E
+    D --> E
+    E -->|"merge / create / invalidate"| F
+    F --> G
+    F --> H
+    F --> I
+    G --> J
+    H --> J
+    I --> J
+
+    style F fill:#8b5cf6,color:#fff
+    style C fill:#059669,color:#fff
+    style D fill:#059669,color:#fff
+    style E fill:#d97706,color:#fff
+    style G fill:#0891b2,color:#fff
+    style J fill:#6366f1,color:#fff

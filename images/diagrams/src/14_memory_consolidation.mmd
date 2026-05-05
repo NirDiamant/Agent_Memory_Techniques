@@ -1,0 +1,13 @@
+flowchart LR
+    MS["Memory Store\n(pre-consolidation)"] --> CT["Consolidation\nTrigger"]
+    CT --> CE["Cluster Engine\n(similarity grouping)"]
+    CE --> MD["Merge &\nDeduplicate"]
+    MD --> CR["Conflict\nResolver"]
+    CR --> IS["Importance\nScorer"]
+    IS --> CS["Consolidated\nStore"]
+
+    CT -.->|"Trigger conditions:\n- Size threshold\n- Time interval\n- Manual"| CE
+
+    style MS fill:#5a4a2d,stroke:#a84,color:#fff
+    style CS fill:#2d5a2d,stroke:#4a9,color:#fff
+    style CR fill:#5a2d4a,stroke:#a49,color:#fff

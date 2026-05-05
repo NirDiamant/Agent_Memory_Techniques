@@ -1,0 +1,69 @@
+<svg viewBox="0 0 1400 680" xmlns="http://www.w3.org/2000/svg" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <linearGradient id="gIn" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#667eea"/><stop offset="100%" style="stop-color:#764ba2"/></linearGradient>
+    <linearGradient id="gEmb" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#4facfe"/><stop offset="100%" style="stop-color:#00f2fe"/></linearGradient>
+    <linearGradient id="gDB" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#4f46e5"/><stop offset="100%" style="stop-color:#7c3aed"/></linearGradient>
+    <linearGradient id="gRet" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#2196F3"/><stop offset="100%" style="stop-color:#21CBF3"/></linearGradient>
+    <linearGradient id="gLLM" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#f093fb"/><stop offset="100%" style="stop-color:#f5576c"/></linearGradient>
+    <linearGradient id="gOK" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#11998e"/><stop offset="100%" style="stop-color:#38ef7d"/></linearGradient>
+    <filter id="shadow"><feDropShadow dx="1.5" dy="2" stdDeviation="2.5" flood-color="#000" flood-opacity="0.18"/></filter>
+    <filter id="soft"><feDropShadow dx="1" dy="1.5" stdDeviation="1.5" flood-color="#000" flood-opacity="0.12"/></filter>
+    <marker id="arrMain" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 L3,5 Z" fill="#2563eb"/></marker>
+  </defs>
+
+  <rect width="1400" height="680" fill="#f8f9fa"/>
+  <text x="700" y="38" text-anchor="middle" font-size="24" font-weight="bold" fill="#1f2937">Vector Store Memory</text>
+  <text x="700" y="62" text-anchor="middle" font-size="13" fill="#6b7280">Embed past turns, store them in a vector database, retrieve by semantic similarity to the new query.</text>
+
+  <!-- Ingestion panel -->
+  <rect x="30" y="90" width="420" height="380" rx="14" fill="url(#gIn)" opacity="0.12" filter="url(#shadow)"/>
+  <rect x="30" y="90" width="420" height="44" rx="14" fill="url(#gIn)" opacity="0.95"/>
+  <text x="240" y="118" text-anchor="middle" font-size="15" font-weight="bold" fill="white">📥  Ingestion  ·  after each turn</text>
+
+  <g><rect x="65" y="160" width="350" height="66" rx="12" fill="white" filter="url(#soft)"/><text x="240" y="185" text-anchor="middle" font-size="13" font-weight="bold" fill="#1f2937">👥  User msg + Assistant reply</text><text x="240" y="205" text-anchor="middle" font-size="11" fill="#6b7280">one turn = one chunk to embed</text></g>
+  <g><rect x="65" y="256" width="350" height="66" rx="12" fill="url(#gEmb)" opacity="0.9" filter="url(#soft)"/><text x="240" y="281" text-anchor="middle" font-size="13" font-weight="bold" fill="white">🧮  Embedding Model</text><text x="240" y="301" text-anchor="middle" font-size="11" fill="#e0f2fe">text → 1536-dim vector</text></g>
+  <g><rect x="65" y="352" width="350" height="60" rx="12" fill="white" filter="url(#soft)"/><text x="240" y="377" text-anchor="middle" font-size="13" font-weight="bold" fill="#1f2937">📦  Vector + Metadata</text><text x="240" y="395" text-anchor="middle" font-size="11" fill="#6b7280">id, timestamp, role, content</text></g>
+
+  <!-- central DB -->
+  <g>
+    <ellipse cx="700" cy="280" rx="120" ry="28" fill="url(#gDB)" opacity="0.95" filter="url(#shadow)"/>
+    <rect x="580" y="280" width="240" height="110" fill="url(#gDB)" opacity="0.95"/>
+    <ellipse cx="700" cy="390" rx="120" ry="28" fill="url(#gDB)" opacity="0.95"/>
+    <ellipse cx="700" cy="280" rx="120" ry="28" fill="none" stroke="#312e81" stroke-width="1"/>
+    <text x="700" y="340" text-anchor="middle" font-size="16" font-weight="bold" fill="white">🗄  ChromaDB</text>
+    <text x="700" y="362" text-anchor="middle" font-size="12" fill="#ede9fe">in-memory vector store</text>
+  </g>
+
+  <!-- Retrieval panel -->
+  <rect x="950" y="90" width="420" height="380" rx="14" fill="url(#gRet)" opacity="0.12" filter="url(#shadow)"/>
+  <rect x="950" y="90" width="420" height="44" rx="14" fill="url(#gRet)" opacity="0.95"/>
+  <text x="1160" y="118" text-anchor="middle" font-size="15" font-weight="bold" fill="white">🔍  Retrieval  ·  before each LLM call</text>
+
+  <g><rect x="985" y="160" width="350" height="66" rx="12" fill="white" filter="url(#soft)"/><text x="1160" y="185" text-anchor="middle" font-size="13" font-weight="bold" fill="#1f2937">👤  New User Query</text><text x="1160" y="205" text-anchor="middle" font-size="11" fill="#6b7280">the turn we're about to answer</text></g>
+  <g><rect x="985" y="256" width="350" height="66" rx="12" fill="url(#gEmb)" opacity="0.9" filter="url(#soft)"/><text x="1160" y="281" text-anchor="middle" font-size="13" font-weight="bold" fill="white">🧮  Embedding Model</text><text x="1160" y="301" text-anchor="middle" font-size="11" fill="#e0f2fe">same model as ingestion</text></g>
+  <g><rect x="985" y="352" width="350" height="60" rx="12" fill="white" filter="url(#soft)"/><text x="1160" y="377" text-anchor="middle" font-size="13" font-weight="bold" fill="#1f2937">📐  Cosine Similarity · Top-K</text><text x="1160" y="395" text-anchor="middle" font-size="11" fill="#6b7280">retrieve K most relevant past turns</text></g>
+
+  <!-- Generation panel (bottom row) -->
+  <rect x="220" y="500" width="960" height="140" rx="14" fill="url(#gLLM)" opacity="0.12" filter="url(#shadow)"/>
+  <rect x="220" y="500" width="960" height="40" rx="14" fill="url(#gLLM)" opacity="0.95"/>
+  <text x="700" y="526" text-anchor="middle" font-size="15" font-weight="bold" fill="white">✨  Generation</text>
+
+  <g><rect x="255" y="560" width="360" height="66" rx="12" fill="white" filter="url(#soft)"/><text x="435" y="585" text-anchor="middle" font-size="13" font-weight="bold" fill="#1f2937">🧩  Build Prompt</text><text x="435" y="605" text-anchor="middle" font-size="11" fill="#6b7280">system + retrieved memories + recent buffer</text></g>
+  <g><rect x="645" y="560" width="240" height="66" rx="12" fill="url(#gLLM)" opacity="0.9" filter="url(#soft)"/><text x="765" y="590" text-anchor="middle" font-size="14" font-weight="bold" fill="white">✨  LLM (Claude)</text><text x="765" y="608" text-anchor="middle" font-size="11" fill="#ffe4f1">generate</text></g>
+  <g><rect x="915" y="560" width="240" height="66" rx="12" fill="url(#gOK)" opacity="0.9" filter="url(#soft)"/><text x="1035" y="590" text-anchor="middle" font-size="14" font-weight="bold" fill="white">↪  Response</text><text x="1035" y="608" text-anchor="middle" font-size="11" fill="#d1fae5">returned to user</text></g>
+
+  <!-- arrows ingestion -->
+  <line x1="240" y1="228" x2="240" y2="253" stroke="#2563eb" stroke-width="2.5" marker-end="url(#arrMain)"/>
+  <line x1="240" y1="324" x2="240" y2="349" stroke="#2563eb" stroke-width="2.5" marker-end="url(#arrMain)"/>
+  <path d="M 415 380 Q 520 380 580 330" stroke="#2563eb" stroke-width="2.5" fill="none" marker-end="url(#arrMain)"/>
+
+  <!-- arrows retrieval -->
+  <line x1="1160" y1="228" x2="1160" y2="253" stroke="#2563eb" stroke-width="2.5" marker-end="url(#arrMain)"/>
+  <line x1="1160" y1="324" x2="1160" y2="349" stroke="#2563eb" stroke-width="2.5" marker-end="url(#arrMain)"/>
+  <path d="M 820 330 Q 900 340 985 380" stroke="#2563eb" stroke-width="2.5" fill="none" marker-end="url(#arrMain)"/>
+
+  <!-- generation arrows -->
+  <path d="M 1160 412 Q 1160 485 720 540" stroke="#2563eb" stroke-width="2.5" fill="none" marker-end="url(#arrMain)"/>
+  <line x1="615" y1="593" x2="643" y2="593" stroke="#2563eb" stroke-width="3" marker-end="url(#arrMain)"/>
+  <line x1="885" y1="593" x2="913" y2="593" stroke="#2563eb" stroke-width="3" marker-end="url(#arrMain)"/>
+</svg>

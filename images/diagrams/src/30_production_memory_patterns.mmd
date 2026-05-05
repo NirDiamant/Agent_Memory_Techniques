@@ -1,0 +1,42 @@
+flowchart TD
+    subgraph Ingestion["Memory Ingestion"]
+        MSG["New Message"] --> PII["PII Scanner\n& Redactor"]
+        PII --> EXT["Fact Extractor\n(LLM)"]
+        EXT --> EMB["Embedding\nGenerator"]
+        EMB --> COST["Cost Tracker\n$ gate"]
+    end
+
+    subgraph Tiers["Tiered Storage"]
+        direction LR
+        HOT["Hot Tier\n─────────\nIn-Memory / Redis\nTTL: minutes-hours\nLatency: <1ms"]
+        WARM["Warm Tier\n─────────\nPostgres + pgvector\nTTL: days-months\nLatency: 5-50ms"]
+        COLD["Cold Tier\n─────────\nCompressed Archive\nTTL: indefinite\nLatency: 100ms+"]
+    end
+
+    subgraph Graph["Relationship Layer"]
+        GDB[("Entity Graph\n─────────\nnodes / edges\ntraversal queries")]
+    end
+
+    subgraph Controls["Guardrails"]
+        BUD["Budget Enforcer\nmax tokens / max count"]
+        PRV["Privacy Manager\nGDPR delete / audit log"]
+        OBS["Observability\nmetrics / alerts"]
+    end
+
+    COST --> HOT
+    HOT -->|"demote\n(TTL expiry)"| WARM
+    WARM -->|"demote\n(low access)"| COLD
+    COLD -->|"promote\n(re-accessed)"| WARM
+    WARM -->|"promote\n(hot query)"| HOT
+    EXT --> GDB
+
+    HOT & WARM & COLD --> BUD
+    HOT & WARM & COLD --> PRV
+    HOT & WARM & COLD --> OBS
+
+    style HOT fill:#ef4444,color:#fff
+    style WARM fill:#f59e0b,color:#fff
+    style COLD fill:#3b82f6,color:#fff
+    style GDB fill:#8b5cf6,color:#fff
+    style PII fill:#059669,color:#fff
+    style COST fill:#d97706,color:#fff

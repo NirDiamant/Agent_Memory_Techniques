@@ -1,0 +1,62 @@
+<svg viewBox="0 0 1400 620" xmlns="http://www.w3.org/2000/svg" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <linearGradient id="gIn" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#667eea"/><stop offset="100%" style="stop-color:#764ba2"/></linearGradient>
+    <linearGradient id="gDet" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#FFB75E"/><stop offset="100%" style="stop-color:#ED8F03"/></linearGradient>
+    <linearGradient id="gPack" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#4facfe"/><stop offset="100%" style="stop-color:#00f2fe"/></linearGradient>
+    <linearGradient id="gStore" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#4f46e5"/><stop offset="100%" style="stop-color:#7c3aed"/></linearGradient>
+    <linearGradient id="gRet" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#2196F3"/><stop offset="100%" style="stop-color:#21CBF3"/></linearGradient>
+    <linearGradient id="gLLM" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#f093fb"/><stop offset="100%" style="stop-color:#f5576c"/></linearGradient>
+    <filter id="shadow"><feDropShadow dx="1.5" dy="2" stdDeviation="2.5" flood-color="#000" flood-opacity="0.18"/></filter>
+    <filter id="soft"><feDropShadow dx="1" dy="1.5" stdDeviation="1.5" flood-color="#000" flood-opacity="0.12"/></filter>
+    <marker id="arrMain" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 L3,5 Z" fill="#2563eb"/></marker>
+    <marker id="arrLoop" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 L3,5 Z" fill="#ea580c"/></marker>
+  </defs>
+
+  <rect width="1400" height="620" fill="#f8f9fa"/>
+  <text x="700" y="38" text-anchor="middle" font-size="24" font-weight="bold" fill="#1f2937">Episodic Memory</text>
+  <text x="700" y="62" text-anchor="middle" font-size="13" fill="#6b7280">Group related turns into episodes. Store each episode as a packaged unit. Retrieve by time and topic.</text>
+
+  <!-- Top row: detection + packaging + store -->
+  <g><rect x="40" y="130" width="200" height="100" rx="14" fill="url(#gIn)" opacity="0.92" filter="url(#shadow)"/><text x="140" y="164" text-anchor="middle" font-size="14" font-weight="bold" fill="white">💬  Conversation</text><text x="140" y="184" text-anchor="middle" font-size="13" font-weight="bold" fill="white">Stream</text><text x="140" y="208" text-anchor="middle" font-size="11" fill="#e9e3ff">running turns</text></g>
+
+  <g><rect x="310" y="125" width="230" height="110" rx="14" fill="url(#gDet)" opacity="0.18" filter="url(#shadow)"/><rect x="310" y="125" width="230" height="40" rx="14" fill="url(#gDet)" opacity="0.95"/><text x="425" y="152" text-anchor="middle" font-size="14" font-weight="bold" fill="white">🚦  Boundary Detector</text><text x="425" y="188" text-anchor="middle" font-size="11" fill="#1f2937">topic shift? idle time?</text><text x="425" y="208" text-anchor="middle" font-size="11" fill="#1f2937">explicit goodbye?</text><text x="425" y="226" text-anchor="middle" font-size="10" fill="#4b5563">detect "episode complete"</text></g>
+
+  <g><rect x="610" y="125" width="230" height="110" rx="14" fill="url(#gPack)" opacity="0.18" filter="url(#shadow)"/><rect x="610" y="125" width="230" height="40" rx="14" fill="url(#gPack)" opacity="0.95"/><text x="725" y="152" text-anchor="middle" font-size="14" font-weight="bold" fill="white">📦  Episode Packager</text><text x="725" y="188" text-anchor="middle" font-size="11" fill="#1f2937">summary + title</text><text x="725" y="208" text-anchor="middle" font-size="11" fill="#1f2937">participants + topics</text><text x="725" y="226" text-anchor="middle" font-size="10" fill="#4b5563">metadata enriches retrieval</text></g>
+
+  <g><rect x="910" y="120" width="240" height="120" rx="14" fill="url(#gStore)" opacity="0.18" filter="url(#shadow)"/><rect x="910" y="120" width="240" height="40" rx="14" fill="url(#gStore)" opacity="0.95"/><text x="1030" y="147" text-anchor="middle" font-size="14" font-weight="bold" fill="white">🗃  Episode Store</text><text x="1030" y="184" text-anchor="middle" font-size="12" fill="#1f2937">indexed by time</text><text x="1030" y="204" text-anchor="middle" font-size="12" fill="#1f2937">indexed by topic</text><text x="1030" y="224" text-anchor="middle" font-size="11" fill="#4b5563">grows across sessions</text></g>
+
+  <!-- continuing loop back -->
+  <path d="M 425 238 Q 425 330 160 230" stroke="#ea580c" stroke-width="2" stroke-dasharray="6,4" fill="none" marker-end="url(#arrLoop)"/>
+  <rect x="240" y="305" width="170" height="22" rx="6" fill="white" stroke="#ea580c"/>
+  <text x="325" y="321" text-anchor="middle" font-size="11" font-weight="bold" fill="#c2410c">continuing · keep listening</text>
+
+  <!-- arrows top row -->
+  <line x1="242" y1="180" x2="308" y2="180" stroke="#2563eb" stroke-width="3" marker-end="url(#arrMain)"/>
+  <rect x="250" y="158" width="50" height="22" rx="6" fill="white" stroke="#dc2626"/>
+  <text x="275" y="174" text-anchor="middle" font-size="11" font-weight="bold" fill="#b91c1c">done</text>
+  <line x1="542" y1="180" x2="608" y2="180" stroke="#2563eb" stroke-width="3" marker-end="url(#arrMain)"/>
+  <line x1="842" y1="180" x2="908" y2="180" stroke="#2563eb" stroke-width="3" marker-end="url(#arrMain)"/>
+
+  <!-- Retrieval row -->
+  <rect x="30" y="380" width="1330" height="170" rx="14" fill="url(#gRet)" opacity="0.12" filter="url(#shadow)"/>
+  <rect x="30" y="380" width="1330" height="40" rx="14" fill="url(#gRet)" opacity="0.95"/>
+  <text x="695" y="407" text-anchor="middle" font-size="15" font-weight="bold" fill="white">🔍  At Query Time</text>
+
+  <g><rect x="60" y="440" width="220" height="90" rx="12" fill="white" filter="url(#soft)"/><text x="170" y="470" text-anchor="middle" font-size="13" font-weight="bold" fill="#1f2937">👤  New User Query</text><text x="170" y="492" text-anchor="middle" font-size="11" fill="#6b7280">"What did we decide</text><text x="170" y="508" text-anchor="middle" font-size="11" fill="#6b7280">about X last week?"</text></g>
+
+  <g><rect x="315" y="440" width="260" height="90" rx="12" fill="url(#gDet)" opacity="0.92" filter="url(#soft)"/><text x="445" y="470" text-anchor="middle" font-size="13" font-weight="bold" fill="white">🔎  Retrieval Engine</text><text x="445" y="490" text-anchor="middle" font-size="11" fill="#fff7ed">temporal filter +</text><text x="445" y="508" text-anchor="middle" font-size="11" fill="#fff7ed">semantic similarity</text></g>
+
+  <g><rect x="610" y="440" width="260" height="90" rx="12" fill="white" filter="url(#soft)"/><text x="740" y="470" text-anchor="middle" font-size="13" font-weight="bold" fill="#1f2937">🧩  Context Injection</text><text x="740" y="492" text-anchor="middle" font-size="11" fill="#6b7280">episode summaries</text><text x="740" y="508" text-anchor="middle" font-size="11" fill="#6b7280">(not full transcripts)</text></g>
+
+  <g><rect x="905" y="440" width="220" height="90" rx="12" fill="url(#gLLM)" opacity="0.9" filter="url(#soft)"/><text x="1015" y="478" text-anchor="middle" font-size="14" font-weight="bold" fill="white">✨  LLM</text><text x="1015" y="500" text-anchor="middle" font-size="11" fill="#ffe4f1">generate</text></g>
+
+  <g><rect x="1160" y="440" width="180" height="90" rx="12" fill="white" filter="url(#soft)"/><text x="1250" y="478" text-anchor="middle" font-size="13" font-weight="bold" fill="#1f2937">↪  Response</text><text x="1250" y="500" text-anchor="middle" font-size="11" fill="#6b7280">grounded in past</text></g>
+
+  <line x1="282" y1="485" x2="313" y2="485" stroke="#2563eb" stroke-width="3" marker-end="url(#arrMain)"/>
+  <path d="M 1030 240 Q 1030 320 445 438" stroke="#2563eb" stroke-width="2.5" fill="none" marker-end="url(#arrMain)"/>
+  <line x1="577" y1="485" x2="608" y2="485" stroke="#2563eb" stroke-width="3" marker-end="url(#arrMain)"/>
+  <line x1="872" y1="485" x2="903" y2="485" stroke="#2563eb" stroke-width="3" marker-end="url(#arrMain)"/>
+  <line x1="1127" y1="485" x2="1158" y2="485" stroke="#2563eb" stroke-width="3" marker-end="url(#arrMain)"/>
+
+  <text x="700" y="595" text-anchor="middle" font-size="12" fill="#64748b" font-style="italic">Unlike vector memory which indexes single turns, episodic memory indexes coherent units with start, end, and theme.</text>
+</svg>

@@ -1,0 +1,100 @@
+<svg viewBox="0 0 1200 680" xmlns="http://www.w3.org/2000/svg" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <linearGradient id="gIn" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#4f46e5"/><stop offset="100%" style="stop-color:#7c3aed"/></linearGradient>
+    <linearGradient id="gHarness" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#2196F3"/><stop offset="100%" style="stop-color:#21CBF3"/></linearGradient>
+    <linearGradient id="gReport" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#11998e"/><stop offset="100%" style="stop-color:#38ef7d"/></linearGradient>
+    <linearGradient id="gDec" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#FFB75E"/><stop offset="100%" style="stop-color:#ED8F03"/></linearGradient>
+    <linearGradient id="gLLM" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#f093fb"/><stop offset="100%" style="stop-color:#f5576c"/></linearGradient>
+    <linearGradient id="gErr" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#ef4444"/><stop offset="100%" style="stop-color:#b91c1c"/></linearGradient>
+    <linearGradient id="gDS" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#667eea"/><stop offset="100%" style="stop-color:#764ba2"/></linearGradient>
+    <filter id="shadow"><feDropShadow dx="1.5" dy="2" stdDeviation="2.5" flood-color="#000" flood-opacity="0.18"/></filter>
+    <filter id="soft"><feDropShadow dx="1" dy="1.5" stdDeviation="1.5" flood-color="#000" flood-opacity="0.12"/></filter>
+    <marker id="arrMain" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 L3,5 Z" fill="#2563eb"/></marker>
+    <marker id="arrStore" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 L3,5 Z" fill="#7c3aed"/></marker>
+    <marker id="arrDS" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 L3,5 Z" fill="#059669"/></marker>
+    <marker id="arrScore" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 L3,5 Z" fill="#d97706"/></marker>
+  </defs>
+
+  <rect width="1200" height="680" fill="#f8f9fa"/>
+  <text x="600" y="38" text-anchor="middle" font-size="24" font-weight="bold" fill="#1f2937">Memory Evaluation Pipeline</text>
+  <text x="600" y="62" text-anchor="middle" font-size="13" fill="#6b7280">Measure retrieval quality, faithfulness, temporal accuracy, and contradiction rates across a memory store.</text>
+
+  <!-- Evaluation Inputs panel -->
+  <rect x="30" y="90" width="300" height="420" rx="14" fill="url(#gIn)" opacity="0.12" filter="url(#shadow)"/>
+  <rect x="30" y="90" width="300" height="44" rx="14" fill="url(#gIn)" opacity="0.95"/>
+  <text x="180" y="118" text-anchor="middle" font-size="15" font-weight="bold" fill="white">📥  Evaluation Inputs</text>
+
+  <!-- Memory Store DB -->
+  <g>
+    <ellipse cx="180" cy="175" rx="105" ry="22" fill="url(#gIn)" opacity="0.95" filter="url(#shadow)"/>
+    <rect x="75" y="175" width="210" height="80" fill="url(#gIn)" opacity="0.95"/>
+    <ellipse cx="180" cy="255" rx="105" ry="22" fill="url(#gIn)" opacity="0.95"/>
+    <ellipse cx="180" cy="175" rx="105" ry="22" fill="none" stroke="#312e81" stroke-width="1"/>
+    <text x="180" y="210" text-anchor="middle" font-size="13" font-weight="bold" fill="white">🗄  Memory Store</text>
+    <text x="180" y="230" text-anchor="middle" font-size="11" fill="#ede9fe">records, timestamps, supersedes</text>
+  </g>
+
+  <!-- Eval Dataset -->
+  <g><rect x="55" y="310" width="250" height="90" rx="12" fill="url(#gDS)" opacity="0.9" filter="url(#soft)"/><text x="180" y="340" text-anchor="middle" font-size="13" font-weight="bold" fill="white">📝  Eval Dataset</text><text x="180" y="360" text-anchor="middle" font-size="11" fill="#e9e3ff">queries, relevant_ids,</text><text x="180" y="378" text-anchor="middle" font-size="11" fill="#e9e3ff">expected answers</text></g>
+
+  <!-- Eval Harness panel -->
+  <rect x="390" y="90" width="380" height="420" rx="14" fill="url(#gHarness)" opacity="0.12" filter="url(#shadow)"/>
+  <rect x="390" y="90" width="380" height="44" rx="14" fill="url(#gHarness)" opacity="0.95"/>
+  <text x="580" y="118" text-anchor="middle" font-size="15" font-weight="bold" fill="white">⚙  Eval Harness</text>
+
+  <!-- Retrieval Metrics -->
+  <g><rect x="420" y="160" width="320" height="56" rx="12" fill="white" filter="url(#soft)"/><text x="580" y="184" text-anchor="middle" font-size="13" font-weight="bold" fill="#1f2937">📐  Retrieval Metrics</text><text x="580" y="201" text-anchor="middle" font-size="11" fill="#6b7280">Recall@K, Precision@K, MRR</text></g>
+
+  <!-- Faithfulness -->
+  <g><rect x="420" y="236" width="320" height="56" rx="12" fill="url(#gLLM)" opacity="0.9" filter="url(#soft)"/><text x="580" y="260" text-anchor="middle" font-size="13" font-weight="bold" fill="white">✨  Faithfulness Scorer</text><text x="580" y="277" text-anchor="middle" font-size="11" fill="#ffe4f1">LLM-as-Judge</text></g>
+
+  <!-- Temporal Accuracy -->
+  <g><rect x="420" y="312" width="320" height="56" rx="12" fill="white" filter="url(#soft)"/><text x="580" y="336" text-anchor="middle" font-size="13" font-weight="bold" fill="#1f2937">🕐  Temporal Accuracy Checker</text><text x="580" y="353" text-anchor="middle" font-size="11" fill="#6b7280">validates time-based correctness</text></g>
+
+  <!-- Contradiction Detector -->
+  <g><rect x="420" y="388" width="320" height="56" rx="12" fill="url(#gErr)" opacity="0.9" filter="url(#soft)"/><text x="580" y="412" text-anchor="middle" font-size="13" font-weight="bold" fill="white">⚠  Contradiction Detector</text><text x="580" y="429" text-anchor="middle" font-size="11" fill="#fee2e2">finds conflicting facts</text></g>
+
+  <!-- Eval Report panel -->
+  <rect x="830" y="90" width="340" height="420" rx="14" fill="url(#gReport)" opacity="0.12" filter="url(#shadow)"/>
+  <rect x="830" y="90" width="340" height="44" rx="14" fill="url(#gReport)" opacity="0.95"/>
+  <text x="1000" y="118" text-anchor="middle" font-size="15" font-weight="bold" fill="white">📊  Eval Report</text>
+
+  <!-- Aggregate Scores -->
+  <g><rect x="860" y="170" width="280" height="66" rx="12" fill="url(#gDec)" opacity="0.9" filter="url(#soft)"/><text x="1000" y="198" text-anchor="middle" font-size="14" font-weight="bold" fill="white">⚖  Aggregate Scores</text><text x="1000" y="218" text-anchor="middle" font-size="11" fill="#fef3c7">weighted composite metric</text></g>
+
+  <!-- Per-Query Detail -->
+  <g><rect x="860" y="266" width="280" height="66" rx="12" fill="white" filter="url(#soft)"/><text x="1000" y="294" text-anchor="middle" font-size="13" font-weight="bold" fill="#1f2937">🔬  Per-Query Detail</text><text x="1000" y="314" text-anchor="middle" font-size="11" fill="#6b7280">drill into individual results</text></g>
+
+  <!-- Visualizations -->
+  <g><rect x="860" y="362" width="280" height="66" rx="12" fill="white" filter="url(#soft)"/><text x="1000" y="390" text-anchor="middle" font-size="13" font-weight="bold" fill="#1f2937">📈  Visualizations</text><text x="1000" y="410" text-anchor="middle" font-size="11" fill="#6b7280">charts, heatmaps, distributions</text></g>
+
+  <!-- ARROWS -->
+  <!-- Memory Store -> Harness nodes -->
+  <path d="M 285 200 Q 360 188 418 188" stroke="#7c3aed" stroke-width="2.5" fill="none" marker-end="url(#arrStore)"/>
+  <path d="M 285 220 Q 360 340 418 340" stroke="#7c3aed" stroke-width="2.5" fill="none" marker-end="url(#arrStore)"/>
+  <path d="M 285 240 Q 360 416 418 416" stroke="#7c3aed" stroke-width="2.5" fill="none" marker-end="url(#arrStore)"/>
+
+  <!-- Eval Dataset -> Harness -->
+  <path d="M 305 340 Q 360 300 418 264" stroke="#059669" stroke-width="2.5" fill="none" marker-end="url(#arrDS)"/>
+  <path d="M 305 360 Q 360 340 418 188" stroke="#059669" stroke-width="2.5" fill="none" marker-end="url(#arrDS)"/>
+
+  <!-- Harness -> Aggregate Scores -->
+  <path d="M 740 188 Q 790 188 858 198" stroke="#d97706" stroke-width="2.5" fill="none" marker-end="url(#arrScore)"/>
+  <path d="M 740 264 Q 790 240 858 210" stroke="#d97706" stroke-width="2.5" fill="none" marker-end="url(#arrScore)"/>
+  <path d="M 740 340 Q 790 300 858 218" stroke="#d97706" stroke-width="2.5" fill="none" marker-end="url(#arrScore)"/>
+  <path d="M 740 416 Q 790 370 858 225" stroke="#d97706" stroke-width="2.5" fill="none" marker-end="url(#arrScore)"/>
+
+  <!-- Aggregate -> Detail -> Viz -->
+  <line x1="1000" y1="238" x2="1000" y2="264" stroke="#2563eb" stroke-width="2.5" marker-end="url(#arrMain)"/>
+  <line x1="1000" y1="334" x2="1000" y2="360" stroke="#2563eb" stroke-width="2.5" marker-end="url(#arrMain)"/>
+
+  <!-- Legend -->
+  <g>
+    <line x1="40" y1="570" x2="70" y2="570" stroke="#7c3aed" stroke-width="3" marker-end="url(#arrStore)"/><text x="80" y="574" font-size="11" fill="#374151">from memory store</text>
+    <line x1="240" y1="570" x2="270" y2="570" stroke="#059669" stroke-width="2.5" marker-end="url(#arrDS)"/><text x="280" y="574" font-size="11" fill="#374151">from eval dataset</text>
+    <line x1="440" y1="570" x2="470" y2="570" stroke="#d97706" stroke-width="2.5" marker-end="url(#arrScore)"/><text x="480" y="574" font-size="11" fill="#374151">scores to report</text>
+    <line x1="640" y1="570" x2="670" y2="570" stroke="#2563eb" stroke-width="2.5" marker-end="url(#arrMain)"/><text x="680" y="574" font-size="11" fill="#374151">drill-down flow</text>
+  </g>
+
+  <text x="600" y="650" text-anchor="middle" font-size="12" fill="#64748b" font-style="italic">Each scorer receives both the memory store and the eval dataset. Aggregate scores feed per-query detail and visualizations.</text>
+</svg>

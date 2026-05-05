@@ -1,0 +1,32 @@
+sequenceDiagram
+    participant U as User
+    participant B as Message Buffer
+    participant S as Summary Store
+    participant LLM as Claude (Chat)
+    participant SLLM as Claude (Summarizer)
+
+    Note over S: Summary: "" (empty)
+    Note over B: Buffer: []
+
+    U->>B: msg 1
+    B->>LLM: [summary="", msg1]
+    LLM-->>B: msg 2
+    Note over B: Buffer: [msg1, msg2]
+
+    U->>B: msg 3
+    B->>LLM: [summary="", msg1..msg3]
+    LLM-->>B: msg 4
+    Note over B: Buffer: [msg1..msg4] - trigger!
+
+    rect rgb(255, 245, 230)
+        Note over B,SLLM: 🔄 Summarization Cycle
+        B->>SLLM: "Summarize: {old_summary} + {msg1..msg4}"
+        SLLM-->>S: Updated summary
+        B->>B: Clear buffer
+    end
+
+    U->>B: msg 5
+    B->>LLM: [summary="...", msg5]
+    LLM-->>B: msg 6
+    Note over B: Buffer: [msg5, msg6]
+    Note over S: Summary carries forward<br/>compressed history

@@ -1,0 +1,112 @@
+<svg viewBox="0 0 1400 700" xmlns="http://www.w3.org/2000/svg" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <linearGradient id="gUser" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#667eea"/><stop offset="100%" style="stop-color:#764ba2"/></linearGradient>
+    <linearGradient id="gLLM" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#f093fb"/><stop offset="100%" style="stop-color:#f5576c"/></linearGradient>
+    <linearGradient id="gSave" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#11998e"/><stop offset="100%" style="stop-color:#38ef7d"/></linearGradient>
+    <linearGradient id="gSearch" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#FFB75E"/><stop offset="100%" style="stop-color:#ED8F03"/></linearGradient>
+    <linearGradient id="gUpdate" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#4facfe"/><stop offset="100%" style="stop-color:#00f2fe"/></linearGradient>
+    <linearGradient id="gDel" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#ef4444"/><stop offset="100%" style="stop-color:#b91c1c"/></linearGradient>
+    <linearGradient id="gStore" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#4f46e5"/><stop offset="100%" style="stop-color:#7c3aed"/></linearGradient>
+    <linearGradient id="gOther" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#2196F3"/><stop offset="100%" style="stop-color:#21CBF3"/></linearGradient>
+    <filter id="shadow"><feDropShadow dx="1.5" dy="2" stdDeviation="2.5" flood-color="#000" flood-opacity="0.18"/></filter>
+    <filter id="soft"><feDropShadow dx="1" dy="1.5" stdDeviation="1.5" flood-color="#000" flood-opacity="0.12"/></filter>
+    <marker id="arrMain" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 L3,5 Z" fill="#2563eb"/></marker>
+    <marker id="arrTool" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 L3,5 Z" fill="#059669"/></marker>
+    <marker id="arrResult" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 L3,5 Z" fill="#7c3aed"/></marker>
+    <marker id="arrDel" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 L3,5 Z" fill="#dc2626"/></marker>
+  </defs>
+
+  <rect width="1400" height="700" fill="#f8f9fa"/>
+  <text x="700" y="38" text-anchor="middle" font-size="24" font-weight="bold" fill="#1f2937">Memory with Tools</text>
+  <text x="700" y="62" text-anchor="middle" font-size="13" fill="#6b7280">Memory is exposed as tool calls the LLM invokes on demand: save, search, update, delete. The agent decides when and what to remember.</text>
+
+  <!-- Agent Loop panel -->
+  <rect x="40" y="90" width="550" height="510" rx="14" fill="url(#gLLM)" opacity="0.10" filter="url(#shadow)"/>
+  <rect x="40" y="90" width="550" height="40" rx="14" fill="url(#gLLM)" opacity="0.95"/>
+  <text x="315" y="116" text-anchor="middle" font-size="15" font-weight="bold" fill="white">🔄  Agentic Tool-Use Loop</text>
+
+  <!-- User message -->
+  <g><rect x="75" y="150" width="200" height="55" rx="12" fill="url(#gUser)" opacity="0.92" filter="url(#soft)"/><text x="175" y="175" text-anchor="middle" font-size="13" font-weight="bold" fill="white">👤  User Message</text><text x="175" y="193" text-anchor="middle" font-size="11" fill="#e9e3ff">new query or instruction</text></g>
+
+  <!-- LLM -->
+  <g><rect x="75" y="240" width="480" height="80" rx="14" fill="url(#gLLM)" opacity="0.92" filter="url(#shadow)"/><text x="315" y="270" text-anchor="middle" font-size="16" font-weight="bold" fill="white">✨  LLM (with tool definitions)</text><text x="315" y="293" text-anchor="middle" font-size="11" fill="#ffe4f1">decides: call a tool, or respond directly</text></g>
+
+  <!-- Tool nodes -->
+  <g><rect x="75" y="350" width="220" height="55" rx="12" fill="url(#gSave)" opacity="0.92" filter="url(#soft)"/><text x="185" y="375" text-anchor="middle" font-size="13" font-weight="bold" fill="white">💾  save_memory</text><text x="185" y="393" text-anchor="middle" font-size="11" fill="#d1fae5">content, tags</text></g>
+
+  <g><rect x="335" y="350" width="220" height="55" rx="12" fill="url(#gSearch)" opacity="0.92" filter="url(#soft)"/><text x="445" y="375" text-anchor="middle" font-size="13" font-weight="bold" fill="white">🔎  search_memory</text><text x="445" y="393" text-anchor="middle" font-size="11" fill="#fff7ed">query, top_k</text></g>
+
+  <g><rect x="75" y="430" width="220" height="55" rx="12" fill="url(#gUpdate)" opacity="0.92" filter="url(#soft)"/><text x="185" y="455" text-anchor="middle" font-size="13" font-weight="bold" fill="white">✏  update_memory</text><text x="185" y="473" text-anchor="middle" font-size="11" fill="#e0f7fa">id, new_content</text></g>
+
+  <g><rect x="335" y="430" width="220" height="55" rx="12" fill="url(#gDel)" opacity="0.92" filter="url(#soft)"/><text x="445" y="455" text-anchor="middle" font-size="13" font-weight="bold" fill="white">🗑  delete_memory</text><text x="445" y="473" text-anchor="middle" font-size="11" fill="#fecaca">id</text></g>
+
+  <!-- Other tools -->
+  <g><rect x="75" y="510" width="220" height="55" rx="12" fill="url(#gOther)" opacity="0.9" filter="url(#soft)"/><text x="185" y="535" text-anchor="middle" font-size="13" font-weight="bold" fill="white">🌐  Web Search / API</text><text x="185" y="553" text-anchor="middle" font-size="11" fill="#e0f2fe">non-memory tools</text></g>
+
+  <!-- Final Response -->
+  <g><rect x="335" y="510" width="220" height="55" rx="12" fill="white" stroke="#2563eb" stroke-width="2" filter="url(#soft)"/><text x="445" y="535" text-anchor="middle" font-size="13" font-weight="bold" fill="#1e40af">↪  Final Response</text><text x="445" y="553" text-anchor="middle" font-size="11" fill="#6b7280">no tool call needed</text></g>
+
+  <!-- Memory Store -->
+  <g>
+    <ellipse cx="900" cy="250" rx="160" ry="35" fill="url(#gStore)" opacity="0.95" filter="url(#shadow)"/>
+    <rect x="740" y="250" width="320" height="140" fill="url(#gStore)" opacity="0.95"/>
+    <ellipse cx="900" cy="390" rx="160" ry="35" fill="url(#gStore)" opacity="0.95"/>
+    <ellipse cx="900" cy="250" rx="160" ry="35" fill="none" stroke="#312e81" stroke-width="1"/>
+    <text x="900" y="300" text-anchor="middle" font-size="16" font-weight="bold" fill="white">🗄  Vector DB / JSON Store</text>
+    <text x="900" y="325" text-anchor="middle" font-size="12" fill="#ede9fe">Embeddings + Metadata</text>
+    <text x="900" y="348" text-anchor="middle" font-size="12" fill="#ede9fe">Timestamps + Tags</text>
+    <text x="900" y="371" text-anchor="middle" font-size="12" fill="#ede9fe">Full-text + semantic search</text>
+  </g>
+
+  <!-- How it works callout -->
+  <rect x="740" y="460" width="620" height="110" rx="14" fill="#fffbeb" stroke="#fbbf24" stroke-width="1.5" filter="url(#soft)"/>
+  <text x="1050" y="488" text-anchor="middle" font-size="13" font-weight="bold" fill="#92400e">How it works</text>
+  <text x="1050" y="510" text-anchor="middle" font-size="11" fill="#78350f">1. LLM receives tool definitions in its system prompt</text>
+  <text x="1050" y="528" text-anchor="middle" font-size="11" fill="#78350f">2. When it detects a fact worth saving, it calls save_memory</text>
+  <text x="1050" y="546" text-anchor="middle" font-size="11" fill="#78350f">3. Before answering, it may call search_memory to recall relevant info</text>
+  <text x="1050" y="564" text-anchor="middle" font-size="11" fill="#78350f">4. Tool results are fed back as tool_result messages in the loop</text>
+
+  <!-- Arrows: User -> LLM -->
+  <line x1="175" y1="205" x2="175" y2="238" stroke="#2563eb" stroke-width="2.5" marker-end="url(#arrMain)"/>
+
+  <!-- LLM -> tools -->
+  <path d="M 185 320 L 185 348" stroke="#059669" stroke-width="2.5" marker-end="url(#arrTool)"/>
+  <rect x="115" y="325" width="90" height="18" rx="6" fill="white" stroke="#059669"/><text x="160" y="338" text-anchor="middle" font-size="10" font-weight="bold" fill="#047857">tool_use</text>
+
+  <path d="M 445 320 L 445 348" stroke="#059669" stroke-width="2.5" marker-end="url(#arrTool)"/>
+  <rect x="395" y="325" width="90" height="18" rx="6" fill="white" stroke="#059669"/><text x="440" y="338" text-anchor="middle" font-size="10" font-weight="bold" fill="#047857">tool_use</text>
+
+  <path d="M 140 320 L 140 428" stroke="#059669" stroke-width="2.5" marker-end="url(#arrTool)"/>
+  <path d="M 500 320 L 500 428" stroke="#059669" stroke-width="2.5" marker-end="url(#arrTool)"/>
+
+  <!-- LLM -> response (no tool) -->
+  <path d="M 520 310 Q 535 400 520 508" stroke="#2563eb" stroke-width="2" stroke-dasharray="6,4" marker-end="url(#arrMain)"/>
+  <rect x="528" y="410" width="60" height="18" rx="6" fill="white" stroke="#2563eb"/><text x="558" y="423" text-anchor="middle" font-size="10" font-weight="bold" fill="#1e40af">direct</text>
+
+  <!-- Tools to DB -->
+  <path d="M 295 377 Q 500 260 738 290" stroke="#059669" stroke-width="2.5" fill="none" marker-end="url(#arrTool)"/>
+  <rect x="498" y="250" width="110" height="18" rx="6" fill="white" stroke="#059669"/><text x="553" y="263" text-anchor="middle" font-size="10" font-weight="bold" fill="#047857">store + embed</text>
+
+  <path d="M 555 377 Q 640 340 738 320" stroke="#059669" stroke-width="2.5" fill="none" marker-end="url(#arrTool)"/>
+  <rect x="620" y="340" width="110" height="18" rx="6" fill="white" stroke="#059669"/><text x="675" y="353" text-anchor="middle" font-size="10" font-weight="bold" fill="#047857">semantic search</text>
+
+  <path d="M 295 457 Q 550 420 738 350" stroke="#4facfe" stroke-width="2" fill="none" marker-end="url(#arrMain)"/>
+  <path d="M 555 457 Q 650 430 738 370" stroke="#dc2626" stroke-width="2" fill="none" marker-end="url(#arrDel)"/>
+
+  <!-- DB back to LLM -->
+  <path d="M 740 270 Q 620 180 520 260" stroke="#7c3aed" stroke-width="2.5" fill="none" marker-end="url(#arrResult)"/>
+  <rect x="600" y="186" width="100" height="18" rx="6" fill="white" stroke="#7c3aed"/><text x="650" y="199" text-anchor="middle" font-size="10" font-weight="bold" fill="#5b21b6">tool_result</text>
+
+  <!-- Other tool result back -->
+  <path d="M 185 565 Q 100 590 100 300 Q 100 260 140 258" stroke="#7c3aed" stroke-width="2" stroke-dasharray="6,4" fill="none" marker-end="url(#arrResult)"/>
+
+  <!-- Legend -->
+  <g>
+    <line x1="40" y1="660" x2="70" y2="660" stroke="#059669" stroke-width="2.5" marker-end="url(#arrTool)"/><text x="80" y="664" font-size="11" fill="#374151">tool_use call</text>
+    <line x1="240" y1="660" x2="270" y2="660" stroke="#7c3aed" stroke-width="2.5" marker-end="url(#arrResult)"/><text x="280" y="664" font-size="11" fill="#374151">tool_result</text>
+    <line x1="420" y1="660" x2="450" y2="660" stroke="#2563eb" stroke-width="2" stroke-dasharray="6,4" marker-end="url(#arrMain)"/><text x="460" y="664" font-size="11" fill="#374151">direct response (no tool)</text>
+    <line x1="660" y1="660" x2="690" y2="660" stroke="#dc2626" stroke-width="2" marker-end="url(#arrDel)"/><text x="700" y="664" font-size="11" fill="#374151">delete</text>
+  </g>
+
+  <text x="700" y="695" text-anchor="middle" font-size="12" fill="#64748b" font-style="italic">The LLM autonomously decides when to store, retrieve, update, or forget. Memory is a tool, not a pipeline stage.</text>
+</svg>

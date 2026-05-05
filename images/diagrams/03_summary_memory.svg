@@ -1,0 +1,84 @@
+<svg viewBox="0 0 1280 820" xmlns="http://www.w3.org/2000/svg" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <linearGradient id="gUser" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#667eea"/><stop offset="100%" style="stop-color:#764ba2"/></linearGradient>
+    <linearGradient id="gBuf" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#2196F3"/><stop offset="100%" style="stop-color:#21CBF3"/></linearGradient>
+    <linearGradient id="gSum" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#11998e"/><stop offset="100%" style="stop-color:#38ef7d"/></linearGradient>
+    <linearGradient id="gLLM" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#f093fb"/><stop offset="100%" style="stop-color:#f5576c"/></linearGradient>
+    <linearGradient id="gSLLM" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#FFB75E"/><stop offset="100%" style="stop-color:#ED8F03"/></linearGradient>
+    <filter id="shadow"><feDropShadow dx="1.5" dy="2" stdDeviation="2.5" flood-color="#000" flood-opacity="0.18"/></filter>
+    <filter id="soft"><feDropShadow dx="1" dy="1.5" stdDeviation="1.5" flood-color="#000" flood-opacity="0.12"/></filter>
+    <marker id="arrBlue" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 L3,5 Z" fill="#2563eb"/></marker>
+    <marker id="arrPink" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 L3,5 Z" fill="#d946ef"/></marker>
+    <marker id="arrOrange" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 L3,5 Z" fill="#ea580c"/></marker>
+    <marker id="arrSelf" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 L3,4.5 Z" fill="#0ea5e9"/></marker>
+  </defs>
+
+  <rect width="1280" height="820" fill="#f8f9fa"/>
+  <text x="640" y="38" text-anchor="middle" font-size="24" font-weight="bold" fill="#1f2937">Summary Memory</text>
+  <text x="640" y="62" text-anchor="middle" font-size="13" fill="#6b7280">Old messages are replaced with a short summary written by a second LLM. You lose length, keep meaning.</text>
+
+  <g><rect x="60" y="90" width="160" height="62" rx="14" fill="url(#gUser)" opacity="0.92" filter="url(#shadow)"/><text x="140" y="120" text-anchor="middle" font-size="15" font-weight="bold" fill="white">👤  User</text></g>
+  <g><rect x="290" y="90" width="180" height="62" rx="14" fill="url(#gBuf)" opacity="0.92" filter="url(#shadow)"/><text x="380" y="120" text-anchor="middle" font-size="15" font-weight="bold" fill="white">💬  Message Buffer</text><text x="380" y="140" text-anchor="middle" font-size="11" fill="#dff5ff">recent turns</text></g>
+  <g><rect x="540" y="90" width="180" height="62" rx="14" fill="url(#gSum)" opacity="0.92" filter="url(#shadow)"/><text x="630" y="120" text-anchor="middle" font-size="15" font-weight="bold" fill="white">📘  Summary Store</text><text x="630" y="140" text-anchor="middle" font-size="11" fill="#d1fae5">running summary</text></g>
+  <g><rect x="790" y="90" width="180" height="62" rx="14" fill="url(#gLLM)" opacity="0.92" filter="url(#shadow)"/><text x="880" y="120" text-anchor="middle" font-size="15" font-weight="bold" fill="white">✨  Chat LLM</text><text x="880" y="140" text-anchor="middle" font-size="11" fill="#ffe4f1">Claude</text></g>
+  <g><rect x="1040" y="90" width="180" height="62" rx="14" fill="url(#gSLLM)" opacity="0.92" filter="url(#shadow)"/><text x="1130" y="120" text-anchor="middle" font-size="15" font-weight="bold" fill="white">📝  Summarizer</text><text x="1130" y="140" text-anchor="middle" font-size="11" fill="#fed7aa">Claude (compact)</text></g>
+
+  <line x1="140" y1="152" x2="140" y2="740" stroke="#cbd5e1" stroke-width="2" stroke-dasharray="4,4"/>
+  <line x1="380" y1="152" x2="380" y2="740" stroke="#cbd5e1" stroke-width="2" stroke-dasharray="4,4"/>
+  <line x1="630" y1="152" x2="630" y2="740" stroke="#cbd5e1" stroke-width="2" stroke-dasharray="4,4"/>
+  <line x1="880" y1="152" x2="880" y2="740" stroke="#cbd5e1" stroke-width="2" stroke-dasharray="4,4"/>
+  <line x1="1130" y1="152" x2="1130" y2="740" stroke="#cbd5e1" stroke-width="2" stroke-dasharray="4,4"/>
+
+  <!-- Phase 1: accumulating turns -->
+  <rect x="40" y="172" width="1200" height="158" rx="10" fill="#eef2ff" opacity="0.55"/>
+  <text x="60" y="194" font-size="12" font-weight="bold" fill="#4f46e5" letter-spacing="1.5">PHASE 1 · MESSAGES ACCUMULATE IN THE BUFFER</text>
+
+  <line x1="142" y1="222" x2="378" y2="222" stroke="#2563eb" stroke-width="2.5" marker-end="url(#arrBlue)"/>
+  <rect x="180" y="204" width="160" height="24" rx="6" fill="white" filter="url(#soft)"/><text x="260" y="221" text-anchor="middle" font-size="12" fill="#1f2937">msg1..msg4</text>
+
+  <line x1="382" y1="260" x2="878" y2="260" stroke="#2563eb" stroke-width="2.5" marker-end="url(#arrBlue)"/>
+  <rect x="500" y="242" width="260" height="24" rx="6" fill="white" filter="url(#soft)"/><text x="630" y="259" text-anchor="middle" font-size="12" font-weight="bold" fill="#1f2937">[summary="", msg1..msg4]</text>
+
+  <line x1="878" y1="292" x2="382" y2="292" stroke="#d946ef" stroke-width="2.5" stroke-dasharray="7,4" marker-end="url(#arrPink)"/>
+  <rect x="570" y="274" width="120" height="24" rx="6" fill="white" filter="url(#soft)"/><text x="630" y="291" text-anchor="middle" font-size="12" fill="#1f2937">responses</text>
+
+  <g transform="translate(280, 304)"><rect width="220" height="22" rx="11" fill="white" stroke="#4f46e5" stroke-width="1.5" filter="url(#soft)"/><text x="110" y="16" text-anchor="middle" font-size="11" fill="#4338ca">Buffer full, trigger reached</text></g>
+
+  <!-- Phase 2: summarization cycle (highlighted) -->
+  <rect x="40" y="346" width="1200" height="196" rx="10" fill="#ffedd5" opacity="0.6" stroke="#f97316" stroke-width="2" stroke-dasharray="6,4"/>
+  <text x="60" y="370" font-size="12" font-weight="bold" fill="#c2410c" letter-spacing="1.5">🔄  PHASE 2 · SUMMARIZATION CYCLE</text>
+
+  <line x1="382" y1="400" x2="1128" y2="400" stroke="#ea580c" stroke-width="2.5" marker-end="url(#arrOrange)"/>
+  <rect x="500" y="382" width="520" height="24" rx="6" fill="white" filter="url(#soft)"/><text x="760" y="399" text-anchor="middle" font-size="12" font-weight="bold" fill="#1f2937">"Summarize: {old_summary} + {msg1..msg4}"</text>
+
+  <line x1="1128" y1="438" x2="632" y2="438" stroke="#ea580c" stroke-width="2.5" marker-end="url(#arrOrange)"/>
+  <rect x="720" y="420" width="330" height="24" rx="6" fill="white" filter="url(#soft)"/><text x="885" y="437" text-anchor="middle" font-size="12" fill="#1f2937">"User is Alice, likes Python, works at..."</text>
+
+  <path d="M 392 462 C 460 462 460 486 392 486" fill="none" stroke="#0ea5e9" stroke-width="2" marker-end="url(#arrSelf)"/>
+  <rect x="440" y="458" width="180" height="24" rx="6" fill="white" filter="url(#soft)"/><text x="530" y="475" text-anchor="middle" font-size="11" fill="#1f2937">clear buffer</text>
+
+  <g transform="translate(490, 500)"><rect width="320" height="28" rx="14" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5" filter="url(#soft)"/><text x="160" y="18" text-anchor="middle" font-size="12" font-weight="bold" fill="#92400e">One summarizer call, then buffer is empty again</text></g>
+
+  <!-- Phase 3: resumes with summary -->
+  <rect x="40" y="558" width="1200" height="130" rx="10" fill="#eef2ff" opacity="0.55"/>
+  <text x="60" y="580" font-size="12" font-weight="bold" fill="#4f46e5" letter-spacing="1.5">PHASE 3 · NEW TURNS USE THE SUMMARY</text>
+
+  <line x1="142" y1="608" x2="378" y2="608" stroke="#2563eb" stroke-width="2.5" marker-end="url(#arrBlue)"/>
+  <rect x="200" y="590" width="140" height="24" rx="6" fill="white" filter="url(#soft)"/><text x="270" y="607" text-anchor="middle" font-size="12" fill="#1f2937">msg5</text>
+
+  <line x1="382" y1="644" x2="878" y2="644" stroke="#2563eb" stroke-width="2.5" marker-end="url(#arrBlue)"/>
+  <rect x="510" y="626" width="240" height="24" rx="6" fill="white" filter="url(#soft)"/><text x="630" y="643" text-anchor="middle" font-size="12" font-weight="bold" fill="#1f2937">[summary="...", msg5]</text>
+
+  <g>
+    <rect x="310" y="708" width="660" height="58" rx="10" fill="#fffbeb" stroke="#fbbf24" stroke-width="1.5" filter="url(#soft)"/>
+    <text x="640" y="730" text-anchor="middle" font-size="13" font-weight="bold" fill="#92400e">⚠  Trade lossless history for compressed history.</text>
+    <text x="640" y="750" text-anchor="middle" font-size="12" fill="#78350f">Summaries drift over long runs. Costs one extra LLM call per compaction.</text>
+  </g>
+
+  <g>
+    <line x1="60" y1="790" x2="90" y2="790" stroke="#2563eb" stroke-width="2.5" marker-end="url(#arrBlue)"/><text x="100" y="794" font-size="11" fill="#374151">chat request</text>
+    <line x1="200" y1="790" x2="230" y2="790" stroke="#d946ef" stroke-width="2.5" stroke-dasharray="7,4" marker-end="url(#arrPink)"/><text x="240" y="794" font-size="11" fill="#374151">chat response</text>
+    <line x1="360" y1="790" x2="390" y2="790" stroke="#ea580c" stroke-width="2.5" marker-end="url(#arrOrange)"/><text x="400" y="794" font-size="11" fill="#374151">summarization call</text>
+    <path d="M 530 790 C 545 790 545 802 530 802" fill="none" stroke="#0ea5e9" stroke-width="2" marker-end="url(#arrSelf)"/><text x="560" y="794" font-size="11" fill="#374151">local update</text>
+  </g>
+</svg>

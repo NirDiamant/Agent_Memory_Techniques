@@ -1,0 +1,21 @@
+flowchart LR
+    RM["Raw Memory\n(L0: Full fidelity)"] --> CE["Compaction\nEngine"]
+
+    CE --> L1["L1: Key Points\n(~30% of original)"]
+    L1 --> CE2["Compaction\nEngine"]
+    CE2 --> L2["L2: One-liner\n(~5% of original)"]
+    L2 --> CE3["Compaction\nEngine"]
+    CE3 --> L3["L3: Tags Only\n(~1% of original)"]
+
+    RM -->|"Archive original"| CS["Cold Storage"]
+
+    RQ["Retrieval Query"] --> LS["Level Selector"]
+    LS -->|"Quick scan"| L3
+    LS -->|"Summary"| L2
+    LS -->|"Moderate detail"| L1
+    LS -->|"Full detail"| CS
+
+    style RM fill:#2d4a7a,stroke:#49a,color:#fff
+    style L1 fill:#2d5a5a,stroke:#4aa,color:#fff
+    style L2 fill:#5a5a2d,stroke:#aa4,color:#fff
+    style L3 fill:#5a2d2d,stroke:#a44,color:#fff

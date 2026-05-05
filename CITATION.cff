@@ -1,0 +1,27 @@
+cff-version: 1.2.0
+message: "If you use this repository, please cite it as below."
+title: "Agent Memory Techniques: A Cookbook for LLM Agent Memory"
+authors:
+  - family-names: "Diamant"
+    given-names: "Nir"
+repository-code: "https://github.com/NirDiamant/Agent_Memory_Techniques"
+url: "https://github.com/NirDiamant/Agent_Memory_Techniques"
+abstract: >-
+  A hands-on collection of 30 agent memory techniques for LLM
+  (Large Language Model) applications, each with a runnable Jupyter
+  notebook. Covers short-term, long-term, cognitive architectures,
+  retrieval patterns, frameworks, and production patterns.
+keywords:
+  - agent-memory
+  - llm-memory
+  - llm-agents
+  - memgpt
+  - mem0
+  - letta
+  - zep
+  - graphiti
+  - rag
+  - knowledge-graph
+  - episodic-memory
+  - cognitive-architecture
+license: Apache-2.0

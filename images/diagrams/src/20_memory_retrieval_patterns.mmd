@@ -1,0 +1,18 @@
+flowchart LR
+    Q[Query] --> QT[Query Transformer<br/>HyDE / expansion]
+    QT --> SI[Semantic Index<br/>embeddings + ANN]
+    QT --> LI[BM25 Index<br/>lexical search]
+
+    SI --> SF[Score Fusion<br/>Reciprocal Rank<br/>Fusion]
+    LI --> SF
+
+    SF --> MF[Metadata<br/>Filter]
+    MF --> RR[Re-ranker<br/>cross-encoder]
+    RR --> MMR[MMR Diversity<br/>Filter]
+    MMR --> TK[Top-K<br/>Results]
+    TK --> CTX[Agent<br/>Context]
+
+    style QT fill:#845ef7,color:#fff
+    style SF fill:#ffa94d,color:#fff
+    style RR fill:#ff6b6b,color:#fff
+    style MMR fill:#51cf66,color:#fff

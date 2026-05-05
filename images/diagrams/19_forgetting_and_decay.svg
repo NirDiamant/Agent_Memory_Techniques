@@ -1,0 +1,111 @@
+<svg viewBox="0 0 1400 720" xmlns="http://www.w3.org/2000/svg" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <linearGradient id="gDecay" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#ef4444"/><stop offset="100%" style="stop-color:#b91c1c"/></linearGradient>
+    <linearGradient id="gRet" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#11998e"/><stop offset="100%" style="stop-color:#38ef7d"/></linearGradient>
+    <linearGradient id="gPrune" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#FFB75E"/><stop offset="100%" style="stop-color:#ED8F03"/></linearGradient>
+    <linearGradient id="gStore" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#4f46e5"/><stop offset="100%" style="stop-color:#7c3aed"/></linearGradient>
+    <linearGradient id="gSP" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#f093fb"/><stop offset="100%" style="stop-color:#f5576c"/></linearGradient>
+    <linearGradient id="gHi" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#11998e"/><stop offset="100%" style="stop-color:#38ef7d"/></linearGradient>
+    <linearGradient id="gMid" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#FFB75E"/><stop offset="100%" style="stop-color:#ED8F03"/></linearGradient>
+    <linearGradient id="gLo" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#ef4444"/><stop offset="100%" style="stop-color:#b91c1c"/></linearGradient>
+    <filter id="shadow"><feDropShadow dx="1.5" dy="2" stdDeviation="2.5" flood-color="#000" flood-opacity="0.18"/></filter>
+    <filter id="soft"><feDropShadow dx="1" dy="1.5" stdDeviation="1.5" flood-color="#000" flood-opacity="0.12"/></filter>
+    <marker id="arrMain" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 L3,5 Z" fill="#2563eb"/></marker>
+    <marker id="arrDecay" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 L3,5 Z" fill="#dc2626"/></marker>
+    <marker id="arrBoost" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 L3,5 Z" fill="#059669"/></marker>
+    <marker id="arrPrune" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 L3,5 Z" fill="#ea580c"/></marker>
+    <marker id="arrFB" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 L3,5 Z" fill="#7c3aed"/></marker>
+  </defs>
+
+  <rect width="1400" height="720" fill="#f8f9fa"/>
+  <text x="700" y="38" text-anchor="middle" font-size="24" font-weight="bold" fill="#1f2937">Forgetting &amp; Decay</text>
+  <text x="700" y="62" text-anchor="middle" font-size="13" fill="#6b7280">Memories lose strength over time. Retrieval reinforces them. Weak memories get pruned or archived.</text>
+
+  <!-- Memory Store Panel -->
+  <rect x="350" y="88" width="700" height="240" rx="14" fill="url(#gStore)" opacity="0.08" filter="url(#shadow)"/>
+  <rect x="350" y="88" width="700" height="36" rx="14" fill="url(#gStore)" opacity="0.95"/>
+  <text x="700" y="112" text-anchor="middle" font-size="14" font-weight="bold" fill="white">🧠  Memory Store</text>
+
+  <!-- Memory A (high strength) -->
+  <g><rect x="390" y="150" width="180" height="80" rx="12" fill="url(#gHi)" opacity="0.18" filter="url(#soft)"/><rect x="390" y="150" width="180" height="30" rx="12" fill="url(#gHi)" opacity="0.92"/><text x="480" y="171" text-anchor="middle" font-size="12" font-weight="bold" fill="white">Memory A</text><text x="480" y="200" text-anchor="middle" font-size="18" font-weight="bold" fill="#065f46">0.92</text><text x="480" y="220" text-anchor="middle" font-size="10" fill="#047857">strong</text></g>
+
+  <!-- Memory B (medium strength) -->
+  <g><rect x="610" y="150" width="180" height="80" rx="12" fill="url(#gMid)" opacity="0.18" filter="url(#soft)"/><rect x="610" y="150" width="180" height="30" rx="12" fill="url(#gMid)" opacity="0.92"/><text x="700" y="171" text-anchor="middle" font-size="12" font-weight="bold" fill="white">Memory B</text><text x="700" y="200" text-anchor="middle" font-size="18" font-weight="bold" fill="#92400e">0.45</text><text x="700" y="220" text-anchor="middle" font-size="10" fill="#b45309">fading</text></g>
+
+  <!-- Memory C (low strength) -->
+  <g><rect x="830" y="150" width="180" height="80" rx="12" fill="url(#gLo)" opacity="0.18" filter="url(#soft)"/><rect x="830" y="150" width="180" height="30" rx="12" fill="url(#gLo)" opacity="0.92"/><text x="920" y="171" text-anchor="middle" font-size="12" font-weight="bold" fill="white">Memory C</text><text x="920" y="200" text-anchor="middle" font-size="18" font-weight="bold" fill="#991b1b">0.08</text><text x="920" y="220" text-anchor="middle" font-size="10" fill="#b91c1c">near threshold</text></g>
+
+  <!-- Strength bar visual -->
+  <rect x="420" y="250" width="120" height="10" rx="4" fill="#e5e7eb"/>
+  <rect x="420" y="250" width="110" height="10" rx="4" fill="url(#gHi)" opacity="0.8"/>
+  <rect x="640" y="250" width="120" height="10" rx="4" fill="#e5e7eb"/>
+  <rect x="640" y="250" width="54" height="10" rx="4" fill="url(#gMid)" opacity="0.8"/>
+  <rect x="860" y="250" width="120" height="10" rx="4" fill="#e5e7eb"/>
+  <rect x="860" y="250" width="10" height="10" rx="4" fill="url(#gLo)" opacity="0.8"/>
+
+  <!-- threshold line -->
+  <line x1="380" y1="275" x2="1040" y2="275" stroke="#dc2626" stroke-width="1" stroke-dasharray="4,3" opacity="0.5"/>
+  <text x="1050" y="279" font-size="10" fill="#dc2626">threshold = 0.10</text>
+
+  <!-- Decay Engine -->
+  <g><rect x="40" y="140" width="220" height="100" rx="14" fill="url(#gDecay)" opacity="0.92" filter="url(#shadow)"/><text x="150" y="175" text-anchor="middle" font-size="15" font-weight="bold" fill="white">📉  Decay Engine</text><text x="150" y="200" text-anchor="middle" font-size="11" fill="#fecaca">exponential / linear</text><text x="150" y="220" text-anchor="middle" font-size="11" fill="#fecaca">runs periodically</text></g>
+
+  <!-- Retrieval (reinforcement) -->
+  <g><rect x="40" y="380" width="220" height="80" rx="14" fill="url(#gRet)" opacity="0.92" filter="url(#shadow)"/><text x="150" y="412" text-anchor="middle" font-size="15" font-weight="bold" fill="white">🔎  Retrieval</text><text x="150" y="436" text-anchor="middle" font-size="11" fill="#d1fae5">reinforcement: boost on access</text></g>
+
+  <!-- Pruning Engine -->
+  <g><rect x="550" y="380" width="220" height="100" rx="14" fill="url(#gPrune)" opacity="0.92" filter="url(#shadow)"/><text x="660" y="415" text-anchor="middle" font-size="15" font-weight="bold" fill="white">✂  Pruning Engine</text><text x="660" y="440" text-anchor="middle" font-size="11" fill="#fff7ed">removes memories</text><text x="660" y="460" text-anchor="middle" font-size="11" fill="#fff7ed">below threshold</text></g>
+
+  <!-- Archive (drum) -->
+  <g filter="url(#shadow)">
+    <ellipse cx="530" cy="560" rx="75" ry="14" fill="url(#gStore)" opacity="0.95"/>
+    <rect x="455" y="560" width="150" height="55" fill="url(#gStore)" opacity="0.95"/>
+    <ellipse cx="530" cy="615" rx="75" ry="14" fill="url(#gStore)" opacity="0.85"/>
+    <ellipse cx="530" cy="560" rx="75" ry="14" fill="url(#gStore)" opacity="1"/>
+    <text x="530" y="590" text-anchor="middle" font-size="13" font-weight="bold" fill="white">🗄  Archive</text>
+    <text x="530" y="608" text-anchor="middle" font-size="11" fill="#ede9fe">soft delete</text>
+  </g>
+
+  <!-- Deleted node -->
+  <g><rect x="720" y="555" width="160" height="60" rx="12" fill="#fee2e2" stroke="#dc2626" stroke-width="2" filter="url(#soft)"/><text x="800" y="582" text-anchor="middle" font-size="14" font-weight="bold" fill="#991b1b">🗑  Deleted</text><text x="800" y="600" text-anchor="middle" font-size="11" fill="#7f1d1d">hard delete</text></g>
+
+  <!-- Storage Pressure Monitor -->
+  <g><rect x="950" y="380" width="250" height="100" rx="14" fill="url(#gSP)" opacity="0.92" filter="url(#shadow)"/><text x="1075" y="415" text-anchor="middle" font-size="14" font-weight="bold" fill="white">📊  Storage Pressure Monitor</text><text x="1075" y="440" text-anchor="middle" font-size="11" fill="#fce7f3">tracks memory count</text><text x="1075" y="460" text-anchor="middle" font-size="11" fill="#fce7f3">raises threshold when full</text></g>
+
+  <!-- Decay arrows (red) -->
+  <path d="M 262 170 Q 340 160 388 175" stroke="#dc2626" stroke-width="2.5" fill="none" marker-end="url(#arrDecay)"/>
+  <path d="M 262 190 Q 440 190 608 190" stroke="#dc2626" stroke-width="2.5" fill="none" marker-end="url(#arrDecay)"/>
+  <path d="M 262 200 Q 550 210 828 190" stroke="#dc2626" stroke-width="2.5" fill="none" marker-end="url(#arrDecay)"/>
+  <rect x="280" y="155" width="90" height="20" rx="6" fill="white" stroke="#dc2626"/><text x="325" y="170" text-anchor="middle" font-size="10" font-weight="bold" fill="#dc2626">- strength</text>
+
+  <!-- Retrieval boost arrows (green) -->
+  <path d="M 262 400 Q 350 360 420 232" stroke="#059669" stroke-width="2.5" fill="none" marker-end="url(#arrBoost)"/>
+  <path d="M 262 420 Q 450 380 640 232" stroke="#059669" stroke-width="2.5" fill="none" marker-end="url(#arrBoost)"/>
+  <rect x="290" y="350" width="90" height="20" rx="6" fill="white" stroke="#059669"/><text x="335" y="365" text-anchor="middle" font-size="10" font-weight="bold" fill="#059669">+ strength</text>
+
+  <!-- Memory C -> Pruning (below threshold) -->
+  <path d="M 920 232 Q 920 320 770 378" stroke="#ea580c" stroke-width="2.5" fill="none" marker-end="url(#arrPrune)"/>
+  <rect x="860" y="310" width="100" height="20" rx="6" fill="white" stroke="#ea580c"/><text x="910" y="325" text-anchor="middle" font-size="10" font-weight="bold" fill="#ea580c">below 0.10</text>
+
+  <!-- Pruning -> Archive (soft delete) -->
+  <path d="M 615 480 Q 580 520 565 558" stroke="#2563eb" stroke-width="2.5" fill="none" marker-end="url(#arrMain)"/>
+  <rect x="546" y="510" width="70" height="20" rx="6" fill="white" stroke="#2563eb"/><text x="581" y="525" text-anchor="middle" font-size="10" font-weight="bold" fill="#2563eb">soft del</text>
+
+  <!-- Pruning -> Deleted (hard delete) -->
+  <path d="M 710 480 Q 750 520 785 553" stroke="#dc2626" stroke-width="2.5" fill="none" marker-end="url(#arrDecay)"/>
+  <rect x="720" y="510" width="70" height="20" rx="6" fill="white" stroke="#dc2626"/><text x="755" y="525" text-anchor="middle" font-size="10" font-weight="bold" fill="#dc2626">hard del</text>
+
+  <!-- Storage Pressure -> Pruning (adjusts threshold) -->
+  <path d="M 950 430 Q 830 430 772 430" stroke="#7c3aed" stroke-width="2" stroke-dasharray="6,4" fill="none" marker-end="url(#arrFB)"/>
+  <rect x="820" y="420" width="110" height="20" rx="6" fill="white" stroke="#7c3aed"/><text x="875" y="435" text-anchor="middle" font-size="10" font-weight="bold" fill="#5b21b6">adjust threshold</text>
+
+  <!-- Legend -->
+  <g>
+    <line x1="60" y1="675" x2="90" y2="675" stroke="#dc2626" stroke-width="2.5" marker-end="url(#arrDecay)"/><text x="100" y="679" font-size="11" fill="#374151">decay (reduces strength)</text>
+    <line x1="290" y1="675" x2="320" y2="675" stroke="#059669" stroke-width="2.5" marker-end="url(#arrBoost)"/><text x="330" y="679" font-size="11" fill="#374151">reinforcement (boosts strength)</text>
+    <line x1="550" y1="675" x2="580" y2="675" stroke="#ea580c" stroke-width="2.5" marker-end="url(#arrPrune)"/><text x="590" y="679" font-size="11" fill="#374151">pruning trigger</text>
+    <line x1="730" y1="675" x2="760" y2="675" stroke="#7c3aed" stroke-width="2" stroke-dasharray="6,4" marker-end="url(#arrFB)"/><text x="770" y="679" font-size="11" fill="#374151">feedback signal</text>
+  </g>
+
+  <text x="700" y="710" text-anchor="middle" font-size="12" fill="#64748b" font-style="italic">Every read is a vote to keep. Silence is a vote to forget. Storage pressure accelerates the process.</text>
+</svg>

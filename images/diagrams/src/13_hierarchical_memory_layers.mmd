@@ -1,0 +1,34 @@
+flowchart TB
+    Q["Query"] --> L1
+
+    subgraph L1["L1: Context Window"]
+        direction LR
+        L1D["Fastest | Smallest\n~4k-16k tokens"]
+    end
+
+    L1 -->|"Cache Miss"| L2
+
+    subgraph L2["L2: Vector DB"]
+        direction LR
+        L2D["Fast | Medium\n~100k+ memories"]
+    end
+
+    L2 -->|"Cache Miss"| L3
+
+    subgraph L3["L3: Archive DB"]
+        direction LR
+        L3D["Slow | Largest\nUnlimited capacity"]
+    end
+
+    L2 -->|"Promote\n(high access freq)"| L1
+    L1 -->|"Demote\n(stale / low freq)"| L2
+    L3 -->|"Promote\n(re-accessed)"| L2
+    L2 -->|"Demote\n(cold / aged)"| L3
+
+    AC["Access Counter"] -.->|"Feeds"| L1
+    AC -.->|"Feeds"| L2
+    AC -.->|"Feeds"| L3
+
+    style L1 fill:#2d5a2d,stroke:#4a9,color:#fff
+    style L2 fill:#5a5a2d,stroke:#aa4,color:#fff
+    style L3 fill:#5a2d2d,stroke:#a44,color:#fff

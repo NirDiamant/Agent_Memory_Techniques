@@ -1,0 +1,99 @@
+<svg viewBox="0 0 1400 700" xmlns="http://www.w3.org/2000/svg" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <linearGradient id="gAgent" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#667eea"/><stop offset="100%" style="stop-color:#764ba2"/></linearGradient>
+    <linearGradient id="gRouter" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#4facfe"/><stop offset="100%" style="stop-color:#00f2fe"/></linearGradient>
+    <linearGradient id="gEpi" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#11998e"/><stop offset="100%" style="stop-color:#38ef7d"/></linearGradient>
+    <linearGradient id="gSem" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#FFB75E"/><stop offset="100%" style="stop-color:#ED8F03"/></linearGradient>
+    <linearGradient id="gProc" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#f093fb"/><stop offset="100%" style="stop-color:#f5576c"/></linearGradient>
+    <linearGradient id="gMerge" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#4f46e5"/><stop offset="100%" style="stop-color:#7c3aed"/></linearGradient>
+    <linearGradient id="gReg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#ef4444"/><stop offset="100%" style="stop-color:#b91c1c"/></linearGradient>
+    <filter id="shadow"><feDropShadow dx="1.5" dy="2" stdDeviation="2.5" flood-color="#000" flood-opacity="0.18"/></filter>
+    <filter id="soft"><feDropShadow dx="1" dy="1.5" stdDeviation="1.5" flood-color="#000" flood-opacity="0.12"/></filter>
+    <marker id="arrMain" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 L3,5 Z" fill="#2563eb"/></marker>
+    <marker id="arrWrite" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 L3,5 Z" fill="#059669"/></marker>
+    <marker id="arrRead" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 L3,5 Z" fill="#d946ef"/></marker>
+    <marker id="arrFB" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 L3,5 Z" fill="#7c3aed"/></marker>
+  </defs>
+
+  <rect width="1400" height="700" fill="#f8f9fa"/>
+  <text x="700" y="38" text-anchor="middle" font-size="24" font-weight="bold" fill="#1f2937">Memory Routing</text>
+  <text x="700" y="62" text-anchor="middle" font-size="13" fill="#6b7280">A classifier decides which specialized store each memory belongs to, and merges results at read time.</text>
+
+  <!-- Agent node -->
+  <g><rect x="40" y="280" width="170" height="80" rx="14" fill="url(#gAgent)" opacity="0.92" filter="url(#shadow)"/><text x="125" y="312" text-anchor="middle" font-size="15" font-weight="bold" fill="white">👤  Agent</text><text x="125" y="336" text-anchor="middle" font-size="11" fill="#e9e3ff">read &amp; write requests</text></g>
+
+  <!-- Router node -->
+  <g><rect x="280" y="260" width="200" height="120" rx="14" fill="url(#gRouter)" opacity="0.18" filter="url(#shadow)"/><rect x="280" y="260" width="200" height="40" rx="14" fill="url(#gRouter)" opacity="0.95"/><text x="380" y="287" text-anchor="middle" font-size="14" font-weight="bold" fill="white">🔀  Memory Router</text><text x="380" y="320" text-anchor="middle" font-size="12" font-weight="bold" fill="#1f2937">Classifier</text><text x="380" y="340" text-anchor="middle" font-size="11" fill="#4b5563">tags memory type</text><text x="380" y="358" text-anchor="middle" font-size="11" fill="#4b5563">routes read/write</text></g>
+
+  <!-- Write Path Panel -->
+  <rect x="550" y="88" width="420" height="260" rx="14" fill="url(#gEpi)" opacity="0.08" filter="url(#shadow)"/>
+  <rect x="550" y="88" width="420" height="36" rx="14" fill="url(#gEpi)" opacity="0.95"/>
+  <text x="760" y="112" text-anchor="middle" font-size="14" font-weight="bold" fill="white">📤  Write Path</text>
+
+  <!-- Episodic Store -->
+  <g><rect x="580" y="140" width="170" height="70" rx="12" fill="white" filter="url(#soft)"/><text x="665" y="168" text-anchor="middle" font-size="13" font-weight="bold" fill="#065f46">📖  Episodic Store</text><text x="665" y="188" text-anchor="middle" font-size="11" fill="#4b5563">conversations, events</text></g>
+
+  <!-- Semantic Store -->
+  <g><rect x="770" y="140" width="170" height="70" rx="12" fill="white" filter="url(#soft)"/><text x="855" y="168" text-anchor="middle" font-size="13" font-weight="bold" fill="#92400e">📚  Semantic Store</text><text x="855" y="188" text-anchor="middle" font-size="11" fill="#4b5563">facts, knowledge</text></g>
+
+  <!-- Procedural Store -->
+  <g><rect x="670" y="230" width="170" height="70" rx="12" fill="white" filter="url(#soft)"/><text x="755" y="258" text-anchor="middle" font-size="13" font-weight="bold" fill="#9333ea">🔧  Procedural Store</text><text x="755" y="278" text-anchor="middle" font-size="11" fill="#4b5563">skills, workflows</text></g>
+
+  <!-- Read Path Panel -->
+  <rect x="550" y="370" width="420" height="230" rx="14" fill="url(#gMerge)" opacity="0.08" filter="url(#shadow)"/>
+  <rect x="550" y="370" width="420" height="36" rx="14" fill="url(#gMerge)" opacity="0.95"/>
+  <text x="760" y="394" text-anchor="middle" font-size="14" font-weight="bold" fill="white">📥  Read Path</text>
+
+  <!-- Read results from stores -->
+  <g><rect x="580" y="420" width="130" height="55" rx="10" fill="white" filter="url(#soft)"/><text x="645" y="445" text-anchor="middle" font-size="11" font-weight="bold" fill="#065f46">📖  Episodic</text><text x="645" y="462" text-anchor="middle" font-size="10" fill="#6b7280">results</text></g>
+  <g><rect x="720" y="420" width="130" height="55" rx="10" fill="white" filter="url(#soft)"/><text x="785" y="445" text-anchor="middle" font-size="11" font-weight="bold" fill="#92400e">📚  Semantic</text><text x="785" y="462" text-anchor="middle" font-size="10" fill="#6b7280">results</text></g>
+  <g><rect x="860" y="420" width="80" height="55" rx="10" fill="white" filter="url(#soft)"/><text x="900" y="445" text-anchor="middle" font-size="11" font-weight="bold" fill="#9333ea">🔧</text><text x="900" y="462" text-anchor="middle" font-size="10" fill="#6b7280">results</text></g>
+
+  <!-- Merge & Re-rank node -->
+  <g><rect x="660" y="500" width="200" height="70" rx="14" fill="url(#gMerge)" opacity="0.92" filter="url(#shadow)"/><text x="760" y="530" text-anchor="middle" font-size="14" font-weight="bold" fill="white">⚖  Merge &amp; Re-rank</text><text x="760" y="550" text-anchor="middle" font-size="11" fill="#ede9fe">score, dedupe, top-K</text></g>
+
+  <!-- Store Registry -->
+  <g><rect x="1060" y="240" width="280" height="160" rx="14" fill="url(#gReg)" opacity="0.15" filter="url(#shadow)"/><rect x="1060" y="240" width="280" height="36" rx="14" fill="url(#gReg)" opacity="0.95"/><text x="1200" y="264" text-anchor="middle" font-size="14" font-weight="bold" fill="white">🗂  Store Registry</text><text x="1200" y="295" text-anchor="middle" font-size="12" fill="#1f2937">capabilities per store</text><text x="1200" y="315" text-anchor="middle" font-size="12" fill="#1f2937">schemas, access patterns</text><text x="1200" y="340" text-anchor="middle" font-size="11" fill="#6b7280">informs routing decisions</text><text x="1200" y="380" text-anchor="middle" font-size="11" font-style="italic" fill="#991b1b">"episodic accepts events,</text><text x="1200" y="395" text-anchor="middle" font-size="11" font-style="italic" fill="#991b1b">semantic accepts facts..."</text></g>
+
+  <!-- Arrows: Agent -> Router -->
+  <line x1="212" y1="320" x2="278" y2="320" stroke="#2563eb" stroke-width="3" marker-end="url(#arrMain)"/>
+
+  <!-- Router -> Write Path stores (green, write) -->
+  <path d="M 480 290 Q 530 210 578 175" stroke="#059669" stroke-width="2.5" fill="none" marker-end="url(#arrWrite)"/>
+  <rect x="500" y="215" width="62" height="20" rx="6" fill="white" stroke="#059669"/><text x="531" y="230" text-anchor="middle" font-size="10" font-weight="bold" fill="#059669">episodic</text>
+
+  <path d="M 480 285 Q 600 200 768 175" stroke="#059669" stroke-width="2.5" fill="none" marker-end="url(#arrWrite)"/>
+  <rect x="598" y="190" width="68" height="20" rx="6" fill="white" stroke="#059669"/><text x="632" y="205" text-anchor="middle" font-size="10" font-weight="bold" fill="#059669">semantic</text>
+
+  <path d="M 480 310 Q 540 280 668 265" stroke="#059669" stroke-width="2.5" fill="none" marker-end="url(#arrWrite)"/>
+  <rect x="536" y="272" width="80" height="20" rx="6" fill="white" stroke="#059669"/><text x="576" y="287" text-anchor="middle" font-size="10" font-weight="bold" fill="#059669">procedural</text>
+
+  <!-- Router -> Read Path (query arrows, purple) -->
+  <path d="M 480 350 Q 530 400 578 447" stroke="#d946ef" stroke-width="2.5" fill="none" marker-end="url(#arrRead)"/>
+  <path d="M 480 360 Q 600 410 718 447" stroke="#d946ef" stroke-width="2.5" fill="none" marker-end="url(#arrRead)"/>
+  <path d="M 480 365 Q 700 410 858 447" stroke="#d946ef" stroke-width="2.5" fill="none" marker-end="url(#arrRead)"/>
+  <rect x="490" y="390" width="50" height="20" rx="6" fill="white" stroke="#d946ef"/><text x="515" y="405" text-anchor="middle" font-size="10" font-weight="bold" fill="#d946ef">query</text>
+
+  <!-- Read results -> Merge -->
+  <line x1="645" y1="475" x2="710" y2="500" stroke="#2563eb" stroke-width="2" marker-end="url(#arrMain)"/>
+  <line x1="785" y1="475" x2="760" y2="498" stroke="#2563eb" stroke-width="2" marker-end="url(#arrMain)"/>
+  <line x1="900" y1="475" x2="820" y2="500" stroke="#2563eb" stroke-width="2" marker-end="url(#arrMain)"/>
+
+  <!-- Merge -> Agent (feedback) -->
+  <path d="M 660 535 Q 400 580 160 362" stroke="#7c3aed" stroke-width="2.5" fill="none" marker-end="url(#arrFB)"/>
+  <rect x="320" y="540" width="130" height="22" rx="6" fill="white" stroke="#7c3aed"/>
+  <text x="385" y="555" text-anchor="middle" font-size="11" font-weight="bold" fill="#5b21b6">merged results</text>
+
+  <!-- Registry -> Router (dashed info) -->
+  <path d="M 1060 320 Q 700 320 482 310" stroke="#7c3aed" stroke-width="2" stroke-dasharray="6,4" fill="none" marker-end="url(#arrFB)"/>
+
+  <!-- Legend -->
+  <g>
+    <line x1="60" y1="660" x2="90" y2="660" stroke="#2563eb" stroke-width="3" marker-end="url(#arrMain)"/><text x="100" y="664" font-size="11" fill="#374151">main flow</text>
+    <line x1="200" y1="660" x2="230" y2="660" stroke="#059669" stroke-width="2.5" marker-end="url(#arrWrite)"/><text x="240" y="664" font-size="11" fill="#374151">write path</text>
+    <line x1="330" y1="660" x2="360" y2="660" stroke="#d946ef" stroke-width="2.5" marker-end="url(#arrRead)"/><text x="370" y="664" font-size="11" fill="#374151">read/query path</text>
+    <line x1="490" y1="660" x2="520" y2="660" stroke="#7c3aed" stroke-width="2" stroke-dasharray="6,4" marker-end="url(#arrFB)"/><text x="530" y="664" font-size="11" fill="#374151">info / results</text>
+  </g>
+
+  <text x="700" y="695" text-anchor="middle" font-size="12" fill="#64748b" font-style="italic">The router is the single classification point: it decides the memory type once, then both writes and reads flow through the correct stores.</text>
+</svg>

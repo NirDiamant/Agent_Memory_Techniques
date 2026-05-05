@@ -1,0 +1,80 @@
+<svg viewBox="0 0 1400 640" xmlns="http://www.w3.org/2000/svg" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <linearGradient id="gIn" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#667eea"/><stop offset="100%" style="stop-color:#764ba2"/></linearGradient>
+    <linearGradient id="gExt" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#FFB75E"/><stop offset="100%" style="stop-color:#ED8F03"/></linearGradient>
+    <linearGradient id="gDec" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#FFB75E"/><stop offset="100%" style="stop-color:#F97316"/></linearGradient>
+    <linearGradient id="gKB" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#4f46e5"/><stop offset="100%" style="stop-color:#7c3aed"/></linearGradient>
+    <linearGradient id="gRet" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#2196F3"/><stop offset="100%" style="stop-color:#21CBF3"/></linearGradient>
+    <linearGradient id="gLLM" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#f093fb"/><stop offset="100%" style="stop-color:#f5576c"/></linearGradient>
+    <filter id="shadow"><feDropShadow dx="1.5" dy="2" stdDeviation="2.5" flood-color="#000" flood-opacity="0.18"/></filter>
+    <filter id="soft"><feDropShadow dx="1" dy="1.5" stdDeviation="1.5" flood-color="#000" flood-opacity="0.12"/></filter>
+    <marker id="arrMain" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 L3,5 Z" fill="#2563eb"/></marker>
+    <marker id="arrNew" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 L3,5 Z" fill="#059669"/></marker>
+    <marker id="arrDup" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 L3,5 Z" fill="#0891b2"/></marker>
+    <marker id="arrCon" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 L3,5 Z" fill="#dc2626"/></marker>
+  </defs>
+
+  <rect width="1400" height="640" fill="#f8f9fa"/>
+  <text x="700" y="38" text-anchor="middle" font-size="24" font-weight="bold" fill="#1f2937">Semantic Memory</text>
+  <text x="700" y="62" text-anchor="middle" font-size="13" fill="#6b7280">Extract standalone facts from conversation. Deduplicate, resolve conflicts, persist. Retrieve by semantic similarity.</text>
+
+  <!-- Top pipeline: extract -> dedup -->
+  <g><rect x="40" y="130" width="200" height="90" rx="14" fill="url(#gIn)" opacity="0.92" filter="url(#shadow)"/><text x="140" y="164" text-anchor="middle" font-size="14" font-weight="bold" fill="white">💬  Conversation</text><text x="140" y="196" text-anchor="middle" font-size="11" fill="#e9e3ff">turns as they happen</text></g>
+
+  <g><rect x="290" y="130" width="220" height="90" rx="14" fill="url(#gExt)" opacity="0.92" filter="url(#shadow)"/><text x="400" y="162" text-anchor="middle" font-size="14" font-weight="bold" fill="white">📝  Fact Extractor</text><text x="400" y="184" text-anchor="middle" font-size="11" fill="#fff7ed">LLM call</text><text x="400" y="200" text-anchor="middle" font-size="11" fill="#fff7ed">"standalone facts only"</text></g>
+
+  <g><polygon points="570,175 700,130 830,175 700,220" fill="url(#gDec)" opacity="0.95" filter="url(#shadow)"/><text x="700" y="170" text-anchor="middle" font-size="13" font-weight="bold" fill="white">Dedup / Conflict</text><text x="700" y="188" text-anchor="middle" font-size="13" font-weight="bold" fill="white">Checker</text></g>
+
+  <line x1="242" y1="175" x2="288" y2="175" stroke="#2563eb" stroke-width="3" marker-end="url(#arrMain)"/>
+  <line x1="512" y1="175" x2="568" y2="175" stroke="#2563eb" stroke-width="3" marker-end="url(#arrMain)"/>
+
+  <!-- Three branches from dedup -->
+  <g><rect x="870" y="100" width="240" height="60" rx="12" fill="white" stroke="#059669" stroke-width="2" filter="url(#soft)"/><text x="990" y="124" text-anchor="middle" font-size="13" font-weight="bold" fill="#047857">✅  New fact</text><text x="990" y="144" text-anchor="middle" font-size="11" fill="#065f46">insert</text></g>
+  <g><rect x="870" y="175" width="240" height="60" rx="12" fill="white" stroke="#0891b2" stroke-width="2" filter="url(#soft)"/><text x="990" y="199" text-anchor="middle" font-size="13" font-weight="bold" fill="#0e7490">🔁  Duplicate</text><text x="990" y="219" text-anchor="middle" font-size="11" fill="#155e75">merge, bump confidence</text></g>
+  <g><rect x="870" y="250" width="240" height="60" rx="12" fill="white" stroke="#dc2626" stroke-width="2" filter="url(#soft)"/><text x="990" y="274" text-anchor="middle" font-size="13" font-weight="bold" fill="#b91c1c">⚡  Contradiction</text><text x="990" y="294" text-anchor="middle" font-size="11" fill="#991b1b">resolve (prefer recent)</text></g>
+
+  <line x1="830" y1="160" x2="868" y2="135" stroke="#059669" stroke-width="2.5" marker-end="url(#arrNew)"/>
+  <line x1="830" y1="175" x2="868" y2="200" stroke="#0891b2" stroke-width="2.5" marker-end="url(#arrDup)"/>
+  <line x1="830" y1="195" x2="868" y2="270" stroke="#dc2626" stroke-width="2.5" marker-end="url(#arrCon)"/>
+
+  <!-- KB -->
+  <g>
+    <ellipse cx="1270" cy="130" rx="90" ry="22" fill="url(#gKB)" opacity="0.95" filter="url(#shadow)"/>
+    <rect x="1180" y="130" width="180" height="160" fill="url(#gKB)" opacity="0.95"/>
+    <ellipse cx="1270" cy="290" rx="90" ry="22" fill="url(#gKB)" opacity="0.95"/>
+    <ellipse cx="1270" cy="130" rx="90" ry="22" fill="none" stroke="#312e81" stroke-width="1"/>
+    <text x="1270" y="190" text-anchor="middle" font-size="15" font-weight="bold" fill="white">📚</text>
+    <text x="1270" y="215" text-anchor="middle" font-size="13" font-weight="bold" fill="white">Knowledge Base</text>
+    <text x="1270" y="238" text-anchor="middle" font-size="11" fill="#ede9fe">facts + confidence</text>
+    <text x="1270" y="255" text-anchor="middle" font-size="11" fill="#ede9fe">+ timestamps</text>
+  </g>
+
+  <line x1="1110" y1="130" x2="1180" y2="135" stroke="#059669" stroke-width="2.5" marker-end="url(#arrNew)"/>
+  <line x1="1110" y1="205" x2="1180" y2="205" stroke="#0891b2" stroke-width="2.5" marker-end="url(#arrDup)"/>
+  <line x1="1110" y1="280" x2="1180" y2="275" stroke="#dc2626" stroke-width="2.5" marker-end="url(#arrCon)"/>
+
+  <!-- Retrieval row -->
+  <rect x="40" y="360" width="1320" height="170" rx="14" fill="url(#gRet)" opacity="0.12" filter="url(#shadow)"/>
+  <rect x="40" y="360" width="1320" height="40" rx="14" fill="url(#gRet)" opacity="0.95"/>
+  <text x="700" y="386" text-anchor="middle" font-size="15" font-weight="bold" fill="white">🔍  At Query Time</text>
+
+  <g><rect x="70" y="420" width="220" height="90" rx="12" fill="white" filter="url(#soft)"/><text x="180" y="450" text-anchor="middle" font-size="13" font-weight="bold" fill="#1f2937">👤  New Query</text></g>
+  <g><rect x="325" y="420" width="260" height="90" rx="12" fill="url(#gRet)" opacity="0.9" filter="url(#soft)"/><text x="455" y="450" text-anchor="middle" font-size="13" font-weight="bold" fill="white">🔎  Semantic Search</text><text x="455" y="470" text-anchor="middle" font-size="11" fill="#e0f2fe">embedding similarity</text><text x="455" y="488" text-anchor="middle" font-size="11" fill="#e0f2fe">Top-K facts</text></g>
+  <g><rect x="620" y="420" width="260" height="90" rx="12" fill="white" filter="url(#soft)"/><text x="750" y="450" text-anchor="middle" font-size="13" font-weight="bold" fill="#1f2937">🧩  Context Injection</text><text x="750" y="472" text-anchor="middle" font-size="11" fill="#6b7280">retrieved facts as bullets</text><text x="750" y="490" text-anchor="middle" font-size="11" fill="#6b7280">inside the system prompt</text></g>
+  <g><rect x="915" y="420" width="220" height="90" rx="12" fill="url(#gLLM)" opacity="0.9" filter="url(#soft)"/><text x="1025" y="458" text-anchor="middle" font-size="14" font-weight="bold" fill="white">✨  LLM</text><text x="1025" y="480" text-anchor="middle" font-size="11" fill="#ffe4f1">grounded answer</text></g>
+  <g><rect x="1170" y="420" width="180" height="90" rx="12" fill="white" filter="url(#soft)"/><text x="1260" y="458" text-anchor="middle" font-size="13" font-weight="bold" fill="#1f2937">↪  Response</text></g>
+
+  <line x1="292" y1="465" x2="323" y2="465" stroke="#2563eb" stroke-width="3" marker-end="url(#arrMain)"/>
+  <path d="M 1270 290 Q 1180 350 455 418" stroke="#2563eb" stroke-width="2.5" fill="none" marker-end="url(#arrMain)"/>
+  <line x1="587" y1="465" x2="618" y2="465" stroke="#2563eb" stroke-width="3" marker-end="url(#arrMain)"/>
+  <line x1="882" y1="465" x2="913" y2="465" stroke="#2563eb" stroke-width="3" marker-end="url(#arrMain)"/>
+  <line x1="1137" y1="465" x2="1168" y2="465" stroke="#2563eb" stroke-width="3" marker-end="url(#arrMain)"/>
+
+  <!-- Legend -->
+  <g>
+    <line x1="60" y1="585" x2="90" y2="585" stroke="#2563eb" stroke-width="3" marker-end="url(#arrMain)"/><text x="100" y="589" font-size="11" fill="#374151">main flow</text>
+    <line x1="180" y1="585" x2="210" y2="585" stroke="#059669" stroke-width="2.5" marker-end="url(#arrNew)"/><text x="220" y="589" font-size="11" fill="#374151">new fact</text>
+    <line x1="300" y1="585" x2="330" y2="585" stroke="#0891b2" stroke-width="2.5" marker-end="url(#arrDup)"/><text x="340" y="589" font-size="11" fill="#374151">duplicate → merge</text>
+    <line x1="480" y1="585" x2="510" y2="585" stroke="#dc2626" stroke-width="2.5" marker-end="url(#arrCon)"/><text x="520" y="589" font-size="11" fill="#374151">contradiction → resolve</text>
+  </g>
+</svg>

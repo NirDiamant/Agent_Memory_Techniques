@@ -1,0 +1,27 @@
+flowchart LR
+    subgraph App["Agent / Application"]
+        A["User message"] --> B["Agent generates\nresponse"]
+        B --> C["Response to user"]
+    end
+
+    subgraph Mem0Layer["Mem0 Memory Layer"]
+        D["memory.add()\n─────────\nLLM extraction\nConflict resolution\nDeduplication"]
+        E["memory.search()\n─────────\nSemantic search\nRanked results"]
+        F[("Vector Store\n(Qdrant)\n─────────\nEmbeddings\nMetadata\nUser scopes")]
+    end
+
+    subgraph Ops["Management"]
+        G["memory.get_all()\nmemory.update()\nmemory.delete()"]
+    end
+
+    A -->|"conversation turns"| D
+    D -->|"extracted facts"| F
+    A -->|"query"| E
+    E -->|"relevant memories"| B
+    F <-->|"store / retrieve"| E
+    G <--> F
+
+    style F fill:#4f46e5,color:#fff
+    style D fill:#059669,color:#fff
+    style E fill:#d97706,color:#fff
+    style B fill:#6366f1,color:#fff

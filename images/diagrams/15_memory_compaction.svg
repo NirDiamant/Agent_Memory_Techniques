@@ -1,0 +1,73 @@
+<svg viewBox="0 0 1400 720" xmlns="http://www.w3.org/2000/svg" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <linearGradient id="gRM" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#2196F3"/><stop offset="100%" style="stop-color:#21CBF3"/></linearGradient>
+    <linearGradient id="gCE" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#FFB75E"/><stop offset="100%" style="stop-color:#ED8F03"/></linearGradient>
+    <linearGradient id="gL1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#11998e"/><stop offset="100%" style="stop-color:#38ef7d"/></linearGradient>
+    <linearGradient id="gL2" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#eab308"/><stop offset="100%" style="stop-color:#f59e0b"/></linearGradient>
+    <linearGradient id="gL3" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#ef4444"/><stop offset="100%" style="stop-color:#b91c1c"/></linearGradient>
+    <linearGradient id="gCS" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#4f46e5"/><stop offset="100%" style="stop-color:#7c3aed"/></linearGradient>
+    <linearGradient id="gSel" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#667eea"/><stop offset="100%" style="stop-color:#764ba2"/></linearGradient>
+    <filter id="shadow"><feDropShadow dx="1.5" dy="2" stdDeviation="2.5" flood-color="#000" flood-opacity="0.18"/></filter>
+    <filter id="soft"><feDropShadow dx="1" dy="1.5" stdDeviation="1.5" flood-color="#000" flood-opacity="0.12"/></filter>
+    <marker id="arrMain" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 L3,5 Z" fill="#2563eb"/></marker>
+    <marker id="arrArc" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 L3,5 Z" fill="#7c3aed"/></marker>
+    <marker id="arrFull" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 L3,5 Z" fill="#4f46e5"/></marker>
+    <marker id="arrMod" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 L3,5 Z" fill="#059669"/></marker>
+    <marker id="arrSum" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 L3,5 Z" fill="#ca8a04"/></marker>
+    <marker id="arrScan" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 L3,5 Z" fill="#dc2626"/></marker>
+  </defs>
+
+  <rect width="1400" height="720" fill="#f8f9fa"/>
+  <text x="700" y="38" text-anchor="middle" font-size="24" font-weight="bold" fill="#1f2937">Memory Compaction</text>
+  <text x="700" y="62" text-anchor="middle" font-size="13" fill="#6b7280">Progressively compress old memory into smaller representations (key points → one-liner → tags). Retrieve at the right level of detail.</text>
+
+  <text x="80" y="110" font-size="12" font-weight="bold" fill="#4f46e5" letter-spacing="1.5">COMPACTION PIPELINE · FROM FULL FIDELITY TO TAGS</text>
+
+  <g><rect x="40" y="130" width="170" height="100" rx="14" fill="url(#gRM)" opacity="0.95" filter="url(#shadow)"/><text x="125" y="162" text-anchor="middle" font-size="14" font-weight="bold" fill="white">📚  Raw Memory</text><text x="125" y="184" text-anchor="middle" font-size="11" fill="#dff5ff">L0: full fidelity</text><text x="125" y="204" text-anchor="middle" font-size="11" fill="#dff5ff">100% of content</text></g>
+
+  <g><rect x="240" y="140" width="130" height="80" rx="12" fill="url(#gCE)" opacity="0.92" filter="url(#shadow)"/><text x="305" y="170" text-anchor="middle" font-size="12" font-weight="bold" fill="white">⚙  Compaction</text><text x="305" y="190" text-anchor="middle" font-size="12" font-weight="bold" fill="white">Engine</text></g>
+
+  <g><rect x="400" y="130" width="160" height="100" rx="14" fill="url(#gL1)" opacity="0.92" filter="url(#shadow)"/><text x="480" y="160" text-anchor="middle" font-size="14" font-weight="bold" fill="white">📄  L1</text><text x="480" y="182" text-anchor="middle" font-size="12" fill="#d1fae5">Key Points</text><text x="480" y="202" text-anchor="middle" font-size="11" fill="#d1fae5">~30% of original</text></g>
+
+  <g><rect x="590" y="140" width="130" height="80" rx="12" fill="url(#gCE)" opacity="0.92" filter="url(#shadow)"/><text x="655" y="170" text-anchor="middle" font-size="12" font-weight="bold" fill="white">⚙  Compaction</text><text x="655" y="190" text-anchor="middle" font-size="12" font-weight="bold" fill="white">Engine</text></g>
+
+  <g><rect x="750" y="130" width="160" height="100" rx="14" fill="url(#gL2)" opacity="0.92" filter="url(#shadow)"/><text x="830" y="160" text-anchor="middle" font-size="14" font-weight="bold" fill="white">📌  L2</text><text x="830" y="182" text-anchor="middle" font-size="12" fill="#fef3c7">One-liner</text><text x="830" y="202" text-anchor="middle" font-size="11" fill="#fef3c7">~5% of original</text></g>
+
+  <g><rect x="940" y="140" width="130" height="80" rx="12" fill="url(#gCE)" opacity="0.92" filter="url(#shadow)"/><text x="1005" y="170" text-anchor="middle" font-size="12" font-weight="bold" fill="white">⚙  Compaction</text><text x="1005" y="190" text-anchor="middle" font-size="12" font-weight="bold" fill="white">Engine</text></g>
+
+  <g><rect x="1100" y="130" width="160" height="100" rx="14" fill="url(#gL3)" opacity="0.92" filter="url(#shadow)"/><text x="1180" y="160" text-anchor="middle" font-size="14" font-weight="bold" fill="white">🏷  L3</text><text x="1180" y="182" text-anchor="middle" font-size="12" fill="#fee2e2">Tags Only</text><text x="1180" y="202" text-anchor="middle" font-size="11" fill="#fee2e2">~1% of original</text></g>
+
+  <line x1="212" y1="180" x2="238" y2="180" stroke="#2563eb" stroke-width="3" marker-end="url(#arrMain)"/>
+  <line x1="372" y1="180" x2="398" y2="180" stroke="#2563eb" stroke-width="3" marker-end="url(#arrMain)"/>
+  <line x1="562" y1="180" x2="588" y2="180" stroke="#2563eb" stroke-width="3" marker-end="url(#arrMain)"/>
+  <line x1="722" y1="180" x2="748" y2="180" stroke="#2563eb" stroke-width="3" marker-end="url(#arrMain)"/>
+  <line x1="912" y1="180" x2="938" y2="180" stroke="#2563eb" stroke-width="3" marker-end="url(#arrMain)"/>
+  <line x1="1072" y1="180" x2="1098" y2="180" stroke="#2563eb" stroke-width="3" marker-end="url(#arrMain)"/>
+
+  <g><rect x="40" y="280" width="170" height="80" rx="14" fill="url(#gCS)" opacity="0.92" filter="url(#shadow)"/><text x="125" y="310" text-anchor="middle" font-size="13" font-weight="bold" fill="white">❄  Cold Storage</text><text x="125" y="334" text-anchor="middle" font-size="11" fill="#ede9fe">archive of originals</text></g>
+  <path d="M 125 230 L 125 278" stroke="#7c3aed" stroke-width="2" stroke-dasharray="6,4" fill="none" marker-end="url(#arrArc)"/>
+  <rect x="140" y="242" width="90" height="22" rx="6" fill="white" stroke="#7c3aed"/><text x="185" y="258" text-anchor="middle" font-size="11" font-weight="bold" fill="#5b21b6">archive original</text>
+
+  <rect x="30" y="430" width="1340" height="240" rx="14" fill="#eef2ff" opacity="0.55" filter="url(#shadow)"/>
+  <text x="60" y="455" font-size="12" font-weight="bold" fill="#4f46e5" letter-spacing="1.5">RETRIEVAL · LEVEL SELECTOR PICKS THE RIGHT FIDELITY</text>
+
+  <g><rect x="60" y="490" width="200" height="80" rx="14" fill="white" filter="url(#soft)"/><text x="160" y="520" text-anchor="middle" font-size="14" font-weight="bold" fill="#1f2937">👤  Retrieval Query</text><text x="160" y="544" text-anchor="middle" font-size="11" fill="#6b7280">with detail preference</text></g>
+
+  <g><rect x="310" y="490" width="220" height="80" rx="14" fill="url(#gSel)" opacity="0.92" filter="url(#shadow)"/><text x="420" y="520" text-anchor="middle" font-size="14" font-weight="bold" fill="white">🎚  Level Selector</text><text x="420" y="544" text-anchor="middle" font-size="11" fill="#e9e3ff">picks L3/L2/L1/L0 per query</text></g>
+
+  <line x1="262" y1="530" x2="308" y2="530" stroke="#2563eb" stroke-width="3" marker-end="url(#arrMain)"/>
+
+  <path d="M 530 510 Q 700 420 1170 230" stroke="#dc2626" stroke-width="2.5" fill="none" marker-end="url(#arrScan)"/>
+  <rect x="700" y="470" width="90" height="22" rx="6" fill="white" stroke="#dc2626"/><text x="745" y="486" text-anchor="middle" font-size="11" font-weight="bold" fill="#991b1b">quick scan</text>
+
+  <path d="M 530 520 Q 700 520 820 230" stroke="#ca8a04" stroke-width="2.5" fill="none" marker-end="url(#arrSum)"/>
+  <rect x="700" y="540" width="80" height="22" rx="6" fill="white" stroke="#ca8a04"/><text x="740" y="556" text-anchor="middle" font-size="11" font-weight="bold" fill="#854d0e">summary</text>
+
+  <path d="M 530 540 Q 500 600 480 230" stroke="#059669" stroke-width="2.5" fill="none" marker-end="url(#arrMod)"/>
+  <rect x="560" y="620" width="140" height="22" rx="6" fill="white" stroke="#059669"/><text x="630" y="636" text-anchor="middle" font-size="11" font-weight="bold" fill="#047857">moderate detail</text>
+
+  <path d="M 530 560 Q 400 580 125 362" stroke="#4f46e5" stroke-width="2.5" fill="none" marker-end="url(#arrFull)"/>
+  <rect x="250" y="620" width="120" height="22" rx="6" fill="white" stroke="#4f46e5"/><text x="310" y="636" text-anchor="middle" font-size="11" font-weight="bold" fill="#3730a3">full detail</text>
+
+  <text x="700" y="695" text-anchor="middle" font-size="12" fill="#64748b" font-style="italic">A tag scan is 100x cheaper than loading the full original. Most queries only need L2 or L3.</text>
+</svg>

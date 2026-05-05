@@ -1,0 +1,69 @@
+<svg viewBox="0 0 1400 560" xmlns="http://www.w3.org/2000/svg" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <linearGradient id="gInput" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#667eea"/><stop offset="100%" style="stop-color:#764ba2"/></linearGradient>
+    <linearGradient id="gProc" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#4facfe"/><stop offset="100%" style="stop-color:#00f2fe"/></linearGradient>
+    <linearGradient id="gDec" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#FFB75E"/><stop offset="100%" style="stop-color:#ED8F03"/></linearGradient>
+    <linearGradient id="gOK" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#11998e"/><stop offset="100%" style="stop-color:#38ef7d"/></linearGradient>
+    <linearGradient id="gLLM" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#f093fb"/><stop offset="100%" style="stop-color:#f5576c"/></linearGradient>
+    <filter id="shadow"><feDropShadow dx="1.5" dy="2" stdDeviation="2.5" flood-color="#000" flood-opacity="0.18"/></filter>
+    <filter id="soft"><feDropShadow dx="1" dy="1.5" stdDeviation="1.5" flood-color="#000" flood-opacity="0.12"/></filter>
+    <marker id="arrMain" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 L3,5 Z" fill="#2563eb"/></marker>
+    <marker id="arrYes" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 L3,5 Z" fill="#dc2626"/></marker>
+    <marker id="arrNo" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 L3,5 Z" fill="#059669"/></marker>
+    <marker id="arrFB" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 L3,5 Z" fill="#7c3aed"/></marker>
+  </defs>
+
+  <rect width="1400" height="560" fill="#f8f9fa"/>
+  <text x="700" y="38" text-anchor="middle" font-size="24" font-weight="bold" fill="#1f2937">Token Buffer Memory</text>
+  <text x="700" y="62" text-anchor="middle" font-size="13" fill="#6b7280">Trim the conversation to fit a strict token budget. Drop oldest messages until you're under the limit.</text>
+
+  <g><rect x="40" y="230" width="170" height="80" rx="14" fill="url(#gInput)" opacity="0.92" filter="url(#shadow)"/><text x="125" y="262" text-anchor="middle" font-size="15" font-weight="bold" fill="white">👤  New Message</text><text x="125" y="286" text-anchor="middle" font-size="11" fill="#e9e3ff">incoming turn</text></g>
+
+  <g><rect x="250" y="220" width="180" height="100" rx="14" fill="url(#gProc)" opacity="0.18" filter="url(#shadow)"/><rect x="250" y="220" width="180" height="38" rx="14" fill="url(#gProc)"/><text x="340" y="246" text-anchor="middle" font-size="14" font-weight="bold" fill="white">🔢  Tokenizer</text><text x="340" y="282" text-anchor="middle" font-size="12" fill="#1f2937">tiktoken</text><text x="340" y="302" text-anchor="middle" font-size="11" fill="#4b5563">count tokens per msg</text></g>
+
+  <g><rect x="470" y="220" width="190" height="100" rx="14" fill="url(#gProc)" opacity="0.18" filter="url(#shadow)"/><rect x="470" y="220" width="190" height="38" rx="14" fill="url(#gProc)"/><text x="565" y="246" text-anchor="middle" font-size="14" font-weight="bold" fill="white">➕  Token Counter</text><text x="565" y="282" text-anchor="middle" font-size="12" fill="#1f2937">sum over all messages</text><text x="565" y="302" text-anchor="middle" font-size="11" fill="#4b5563">total = Σ msg tokens</text></g>
+
+  <g><polygon points="720,280 830,230 940,280 830,330" fill="url(#gDec)" opacity="0.92" filter="url(#shadow)"/><text x="830" y="270" text-anchor="middle" font-size="13" font-weight="bold" fill="white">total &gt;</text><text x="830" y="288" text-anchor="middle" font-size="13" font-weight="bold" fill="white">max_token_limit?</text></g>
+
+  <g><rect x="720" y="100" width="220" height="90" rx="14" fill="#fee2e2" stroke="#dc2626" stroke-width="2" opacity="0.95" filter="url(#shadow)"/><text x="830" y="128" text-anchor="middle" font-size="14" font-weight="bold" fill="#991b1b">📤  Evict Oldest</text><text x="830" y="152" text-anchor="middle" font-size="12" fill="#7f1d1d">pop the earliest message</text><text x="830" y="172" text-anchor="middle" font-size="12" fill="#7f1d1d">and re-count</text></g>
+
+  <g><rect x="990" y="220" width="200" height="100" rx="14" fill="url(#gOK)" opacity="0.18" filter="url(#shadow)"/><rect x="990" y="220" width="200" height="38" rx="14" fill="url(#gOK)"/><text x="1090" y="246" text-anchor="middle" font-size="14" font-weight="bold" fill="white">✂  Trimmed History</text><text x="1090" y="282" text-anchor="middle" font-size="12" fill="#1f2937">fits under budget</text><text x="1090" y="302" text-anchor="middle" font-size="11" fill="#4b5563">ready for the model</text></g>
+
+  <g><rect x="1230" y="230" width="130" height="80" rx="14" fill="url(#gLLM)" opacity="0.92" filter="url(#shadow)"/><text x="1295" y="262" text-anchor="middle" font-size="15" font-weight="bold" fill="white">✨  LLM</text><text x="1295" y="286" text-anchor="middle" font-size="12" fill="#ffe4f1">generates response</text></g>
+
+  <g><rect x="520" y="420" width="320" height="72" rx="14" fill="#f3e8ff" stroke="#7c3aed" stroke-width="2" filter="url(#shadow)"/><text x="680" y="448" text-anchor="middle" font-size="14" font-weight="bold" fill="#5b21b6">↩  Response appended as new message</text><text x="680" y="470" text-anchor="middle" font-size="12" fill="#6d28d9">next turn re-enters the loop at the top</text></g>
+
+  <!-- arrows main path -->
+  <line x1="212" y1="270" x2="248" y2="270" stroke="#2563eb" stroke-width="3" marker-end="url(#arrMain)"/>
+  <line x1="432" y1="270" x2="468" y2="270" stroke="#2563eb" stroke-width="3" marker-end="url(#arrMain)"/>
+  <line x1="662" y1="270" x2="718" y2="270" stroke="#2563eb" stroke-width="3" marker-end="url(#arrMain)"/>
+
+  <!-- No branch -->
+  <line x1="942" y1="280" x2="988" y2="270" stroke="#059669" stroke-width="2.5" marker-end="url(#arrNo)"/>
+  <rect x="948" y="244" width="38" height="22" rx="6" fill="white" stroke="#059669"/><text x="967" y="260" text-anchor="middle" font-size="12" font-weight="bold" fill="#059669">No</text>
+
+  <!-- Yes branch to Evict -->
+  <path d="M 830 230 L 830 190" stroke="#dc2626" stroke-width="2.5" fill="none" marker-end="url(#arrYes)"/>
+  <rect x="838" y="195" width="44" height="22" rx="6" fill="white" stroke="#dc2626"/><text x="860" y="211" text-anchor="middle" font-size="12" font-weight="bold" fill="#dc2626">Yes</text>
+
+  <!-- Evict back to Counter (loop) -->
+  <path d="M 720 145 Q 565 145 565 218" stroke="#dc2626" stroke-width="2.5" fill="none" stroke-dasharray="6,4" marker-end="url(#arrYes)"/>
+  <text x="565" y="140" text-anchor="middle" font-size="11" font-style="italic" fill="#991b1b">re-count, check again</text>
+
+  <!-- Trimmed -> LLM -->
+  <line x1="1192" y1="270" x2="1228" y2="270" stroke="#2563eb" stroke-width="3" marker-end="url(#arrMain)"/>
+
+  <!-- LLM -> Response block -->
+  <path d="M 1295 310 Q 1295 440 838 450" stroke="#2563eb" stroke-width="2.5" fill="none" marker-end="url(#arrMain)"/>
+
+  <!-- Response -> New Message -->
+  <path d="M 520 456 Q 260 460 125 310" stroke="#7c3aed" stroke-width="2" stroke-dasharray="6,4" fill="none" marker-end="url(#arrFB)"/>
+
+  <!-- Legend -->
+  <g>
+    <line x1="60" y1="525" x2="90" y2="525" stroke="#2563eb" stroke-width="3" marker-end="url(#arrMain)"/><text x="100" y="529" font-size="11" fill="#374151">main flow</text>
+    <line x1="180" y1="525" x2="210" y2="525" stroke="#059669" stroke-width="2.5" marker-end="url(#arrNo)"/><text x="220" y="529" font-size="11" fill="#374151">under budget</text>
+    <line x1="340" y1="525" x2="370" y2="525" stroke="#dc2626" stroke-width="2.5" marker-end="url(#arrYes)"/><text x="380" y="529" font-size="11" fill="#374151">over budget (evict loop)</text>
+    <line x1="560" y1="525" x2="590" y2="525" stroke="#7c3aed" stroke-width="2" stroke-dasharray="6,4" marker-end="url(#arrFB)"/><text x="600" y="529" font-size="11" fill="#374151">response feedback</text>
+  </g>
+</svg>

@@ -1,0 +1,10 @@
+flowchart LR
+    Stream["Conversation\nStream"] --> Detector["Episode Boundary\nDetector"]
+    Detector -- "episode complete" --> Packager["Episode Packager\n(metadata + summary)"]
+    Packager --> Store["Episode Store\n(indexed by time, topic)"]
+    Detector -- "continuing" --> Stream
+    NewQuery["New User Query"] --> Retrieval["Retrieval Engine\n(temporal + semantic)"]
+    Store --> Retrieval
+    Retrieval --> Injection["Context Injection\n(episode summaries)"]
+    Injection --> LLM["LLM"]
+    LLM --> Response["Response"]

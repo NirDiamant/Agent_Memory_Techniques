@@ -1,0 +1,131 @@
+<svg viewBox="0 0 1400 720" xmlns="http://www.w3.org/2000/svg" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <linearGradient id="gData" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#667eea"/><stop offset="100%" style="stop-color:#764ba2"/></linearGradient>
+    <linearGradient id="gSys" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#2196F3"/><stop offset="100%" style="stop-color:#21CBF3"/></linearGradient>
+    <linearGradient id="gStore" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#4f46e5"/><stop offset="100%" style="stop-color:#7c3aed"/></linearGradient>
+    <linearGradient id="gScore" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#4facfe"/><stop offset="100%" style="stop-color:#00f2fe"/></linearGradient>
+    <linearGradient id="gJudge" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#FFB75E"/><stop offset="100%" style="stop-color:#ED8F03"/></linearGradient>
+    <linearGradient id="gOK" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#11998e"/><stop offset="100%" style="stop-color:#38ef7d"/></linearGradient>
+    <linearGradient id="gErr" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#ef4444"/><stop offset="100%" style="stop-color:#b91c1c"/></linearGradient>
+    <filter id="shadow"><feDropShadow dx="1.5" dy="2" stdDeviation="2.5" flood-color="#000" flood-opacity="0.18"/></filter>
+    <filter id="soft"><feDropShadow dx="1" dy="1.5" stdDeviation="1.5" flood-color="#000" flood-opacity="0.12"/></filter>
+    <marker id="arrMain" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 L3,5 Z" fill="#2563eb"/></marker>
+    <marker id="arrPred" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 L3,5 Z" fill="#7c3aed"/></marker>
+    <marker id="arrGT" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 L3,5 Z" fill="#059669"/></marker>
+    <marker id="arrScore" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 L3,5 Z" fill="#d97706"/></marker>
+  </defs>
+
+  <rect width="1400" height="720" fill="#f8f9fa"/>
+  <text x="700" y="38" text-anchor="middle" font-size="24" font-weight="bold" fill="#1f2937">Memory Benchmarks (LoCoMo and LongMemEval)</text>
+  <text x="700" y="62" text-anchor="middle" font-size="13" fill="#6b7280">Feed multi-session conversations into a memory system, ask questions across categories, and score answers against ground truth.</text>
+
+  <!-- Benchmark Data panel -->
+  <rect x="30" y="90" width="300" height="400" rx="14" fill="url(#gData)" opacity="0.12" filter="url(#shadow)"/>
+  <rect x="30" y="90" width="300" height="44" rx="14" fill="url(#gData)" opacity="0.95"/>
+  <text x="180" y="118" text-anchor="middle" font-size="15" font-weight="bold" fill="white">📚  Benchmark Data</text>
+
+  <!-- Conversations -->
+  <g><rect x="55" y="156" width="250" height="56" rx="12" fill="white" filter="url(#soft)"/><text x="180" y="180" text-anchor="middle" font-size="13" font-weight="bold" fill="#1f2937">💬  Multi-Session Conversations</text><text x="180" y="197" text-anchor="middle" font-size="11" fill="#6b7280">long-running dialog history</text></g>
+
+  <!-- Question Sets -->
+  <g><rect x="55" y="232" width="250" height="100" rx="12" fill="url(#gData)" opacity="0.9" filter="url(#soft)"/><text x="180" y="258" text-anchor="middle" font-size="13" font-weight="bold" fill="white">❓  Question Sets</text><text x="180" y="278" text-anchor="middle" font-size="11" fill="#e9e3ff">Single-hop, Multi-hop,</text><text x="180" y="296" text-anchor="middle" font-size="11" fill="#e9e3ff">Temporal, Open-ended</text><text x="180" y="314" text-anchor="middle" font-size="11" fill="#e9e3ff">categories per benchmark</text></g>
+
+  <!-- Ground Truth -->
+  <g><rect x="55" y="352" width="250" height="56" rx="12" fill="url(#gOK)" opacity="0.9" filter="url(#soft)"/><text x="180" y="376" text-anchor="middle" font-size="13" font-weight="bold" fill="white">✅  Ground-Truth Answers</text><text x="180" y="393" text-anchor="middle" font-size="11" fill="#d1fae5">human-verified reference</text></g>
+
+  <!-- Memory System Under Test panel -->
+  <rect x="380" y="90" width="280" height="400" rx="14" fill="url(#gSys)" opacity="0.12" filter="url(#shadow)"/>
+  <rect x="380" y="90" width="280" height="44" rx="14" fill="url(#gSys)" opacity="0.95"/>
+  <text x="520" y="118" text-anchor="middle" font-size="14" font-weight="bold" fill="white">🧪  System Under Test</text>
+
+  <!-- Ingest -->
+  <g><rect x="410" y="160" width="220" height="56" rx="12" fill="white" filter="url(#soft)"/><text x="520" y="184" text-anchor="middle" font-size="13" font-weight="bold" fill="#1f2937">📥  Ingest Conversations</text><text x="520" y="201" text-anchor="middle" font-size="11" fill="#6b7280">feed all sessions in</text></g>
+
+  <!-- Memory Store -->
+  <g>
+    <ellipse cx="520" cy="265" rx="95" ry="22" fill="url(#gStore)" opacity="0.95" filter="url(#shadow)"/>
+    <rect x="425" y="265" width="190" height="60" fill="url(#gStore)" opacity="0.95"/>
+    <ellipse cx="520" cy="325" rx="95" ry="22" fill="url(#gStore)" opacity="0.95"/>
+    <ellipse cx="520" cy="265" rx="95" ry="22" fill="none" stroke="#312e81" stroke-width="1"/>
+    <text x="520" y="296" text-anchor="middle" font-size="13" font-weight="bold" fill="white">🗄  Memory Store</text>
+    <text x="520" y="314" text-anchor="middle" font-size="11" fill="#ede9fe">(your system)</text>
+  </g>
+
+  <!-- Answer Questions -->
+  <g><rect x="410" y="375" width="220" height="56" rx="12" fill="url(#gSys)" opacity="0.9" filter="url(#soft)"/><text x="520" y="399" text-anchor="middle" font-size="13" font-weight="bold" fill="white">💡  Answer Questions</text><text x="520" y="416" text-anchor="middle" font-size="11" fill="#e0f2fe">retrieve + generate</text></g>
+
+  <!-- Scoring Pipeline panel -->
+  <rect x="710" y="90" width="660" height="200" rx="14" fill="url(#gScore)" opacity="0.12" filter="url(#shadow)"/>
+  <rect x="710" y="90" width="660" height="44" rx="14" fill="url(#gScore)" opacity="0.95"/>
+  <text x="1040" y="118" text-anchor="middle" font-size="15" font-weight="bold" fill="white">📊  Scoring Pipeline</text>
+
+  <!-- BLEU -->
+  <g><rect x="730" y="155" width="140" height="56" rx="12" fill="white" filter="url(#soft)"/><text x="800" y="179" text-anchor="middle" font-size="13" font-weight="bold" fill="#1f2937">📏  BLEU</text><text x="800" y="196" text-anchor="middle" font-size="11" fill="#6b7280">n-gram overlap</text></g>
+
+  <!-- ROUGE -->
+  <g><rect x="890" y="155" width="140" height="56" rx="12" fill="white" filter="url(#soft)"/><text x="960" y="179" text-anchor="middle" font-size="13" font-weight="bold" fill="#1f2937">📏  ROUGE</text><text x="960" y="196" text-anchor="middle" font-size="11" fill="#6b7280">recall-based overlap</text></g>
+
+  <!-- F1 -->
+  <g><rect x="1050" y="155" width="140" height="56" rx="12" fill="white" filter="url(#soft)"/><text x="1120" y="179" text-anchor="middle" font-size="13" font-weight="bold" fill="#1f2937">🎯  F1 / Exact Match</text><text x="1120" y="196" text-anchor="middle" font-size="11" fill="#6b7280">token-level precision</text></g>
+
+  <!-- LLM Judge -->
+  <g><rect x="1210" y="155" width="140" height="56" rx="12" fill="url(#gJudge)" opacity="0.9" filter="url(#soft)"/><text x="1280" y="179" text-anchor="middle" font-size="13" font-weight="bold" fill="white">⚖  LLM Judge</text><text x="1280" y="196" text-anchor="middle" font-size="11" fill="#fef3c7">GPT-4 / Claude</text></g>
+
+  <!-- Results panel -->
+  <rect x="710" y="340" width="660" height="200" rx="14" fill="url(#gOK)" opacity="0.12" filter="url(#shadow)"/>
+  <rect x="710" y="340" width="660" height="44" rx="14" fill="url(#gOK)" opacity="0.95"/>
+  <text x="1040" y="368" text-anchor="middle" font-size="15" font-weight="bold" fill="white">📋  Results</text>
+
+  <!-- Per-Category Scores -->
+  <g><rect x="730" y="410" width="200" height="56" rx="12" fill="url(#gOK)" opacity="0.9" filter="url(#soft)"/><text x="830" y="434" text-anchor="middle" font-size="13" font-weight="bold" fill="white">📊  Per-Category Scores</text><text x="830" y="451" text-anchor="middle" font-size="11" fill="#d1fae5">breakdown by question type</text></g>
+
+  <!-- Weakness Analysis -->
+  <g><rect x="960" y="410" width="190" height="56" rx="12" fill="url(#gErr)" opacity="0.9" filter="url(#soft)"/><text x="1055" y="434" text-anchor="middle" font-size="13" font-weight="bold" fill="white">🔍  Weakness Analysis</text><text x="1055" y="451" text-anchor="middle" font-size="11" fill="#fee2e2">identify failure modes</text></g>
+
+  <!-- Comparison -->
+  <g><rect x="1180" y="410" width="170" height="56" rx="12" fill="white" filter="url(#soft)"/><text x="1265" y="434" text-anchor="middle" font-size="13" font-weight="bold" fill="#1f2937">📈  Comparison</text><text x="1265" y="451" text-anchor="middle" font-size="11" fill="#6b7280">baseline vs. system</text></g>
+
+  <!-- ARROWS -->
+  <!-- Conversations -> Ingest -->
+  <line x1="305" y1="184" x2="408" y2="184" stroke="#2563eb" stroke-width="2.5" marker-end="url(#arrMain)"/>
+  <!-- Ingest -> Memory Store -->
+  <line x1="520" y1="218" x2="520" y2="241" stroke="#2563eb" stroke-width="2.5" marker-end="url(#arrMain)"/>
+  <!-- Questions -> Answer Questions -->
+  <path d="M 305 282 Q 360 380 408 399" stroke="#2563eb" stroke-width="2.5" fill="none" marker-end="url(#arrMain)"/>
+  <!-- Memory Store -> Answer Questions -->
+  <line x1="520" y1="349" x2="520" y2="373" stroke="#2563eb" stroke-width="2.5" marker-end="url(#arrMain)"/>
+
+  <!-- Answer Questions -> Scorers (predictions) -->
+  <path d="M 630 395 Q 680 300 728 183" stroke="#7c3aed" stroke-width="2.5" fill="none" marker-end="url(#arrPred)"/>
+  <path d="M 630 400 Q 700 350 888 183" stroke="#7c3aed" stroke-width="2.5" fill="none" marker-end="url(#arrPred)"/>
+  <path d="M 630 405 Q 730 380 1048 183" stroke="#7c3aed" stroke-width="2.5" fill="none" marker-end="url(#arrPred)"/>
+  <path d="M 630 410 Q 760 400 1208 183" stroke="#7c3aed" stroke-width="2.5" fill="none" marker-end="url(#arrPred)"/>
+  <rect x="660" y="340" width="85" height="20" rx="6" fill="white" stroke="#7c3aed"/><text x="703" y="355" text-anchor="middle" font-size="10" font-weight="bold" fill="#5b21b6">predictions</text>
+
+  <!-- Ground Truth -> Scorers -->
+  <path d="M 305 370 Q 680 500 800 213" stroke="#059669" stroke-width="2.5" fill="none" marker-end="url(#arrGT)" stroke-dasharray="6,4"/>
+  <path d="M 305 380 Q 700 520 960 213" stroke="#059669" stroke-width="2.5" fill="none" marker-end="url(#arrGT)" stroke-dasharray="6,4"/>
+  <path d="M 305 390 Q 720 540 1120 213" stroke="#059669" stroke-width="2.5" fill="none" marker-end="url(#arrGT)" stroke-dasharray="6,4"/>
+  <path d="M 305 395 Q 740 560 1280 213" stroke="#059669" stroke-width="2.5" fill="none" marker-end="url(#arrGT)" stroke-dasharray="6,4"/>
+  <rect x="420" y="500" width="100" height="20" rx="6" fill="white" stroke="#059669"/><text x="470" y="515" text-anchor="middle" font-size="10" font-weight="bold" fill="#047857">ground truth</text>
+
+  <!-- Scorers -> Per-Category -->
+  <path d="M 800 213 Q 810 320 830 408" stroke="#d97706" stroke-width="2.5" fill="none" marker-end="url(#arrScore)"/>
+  <path d="M 960 213 Q 940 320 860 408" stroke="#d97706" stroke-width="2.5" fill="none" marker-end="url(#arrScore)"/>
+  <path d="M 1120 213 Q 1050 320 880 408" stroke="#d97706" stroke-width="2.5" fill="none" marker-end="url(#arrScore)"/>
+  <path d="M 1280 213 Q 1160 320 900 408" stroke="#d97706" stroke-width="2.5" fill="none" marker-end="url(#arrScore)"/>
+
+  <!-- Per-Category -> Weakness, Comparison -->
+  <line x1="930" y1="438" x2="958" y2="438" stroke="#2563eb" stroke-width="2.5" marker-end="url(#arrMain)"/>
+  <line x1="1150" y1="438" x2="1178" y2="438" stroke="#2563eb" stroke-width="2.5" marker-end="url(#arrMain)"/>
+
+  <!-- Legend -->
+  <g>
+    <line x1="40" y1="600" x2="70" y2="600" stroke="#7c3aed" stroke-width="3" marker-end="url(#arrPred)"/><text x="80" y="604" font-size="11" fill="#374151">predictions</text>
+    <line x1="200" y1="600" x2="230" y2="600" stroke="#059669" stroke-width="2.5" stroke-dasharray="6,4" marker-end="url(#arrGT)"/><text x="240" y="604" font-size="11" fill="#374151">ground truth</text>
+    <line x1="380" y1="600" x2="410" y2="600" stroke="#d97706" stroke-width="2.5" marker-end="url(#arrScore)"/><text x="420" y="604" font-size="11" fill="#374151">scores</text>
+    <line x1="500" y1="600" x2="530" y2="600" stroke="#2563eb" stroke-width="2.5" marker-end="url(#arrMain)"/><text x="540" y="604" font-size="11" fill="#374151">data flow</text>
+  </g>
+
+  <text x="700" y="690" text-anchor="middle" font-size="12" fill="#64748b" font-style="italic">Multi-hop and temporal questions expose gaps that surface-level metrics miss. LLM judges catch semantic correctness where BLEU cannot.</text>
+</svg>
