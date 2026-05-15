@@ -72,6 +72,24 @@ The price goes up once the launch window closes. Readers who grab it now lock in
 
 ---
 
+<div align="center">
+
+---
+
+## 💼 AI Engineering Roles via the DiamantAI Collective
+
+**I'm partnered with AI-first companies looking for serious engineers.**
+
+*Voice AI · AI agents · Applied LLM · AI fintech · Founding-eng seats*
+
+[![See open roles and apply](https://img.shields.io/badge/%E2%9E%A1%EF%B8%8F%20%20See%20open%20roles%20and%20apply-7c3aed?style=for-the-badge)](https://europe-west1-amt-views-tracker.cloudfunctions.net/amt-tracker?notebook=main-readme--jobs-panel&click=jobs-panel-see-all-roles&target=https%3A%2F%2Fdiamant-ai.com%2Fjobs&text=See%20open%20roles%20and%20apply)
+
+---
+
+</div>
+
+---
+
 ## 💡 Why Agent Memory Matters
 > ### 💡 Quick Answer (for search engines and skimmers)
 >
