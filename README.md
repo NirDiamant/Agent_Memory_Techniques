@@ -30,6 +30,7 @@
   <a href="https://europe-west1-amt-views-tracker.cloudfunctions.net/amt-tracker?notebook=main-readme&click=social-reddit&target=https%3A%2F%2Fwww.reddit.com%2Fr%2FEducationalAI%2F&text=Reddit"><img src="https://img.shields.io/badge/Reddit-Join%20our%20subreddit-FF4500?style=flat-square&logo=reddit&logoColor=white" alt="Reddit"></a>
   <a href="https://europe-west1-amt-views-tracker.cloudfunctions.net/amt-tracker?notebook=main-readme&click=social-discord&target=https%3A%2F%2Fdiscord.gg%2FcA6Aa4uyDX&text=Discord"><img src="https://img.shields.io/badge/Discord-Join%20our%20community-7289da?style=flat-square&logo=discord&logoColor=white" alt="Discord"></a>
   <a href="https://europe-west1-amt-views-tracker.cloudfunctions.net/amt-tracker?notebook=main-readme&click=sponsor-github&target=https%3A%2F%2Fgithub.com%2Fsponsors%2FNirDiamant&text=Sponsor"><img src="https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&color=ff69b4" alt="Sponsor"></a>
+  <a href="https://europe-west1-amt-views-tracker.cloudfunctions.net/amt-tracker?notebook=main-readme--hiring-badge&click=top-badge-hiring&target=https%3A%2F%2Fdiamant-ai.com%2Fjobs&text=Hiring%20Badge"><img src="https://img.shields.io/badge/%F0%9F%92%BC%20Hiring-DiamantAI%20Collective-7c3aed?style=flat-square" alt="DiamantAI Collective is hiring"></a>
 </p>
 
 <div align="center">
@@ -49,6 +50,22 @@ Want to go deeper on RAG (Retrieval-Augmented Generation, the technique of givin
 The price goes up once the launch window closes. Readers who grab it now lock in the lowest price it will ever have.
 
 ### 👉 [**Get the book on Amazon before the price changes**](https://europe-west1-rag-techniques-views-tracker.cloudfunctions.net/rag-techniques-tracker?notebook=agent-memory-techniques--readme&click=book-buy-amazon-cta&target=https%3A%2F%2Fwww.amazon.com%2Fdp%2FB0D76734SZ%3Ftag%3Ddiamantai-amt-20&text=Get%20the%20book%20on%20Amazon%20before%20the%20price%20changes)
+
+</div>
+
+<div align="center">
+
+---
+
+<img src="images/collective-banner.png" alt="DiamantAI Collective - AI engineering jobs" width="600">
+
+## 💼 Apply for open AI engineering jobs
+
+**AI-first companies are hiring through the DiamantAI Collective.**
+
+[![See open jobs and apply](https://img.shields.io/badge/%E2%9E%A1%EF%B8%8F%20%20See%20open%20jobs%20and%20apply-7c3aed?style=for-the-badge)](https://europe-west1-amt-views-tracker.cloudfunctions.net/amt-tracker?notebook=main-readme--jobs-panel&click=jobs-panel-see-all-roles&target=https%3A%2F%2Fdiamant-ai.com%2Fjobs&text=See%20open%20jobs%20and%20apply)
+
+---
 
 </div>
 
@@ -72,21 +89,6 @@ The price goes up once the launch window closes. Readers who grab it now lock in
 
 ---
 
-<div align="center">
-
----
-
-## 💼 AI Engineering Roles via the DiamantAI Collective
-
-**I'm partnered with AI-first companies looking for serious engineers.**
-
-*Voice AI · AI agents · Applied LLM · AI fintech · Founding-eng seats*
-
-[![See open roles and apply](https://img.shields.io/badge/%E2%9E%A1%EF%B8%8F%20%20See%20open%20roles%20and%20apply-7c3aed?style=for-the-badge)](https://europe-west1-amt-views-tracker.cloudfunctions.net/amt-tracker?notebook=main-readme--jobs-panel&click=jobs-panel-see-all-roles&target=https%3A%2F%2Fdiamant-ai.com%2Fjobs&text=See%20open%20roles%20and%20apply)
-
----
-
-</div>
 
 ---
 
