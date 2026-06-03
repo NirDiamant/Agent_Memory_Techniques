@@ -30,38 +30,27 @@
   <a href="https://europe-west1-amt-views-tracker.cloudfunctions.net/amt-tracker?notebook=main-readme&click=social-reddit&target=https%3A%2F%2Fwww.reddit.com%2Fr%2FEducationalAI%2F&text=Reddit"><img src="https://img.shields.io/badge/Reddit-Join%20our%20subreddit-FF4500?style=flat-square&logo=reddit&logoColor=white" alt="Reddit"></a>
   <a href="https://europe-west1-amt-views-tracker.cloudfunctions.net/amt-tracker?notebook=main-readme&click=social-discord&target=https%3A%2F%2Fdiscord.gg%2FcA6Aa4uyDX&text=Discord"><img src="https://img.shields.io/badge/Discord-Join%20our%20community-7289da?style=flat-square&logo=discord&logoColor=white" alt="Discord"></a>
   <a href="https://europe-west1-amt-views-tracker.cloudfunctions.net/amt-tracker?notebook=main-readme&click=sponsor-github&target=https%3A%2F%2Fgithub.com%2Fsponsors%2FNirDiamant&text=Sponsor"><img src="https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&color=ff69b4" alt="Sponsor"></a>
-  <a href="https://europe-west1-amt-views-tracker.cloudfunctions.net/amt-tracker?notebook=main-readme--hiring-badge&click=top-badge-hiring&target=https%3A%2F%2Fdiamant-ai.com%2Fjobs&text=Hiring%20Badge"><img src="https://img.shields.io/badge/%F0%9F%92%BC%20Hiring-DiamantAI%20Collective-7c3aed?style=flat-square" alt="DiamantAI Collective is hiring"></a>
 </p>
 
 <div align="center">
 
-# 📖 [The RAG Techniques Book is HERE](https://europe-west1-rag-techniques-views-tracker.cloudfunctions.net/rag-techniques-tracker?notebook=agent-memory-techniques--readme&click=book-buy-amazon-title&target=https%3A%2F%2Fwww.amazon.com%2Fdp%2FB0D76734SZ%3Ftag%3Ddiamantai-amt-20&text=The%20RAG%20Techniques%20Book%20is%20HERE)
+# 📖 [The RAG Techniques Book is HERE](https://diamant-ai.com/rag-made-simple)
 
 ### From the same author
 
-<a href="https://europe-west1-rag-techniques-views-tracker.cloudfunctions.net/rag-techniques-tracker?notebook=agent-memory-techniques--readme&click=book-buy-amazon-image&target=https%3A%2F%2Fwww.amazon.com%2Fdp%2FB0D76734SZ%3Ftag%3Ddiamantai-amt-20&text=Best%20Seller%20Image"><img src="images/rag_book_best_seller.png" alt="#1 Best Seller in Generative AI on Amazon" width="600"></a>
+<a href="https://diamant-ai.com/rag-made-simple"><img src="images/rag_book_best_seller.png" alt="#1 Best Seller in Generative AI on Amazon" width="600"></a>
 
 **#1 Best Seller on Amazon in Generative AI**
 
 Want to go deeper on RAG (Retrieval-Augmented Generation, the technique of giving a model extra documents so it can answer better)? The book is the long version. You'll get the **intuition** behind every technique. You'll get **side-by-side comparisons** that show when each one wins and when it quietly fails. You'll get **illustrations** that make the tricky parts click.
 
-### ⏳ Launch window only: **$0.99**
+### ⏳ Launch offer: **33% off with code RAGKING**
 
 The price goes up once the launch window closes. Readers who grab it now lock in the lowest price it will ever have.
 
-### 👉 [**Get the book on Amazon before the price changes**](https://europe-west1-rag-techniques-views-tracker.cloudfunctions.net/rag-techniques-tracker?notebook=agent-memory-techniques--readme&click=book-buy-amazon-cta&target=https%3A%2F%2Fwww.amazon.com%2Fdp%2FB0D76734SZ%3Ftag%3Ddiamantai-amt-20&text=Get%20the%20book%20on%20Amazon%20before%20the%20price%20changes)
+### 👉 [**Get RAG Made Simple (33% off with code RAGKING)**](https://diamant-ai.com/rag-made-simple)
 
 </div>
-
----
-
-<img src="images/collective-banner.png" alt="DiamantAI Collective - AI engineering jobs" width="600">
-
-## 💼 Apply for open AI engineering jobs
-
-**AI-first companies are hiring through the DiamantAI Collective.**
-
-[![See open jobs and apply](https://img.shields.io/badge/%E2%9E%A1%EF%B8%8F%20%20See%20open%20jobs%20and%20apply-7c3aed?style=for-the-badge)](https://europe-west1-amt-views-tracker.cloudfunctions.net/amt-tracker?notebook=main-readme--jobs-panel&click=jobs-panel-see-all-roles&target=https%3A%2F%2Fdiamant-ai.com%2Fjobs&text=See%20open%20jobs%20and%20apply)
 
 ---
 
@@ -85,14 +74,10 @@ The price goes up once the launch window closes. Readers who grab it now lock in
 
 ---
 
-
----
-
 ## 💡 Why Agent Memory Matters
 > ### 💡 Quick Answer (for search engines and skimmers)
 >
 > **Agent memory** is the set of techniques that let an LLM-based agent (a system built around a Large Language Model) remember information across turns, sessions, and tasks. Without memory, an agent re-derives context every time and cannot personalize, learn, or maintain coherence over long interactions. This repository documents 30 distinct memory techniques, grouped into six families: short-term context management, long-term storage, cognitive architectures, retrieval and multi-agent patterns, batteries-included frameworks, and production deployment patterns.
-
 
 Think about a friend who forgets every conversation you've ever had. Every morning you're strangers again. That's what most AI agents are like today.
 
@@ -132,7 +117,6 @@ The 30 techniques fall into six families. Each family solves a different memory 
 | **Frameworks** | Production-ready memory libraries (Mem0, Letta, Zep, Graphiti). | 24 - 27 |
 | **Evaluation & production** | Measure, benchmark, and deploy memory. | 28 - 30 |
 
-
 ---
 
 ## 🧭 Which Technique Do I Need?
@@ -142,8 +126,6 @@ The 30 techniques fall into six families. Each family solves a different memory 
 <p align="center">
   <img src="images/decision_tree.svg" alt="Decision tree: which agent memory technique do I need?" width="100%"/>
 </p>
-
-
 
 <!-- decision-tree-text-fallback -->
 **Quick text version:**
@@ -182,7 +164,6 @@ Manage the conversation inside a single chat.
 | 04 | [Summary Buffer Memory](all_techniques/04_summary_buffer_memory/) | Summarize older turns, but keep recent messages word for word. You get both. | ✅ [Notebook](all_techniques/04_summary_buffer_memory/summary_buffer_memory.ipynb) · [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/NirDiamant/Agent_Memory_Techniques/blob/main/all_techniques/04_summary_buffer_memory/summary_buffer_memory.ipynb) |
 | 05 | [Token Buffer Memory](all_techniques/05_token_buffer_memory/) | Trim the history to fit a strict token budget. Drop the oldest messages first. | ✅ [Notebook](all_techniques/05_token_buffer_memory/token_buffer_memory.ipynb) · [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/NirDiamant/Agent_Memory_Techniques/blob/main/all_techniques/05_token_buffer_memory/token_buffer_memory.ipynb) |
 
-
 <p align="center">
   <img src="images/sections/long_term.png" alt="Long-term memory techniques for LLM agents: vector store, entity, knowledge graph, episodic, semantic, procedural" width="100%"/>
 </p>
@@ -199,7 +180,6 @@ Storage that survives across sessions and users.
 | 09 | [Episodic Memory](all_techniques/09_episodic_memory/) | Store complete interactions with when-and-where context. Good for "what happened when" questions. | ✅ [Notebook](all_techniques/09_episodic_memory/episodic_memory.ipynb) · [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/NirDiamant/Agent_Memory_Techniques/blob/main/all_techniques/09_episodic_memory/episodic_memory.ipynb) |
 | 10 | [Semantic Memory](all_techniques/10_semantic_memory/) | Pull general facts out of interactions. Store them on their own, away from the raw episodes. | ✅ [Notebook](all_techniques/10_semantic_memory/semantic_memory.ipynb) · [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/NirDiamant/Agent_Memory_Techniques/blob/main/all_techniques/10_semantic_memory/semantic_memory.ipynb) |
 | 11 | [Procedural Memory](all_techniques/11_procedural_memory/) | Capture "how-to" knowledge: the procedures and workflows the agent picks up over time. | ✅ [Notebook](all_techniques/11_procedural_memory/procedural_memory.ipynb) · [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/NirDiamant/Agent_Memory_Techniques/blob/main/all_techniques/11_procedural_memory/procedural_memory.ipynb) |
-
 
 <p align="center">
   <img src="images/sections/cognitive.png" alt="Cognitive architecture memory patterns: working memory, hierarchical layers, consolidation, compaction, self-reflection, routing, temporal, forgetting" width="100%"/>
@@ -220,7 +200,6 @@ Patterns borrowed from how humans remember.
 | 18 | [Temporal Memory](all_techniques/18_temporal_memory/) | Attach timestamps to memories. Retrieve with time awareness and weight recent items higher. | ✅ [Notebook](all_techniques/18_temporal_memory/temporal_memory.ipynb) · [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/NirDiamant/Agent_Memory_Techniques/blob/main/all_techniques/18_temporal_memory/temporal_memory.ipynb) |
 | 19 | [Forgetting & Decay](all_techniques/19_forgetting_and_decay/) | Forget on purpose. Use decay, access counts, or relevance to prune. | ✅ [Notebook](all_techniques/19_forgetting_and_decay/forgetting_and_decay.ipynb) · [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/NirDiamant/Agent_Memory_Techniques/blob/main/all_techniques/19_forgetting_and_decay/forgetting_and_decay.ipynb) |
 
-
 <p align="center">
   <img src="images/sections/retrieval.png" alt="Memory retrieval and multi-agent patterns: retrieval patterns, cross-session memory, multi-agent shared memory, memory as tools" width="100%"/>
 </p>
@@ -235,7 +214,6 @@ How agents find and share memories.
 | 21 | [Cross-Session Memory](all_techniques/21_cross_session_memory/) | Save and reload agent state across sessions. The user picks up where they left off. | ✅ [Notebook](all_techniques/21_cross_session_memory/cross_session_memory.ipynb) · [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/NirDiamant/Agent_Memory_Techniques/blob/main/all_techniques/21_cross_session_memory/cross_session_memory.ipynb) |
 | 22 | [Multi-Agent Shared Memory](all_techniques/22_multi_agent_shared_memory/) | Shared stores, message passing, and agreement protocols for multi-agent teams. | ✅ [Notebook](all_techniques/22_multi_agent_shared_memory/multi_agent_shared_memory.ipynb) · [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/NirDiamant/Agent_Memory_Techniques/blob/main/all_techniques/22_multi_agent_shared_memory/multi_agent_shared_memory.ipynb) |
 | 23 | [Memory with Tools](all_techniques/23_memory_with_tools/) | Give the agent memory tools it can call: save, search, forget. Treated like any other tool. | ✅ [Notebook](all_techniques/23_memory_with_tools/memory_with_tools.ipynb) · [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/NirDiamant/Agent_Memory_Techniques/blob/main/all_techniques/23_memory_with_tools/memory_with_tools.ipynb) |
-
 
 <p align="center">
   <img src="images/sections/frameworks.png" alt="Agent memory frameworks and libraries: Graphiti, Mem0, Letta (MemGPT), Zep" width="100%"/>
@@ -252,7 +230,6 @@ Work with the leading memory frameworks, hands-on.
 | 26 | [Letta (MemGPT) Patterns](all_techniques/26_letta_memgpt_patterns/) | Build MemGPT's self-editing memory. Covers inner monologue, heartbeat events, and memory pressure. | ✅ [Notebook](all_techniques/26_letta_memgpt_patterns/letta_memgpt_patterns.ipynb) · [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/NirDiamant/Agent_Memory_Techniques/blob/main/all_techniques/26_letta_memgpt_patterns/letta_memgpt_patterns.ipynb) |
 | 27 | [Zep Memory](all_techniques/27_zep_memory/) | Use Zep for dialog classification, entity extraction, and time-aware graphs. Built for production. | ✅ [Notebook](all_techniques/27_zep_memory/zep_memory.ipynb) · [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/NirDiamant/Agent_Memory_Techniques/blob/main/all_techniques/27_zep_memory/zep_memory.ipynb) |
 
-
 <p align="center">
   <img src="images/sections/evaluation.png" alt="Agent memory evaluation and production: memory evaluation, LoCoMo and LongMemEval benchmarks, production deployment patterns" width="100%"/>
 </p>
@@ -266,7 +243,6 @@ Measure your memory. Then ship it.
 | 28 | [Memory Evaluation](all_techniques/28_memory_evaluation/) | Measure memory quality. Check retrieval precision and recall, staleness, contradictions, and user satisfaction. | ✅ [Notebook](all_techniques/28_memory_evaluation/memory_evaluation.ipynb) · [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/NirDiamant/Agent_Memory_Techniques/blob/main/all_techniques/28_memory_evaluation/memory_evaluation.ipynb) |
 | 29 | [Memory Benchmarks (LoCoMo)](all_techniques/29_memory_benchmarks_LoCoMo/) | Run your memory against LoCoMo and LongMemEval benchmarks. See how it does over long conversations. | ✅ [Notebook](all_techniques/29_memory_benchmarks_LoCoMo/memory_benchmarks_locomo.ipynb) · [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/NirDiamant/Agent_Memory_Techniques/blob/main/all_techniques/29_memory_benchmarks_LoCoMo/memory_benchmarks_locomo.ipynb) |
 | 30 | [Production Memory Patterns](all_techniques/30_production_memory_patterns/) | Run memory at scale. Caching, TTLs (time-to-live), sharding, backups, GDPR, and observability. | ✅ [Notebook](all_techniques/30_production_memory_patterns/production_memory_patterns.ipynb) · [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/NirDiamant/Agent_Memory_Techniques/blob/main/all_techniques/30_production_memory_patterns/production_memory_patterns.ipynb) |
-
 
 ---
 
@@ -313,7 +289,6 @@ Connect to production tools and measure what you've built.
 ## 🚀 Quick Start
 
 > 💡  **Prefer not to install anything?** Every notebook renders on GitHub directly. Click a technique in the table above to read it in your browser. Or use the Colab badges to run it in the cloud.
-
 
 ```bash
 # Clone the repository
@@ -392,7 +367,6 @@ Agent_Memory_Techniques/
   <img src="https://contrib.rocks/image?repo=NirDiamant/Agent_Memory_Techniques" alt="Contributors" />
 </a>
 
-
 We welcome contributions. You can fill in a notebook, fix a bug, improve the docs, or propose a new technique. Every contribution helps the next reader.
 
 See [CONTRIBUTING.md](.github/CONTRIBUTING.md) for the details.
@@ -402,8 +376,6 @@ See [CONTRIBUTING.md](.github/CONTRIBUTING.md) for the details.
 - Architecture diagrams (Mermaid or ASCII)
 - More memory benchmarks and evaluation metrics
 - Integration examples for new frameworks
-
----
 
 ---
 
