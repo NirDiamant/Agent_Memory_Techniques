@@ -34,21 +34,21 @@
 
 <div align="center">
 
-# 📖 [The RAG Techniques Book is HERE](https://diamant-ai.com/rag-made-simple)
+# 📖 [The RAG Techniques Book is HERE](https://diamant-ai.com/rag-made-simple?code=RAGKING)
 
 ### From the same author
 
-<a href="https://diamant-ai.com/rag-made-simple"><img src="images/rag_book_best_seller.png" alt="#1 Best Seller in Generative AI on Amazon" width="600"></a>
+<a href="https://diamant-ai.com/rag-made-simple?code=RAGKING"><img src="images/rag_book_best_seller.png" alt="#1 Best Seller in Generative AI on Amazon" width="600"></a>
 
 **#1 Best Seller on Amazon in Generative AI**
 
 Want to go deeper on RAG (Retrieval-Augmented Generation, the technique of giving a model extra documents so it can answer better)? The book is the long version. You'll get the **intuition** behind every technique. You'll get **side-by-side comparisons** that show when each one wins and when it quietly fails. You'll get **illustrations** that make the tricky parts click.
 
-### ⏳ Launch offer: **33% off with code RAGKING**
+### ⏳ GitHub community offer: **33% off with code RAGKING**
 
 The price goes up once the launch window closes. Readers who grab it now lock in the lowest price it will ever have.
 
-### 👉 [**Get RAG Made Simple (33% off with code RAGKING)**](https://diamant-ai.com/rag-made-simple)
+### 👉 [**Get RAG Made Simple (33% off with code RAGKING)**](https://diamant-ai.com/rag-made-simple?code=RAGKING)
 
 </div>
 
