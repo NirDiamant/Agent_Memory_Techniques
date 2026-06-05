@@ -48,6 +48,8 @@ Want to go deeper on RAG (Retrieval-Augmented Generation, the technique of givin
 
 ### 👉 [**Get RAG Made Simple (33% off with code RAGKING)**](https://diamant-ai.com/rag-made-simple?code=RAGKING)
 
+📖 *Not ready to buy? [**Read Chapter 1 free**](https://europe-west1-rag-techniques-views-tracker.cloudfunctions.net/rag-techniques-tracker?notebook=agent-memory-techniques--readme&click=free-chapter&target=https%3A%2F%2Fdiamant-ai.com%2Frag-made-simple%2Fchapter-1&retarget=0&text=read%20chapter%201%20free) - the full first chapter, no signup.*
+
 📣 *Teach, write, or run a dev community? Earn 25% recommending RAG Made Simple to your audience: [become an affiliate](https://europe-west1-rag-techniques-views-tracker.cloudfunctions.net/rag-techniques-tracker?notebook=agent-memory-techniques--readme&click=affiliate-signup&target=https%3A%2F%2Fnirdiamant.gumroad.com%2Faffiliates&retarget=0&text=become%20an%20affiliate).*
 
 </div>
