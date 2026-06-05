@@ -48,6 +48,8 @@ Want to go deeper on RAG (Retrieval-Augmented Generation, the technique of givin
 
 ### 👉 [**Get RAG Made Simple (33% off with code RAGKING)**](https://diamant-ai.com/rag-made-simple?code=RAGKING)
 
+📣 *Teach, write, or run a dev community? Earn 30% recommending RAG Made Simple to your audience: [become an affiliate](https://nirdiamant.gumroad.com/affiliates).*
+
 </div>
 
 ---
