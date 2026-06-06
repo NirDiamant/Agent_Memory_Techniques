@@ -34,11 +34,11 @@
 
 <div align="center">
 
-# 📖 [The RAG Techniques Book is HERE](https://diamant-ai.com/rag-made-simple?code=RAGKING)
+# 📖 [The RAG Techniques Book is HERE](https://europe-west1-rag-techniques-views-tracker.cloudfunctions.net/rag-techniques-tracker?notebook=agent-memory-techniques--readme&click=book-buy-gumroad-rag-title&target=https%3A%2F%2Fdiamant-ai.com%2Frag-made-simple%3Fcode%3DRAGKING&retarget=0&text=title%20rag%20book)
 
 ### From the same author
 
-<a href="https://diamant-ai.com/rag-made-simple?code=RAGKING"><img src="images/rag_book_best_seller.png" alt="#1 Best Seller in Generative AI on Amazon" width="600"></a>
+<a href="https://europe-west1-rag-techniques-views-tracker.cloudfunctions.net/rag-techniques-tracker?notebook=agent-memory-techniques--readme&amp;click=book-buy-gumroad-rag-image&amp;target=https%3A%2F%2Fdiamant-ai.com%2Frag-made-simple%3Fcode%3DRAGKING&amp;retarget=0&amp;text=image%20rag%20book"><img src="images/rag_book_best_seller.png" alt="#1 Best Seller in Generative AI on Amazon" width="600"></a>
 
 **#1 Best Seller on Amazon in Generative AI**
 
@@ -46,7 +46,7 @@ Want to go deeper on RAG (Retrieval-Augmented Generation, the technique of givin
 
 ### 🎟️ GitHub community price: **33% off with code RAGKING**
 
-### 👉 [**Get RAG Made Simple (33% off with code RAGKING)**](https://diamant-ai.com/rag-made-simple?code=RAGKING)
+### 👉 [**Get RAG Made Simple (33% off with code RAGKING)**](https://europe-west1-rag-techniques-views-tracker.cloudfunctions.net/rag-techniques-tracker?notebook=agent-memory-techniques--readme&click=book-buy-gumroad-rag-title&target=https%3A%2F%2Fdiamant-ai.com%2Frag-made-simple%3Fcode%3DRAGKING&retarget=0&text=title%20rag%20book)
 
 📖 *Not ready to buy? [**Read Chapter 1 free**](https://europe-west1-rag-techniques-views-tracker.cloudfunctions.net/rag-techniques-tracker?notebook=agent-memory-techniques--readme&click=free-chapter&target=https%3A%2F%2Fdiamant-ai.com%2Frag-made-simple%2Fchapter-1&retarget=0&text=read%20chapter%201%20free) - the full first chapter, no signup.*
 
