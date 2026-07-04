@@ -59,12 +59,12 @@ Amazon Bestseller in Generative AI · 1,500+ readers · ⭐ 4.6
 </tr>
 </table>
 
-<a href="https://europe-west1-amt-views-tracker.cloudfunctions.net/amt-tracker?notebook=main-readme&click=newsletter-subscribe-button&target=https%3A%2F%2Fdiamantai.substack.com%2F%3Fr%3D336pe4%26utm_campaign%3Dpub-share-checklist&text=Subscribe%20to%20DiamantAI%20Newsletter"><img src="images/subscribe-button.svg" alt="Subscribe to DiamantAI Newsletter"></a>
+<a href="https://europe-west1-amt-views-tracker.cloudfunctions.net/amt-tracker?notebook=main-readme&click=newsletter-subscribe-button&target=https%3A%2F%2Fnewsletter.diamant-ai.com%2F%3Fr%3D336pe4%26utm_campaign%3Dpub-share-checklist&text=Subscribe%20to%20DiamantAI%20Newsletter"><img src="images/subscribe-button.svg" alt="Subscribe to DiamantAI Newsletter"></a>
 
 *Join over 50,000 readers getting clear AI tutorials every week.* ***Subscribers also get early access and a 33% discount on my book.***
 </div>
 
-<a href="https://europe-west1-amt-views-tracker.cloudfunctions.net/amt-tracker?notebook=main-readme&click=newsletter-subscribe-image&target=https%3A%2F%2Fdiamantai.substack.com%2F%3Fr%3D336pe4%26utm_campaign%3Dpub-share-checklist&text=DiamantAI%20newsletter"><img src="images/substack_image.png" alt="DiamantAI newsletter"></a>
+<a href="https://europe-west1-amt-views-tracker.cloudfunctions.net/amt-tracker?notebook=main-readme&click=newsletter-subscribe-image&target=https%3A%2F%2Fnewsletter.diamant-ai.com%2F%3Fr%3D336pe4%26utm_campaign%3Dpub-share-checklist&text=DiamantAI%20newsletter"><img src="images/substack_image.png" alt="DiamantAI newsletter"></a>
 
 ---
 
