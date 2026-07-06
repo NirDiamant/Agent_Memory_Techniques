@@ -1,6 +1,8 @@
 cff-version: 1.2.0
 message: "If you use this repository, please cite it as below."
 title: "Agent Memory Techniques: A Cookbook for LLM Agent Memory"
+version: "1.0.0"
+date-released: "2026-05-05"
 authors:
   - family-names: "Diamant"
     given-names: "Nir"

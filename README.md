@@ -422,7 +422,7 @@ If you use this repository in your research or teaching, please cite:
 
 ```bibtex
 @misc{diamant2026agentmemory,
-    title={Agent Memory Techniques: A Comprehensive Collection},
+    title={Agent Memory Techniques: A Cookbook for LLM Agent Memory},
     author={Nir Diamant},
     year={2026},
     url={https://github.com/NirDiamant/Agent_Memory_Techniques
