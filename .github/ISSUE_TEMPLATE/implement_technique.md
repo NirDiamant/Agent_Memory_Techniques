@@ -25,7 +25,7 @@ Briefly describe your approach to implementing this technique:
 - [ ] Read the existing skeleton notebook and README
 - [ ] Implementation follows the notebook structure (Introduction, Concept, Implementation, Demo, Exercises)
 - [ ] Code runs end-to-end without errors
-- [ ] Uses `utils/memory_utils.py` for shared functionality where applicable
+- [ ] Uses `utils/helpers.py` for shared functionality where applicable
 - [ ] Tested with at least one LLM provider (OpenAI or Anthropic)
 
 ---
