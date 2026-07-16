@@ -8,7 +8,7 @@
 
 | Difficulty | Time | Prerequisites |
 |------------|------|---------------|
-| Advanced | ~55 min | Python 3.8+, `OPENAI_API_KEY`, `letta` package, understanding of 12 Working Memory recommended |
+| Advanced | ~55 min | Python 3.8+, `OPENAI_API_KEY`, understanding of 12 Working Memory recommended |
 
 This technique is for developers interested in MemGPT-style memory management where the agent controls its own memory reads and writes through function calls.
 
