@@ -1,19 +1,26 @@
-anthropic
-openai
-langchain
-langchain-community
-langchain-openai
-langchain-anthropic
-chromadb
-faiss-cpu
-sentence-transformers
-python-dotenv
-tiktoken
-pydantic
-ipykernel
-nbformat
-pandas
-numpy
-mem0ai
-letta-client
-networkx
+# Ranges tested together on 2026-10-31 in a fresh Python 3.11 venv
+# (pip install -r requirements.txt). Lower bounds are the versions that
+# were installed and run; upper bounds stop at the next major release.
+# A few notebooks install extras in their first cell (rank_bm25, datasets,
+# rouge-score, nltk, graphiti-core, zep-cloud).
+anthropic>=2.3,<3
+openai>=3.41,<4
+langchain>=1.4,<2
+langchain-classic>=1.0,<2
+langchain-community>=0.4,<0.5
+langchain-openai>=1.7,<2
+langchain-anthropic>=1.7,<2
+chromadb>=1.5,<2
+faiss-cpu>=1.15,<2
+sentence-transformers>=6.2,<7
+python-dotenv>=1.2,<2
+tiktoken>=0.14,<1
+pydantic>=2.14,<3
+ipykernel>=7.4,<8
+nbformat>=5.11,<6
+pandas>=3.1,<4
+numpy>=2.4,<3
+matplotlib>=3.11,<4
+mem0ai>=2.2,<3
+letta-client>=1.12,<2
+networkx>=3.6,<4

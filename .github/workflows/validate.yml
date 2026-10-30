@@ -30,7 +30,7 @@ jobs:
         with:
           python-version: "3.11"
           cache: pip
-      - name: Install pytest
-        run: pip install pytest nbformat
+      - name: Install test dependencies
+        run: pip install pytest nbformat python-dotenv
       - name: Run smoke tests
         run: pytest tests/ -q
