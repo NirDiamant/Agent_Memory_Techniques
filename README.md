@@ -315,7 +315,12 @@ cp .env.example .env
 jupyter notebook all_techniques/01_conversation_buffer_memory/
 ```
 
-The notebooks call `gpt-5.4-mini` (notebook 05 uses `gpt-5.4`) and `claude-sonnet-5`, tested on Python 3.11. Each notebook names its model once near the top (`MODEL` or `CHAT_MODEL`), so a model change is a one-line edit.
+The notebooks call `gpt-5.4-mini` (notebook 05 uses `gpt-5.4`) and `claude-sonnet-5`. Each notebook names its model once near the top (`MODEL` or `CHAT_MODEL`), so a model change is a one-line edit.
+
+What was tested on Python 3.11 (October 2026):
+- **Run end to end against the OpenAI API:** 04, 05, 09-15, 17-22, 25, 26 and 29.
+- **Run end to end against a local mock of the Anthropic Messages API:** the Claude notebooks 01, 02, 03, 06, 07, 08, 16, 23, 28 and 30. No Anthropic credit was available, so their code and requests are checked but Claude's answers are not.
+- **Only parsed:** 24 (needs Neo4j) and 27 (needs a Zep API key).
 
 ---
 

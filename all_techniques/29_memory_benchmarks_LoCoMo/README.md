@@ -16,7 +16,7 @@ This technique is for developers who want to benchmark agent memory against the 
 
 - **What it is:** **Memory Benchmarks (LoCoMo and LongMemEval)** tests agent memory against standardized multi-session datasets with per-category scoring.
 - **When you need it:** You want to compare your memory system against published baselines using a reproducible benchmark.
-- **The trade-off:** Running a full benchmark with an LLM judge costs about $20-30 with gpt-5.4-mini, and the fixed conversation set may not match your domain.
+- **The trade-off:** Answering and judging every question costs about $20-30 with gpt-5.4-mini, and the fixed conversation set may not match your domain.
 - **Closest alternative in this repo:** 28 Memory Evaluation lets you build custom evaluation datasets tailored to your specific use case.
 
 ## Description
@@ -70,7 +70,7 @@ LoCoMo (Long-Context Conversational Memory) and LongMemEval provide multi-sessio
 ## Limitations
 
 - LoCoMo conversations are between friends chatting about daily life. If your system handles technical support or enterprise workflows, benchmark scores may not reflect real performance.
-- Running all 2,000 LoCoMo questions through an LLM judge costs real API money (roughly $20-30 per full run with gpt-5.4-mini at list prices, when every question gets the full conversation).
+- A full run over all 2,000 LoCoMo questions costs real API money: roughly $20-30 with gpt-5.4-mini at list prices, for answering and judging together. Nearly all of it is answering, because `generate_prediction` sends the full conversation with every question; `llm_judge_score` sends only the question, the reference and the prediction.
 - Text overlap metrics (BLEU, ROUGE, F1) penalize correct answers that use different wording. The LLM judge helps, but it isn't perfect either.
 - These benchmarks test a fixed set of conversations. They can't capture every edge case your system will encounter in production. Treat them as a floor, not a ceiling.
 
