@@ -57,7 +57,7 @@ The [notebook](./memory_routing.ipynb) builds a complete memory routing system f
 
 1. **Data model**: A `MemoryType` enum and `MemoryEntry` dataclass for typed memory entries.
 2. **Specialized stores**: Three `MemoryStore` instances (episodic, semantic, procedural), each with keyword-based search.
-3. **LLM-powered router**: A `MemoryRouter` class that uses GPT-4o-mini to classify content and queries, then routes operations to the right store.
+3. **LLM-powered router**: A `MemoryRouter` class that uses GPT-5.4-mini to classify content and queries, then routes operations to the right store.
 4. **Write pipeline**: Classifies incoming content and stores it in the matching store(s).
 5. **Read pipeline**: Classifies queries, searches the relevant store(s), and returns merged results.
 6. **Fallback**: A fan-out method that searches all stores for ambiguous queries.

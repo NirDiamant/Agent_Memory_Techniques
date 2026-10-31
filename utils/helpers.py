@@ -116,7 +116,7 @@ def get_anthropic_client(api_key_env: str = "ANTHROPIC_API_KEY"):
     return Anthropic(api_key=key)
 
 
-def count_tokens(text: str, model: str = "gpt-4o-mini") -> int:
+def count_tokens(text: str, model: str = "gpt-5.4-mini") -> int:
     """Count tokens in ``text`` using tiktoken's encoding for ``model``.
 
     Falls back to the ``cl100k_base`` encoding (GPT-4 family) if the model is
