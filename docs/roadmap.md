@@ -42,7 +42,7 @@ The foundation phase covers the essential building blocks of agent memory. These
 - [ ] README with concept explanation, architecture diagram, and API reference for each technique
 - [ ] Shared utility functions in `utils/memory_utils.py`
 - [ ] Consistent notebook structure: Introduction, Concept, Implementation, Demo, Exercises
-- [ ] All notebooks tested with OpenAI GPT-4o-mini and at least one open-source alternative
+- [ ] All notebooks tested with OpenAI GPT-5.4-mini and at least one open-source alternative
 
 ### Phase 1 Milestones
 

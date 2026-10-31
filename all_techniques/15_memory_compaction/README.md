@@ -102,7 +102,7 @@ flowchart LR
 The [notebook](./memory_compaction.ipynb) walks through a complete implementation:
 
 1. **Data structures**: `CompactionLevel` enum and `CompactedMemory` dataclass that hold content at four fidelity levels (L0 raw, L1 key points, L2 one-liner, L3 tags).
-2. **Compaction engine**: Uses LLM calls (OpenAI `gpt-4o-mini`) to compress from one level to the next with level-specific prompts.
+2. **Compaction engine**: Uses LLM calls (OpenAI `gpt-5.4-mini`) to compress from one level to the next with level-specific prompts.
 3. **Memory store**: Manages active memories and cold storage. Supports level-aware retrieval so you pick the right resolution per query.
 4. **Compaction scheduler**: Selects memories for compression based on age and idle-time policies.
 5. **Example run**: Three realistic agent memories compacted end-to-end, with storage savings measured at each level.

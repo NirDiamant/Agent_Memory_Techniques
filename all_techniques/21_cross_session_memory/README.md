@@ -35,7 +35,7 @@ The [notebook](./cross_session_memory.ipynb) builds a complete cross-session mem
 
 1. **SessionState** data class for serializable agent state (facts, summaries, messages, preferences).
 2. **SQLiteBackend** for persisting state between sessions.
-3. **LLM-powered extraction**: uses `gpt-4o-mini` to pull out user facts and compress conversations into summaries at session end.
+3. **LLM-powered extraction**: uses `gpt-5.4-mini` to pull out user facts and compress conversations into summaries at session end.
 4. **CrossSessionManager** for the full session lifecycle: resumption, cold starts, and three loading strategies (full, last-N, summary-only).
 5. **CrossSessionAgent** that wires persisted memory into the conversation loop.
 6. **Multi-session demo** showing Session 1 (cold start), Session 2 (agent remembers), and a new-user cold start.

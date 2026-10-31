@@ -32,6 +32,8 @@ A decision guide to building AI agents that work: 28 chapters, 148 illustrations
   <a href=".github/CONTRIBUTING.md"><img src="https://img.shields.io/badge/contributions-welcome-brightgreen.svg" alt="Contributions Welcome"></a>
 </p>
 
+<p align="center"><b>Related repos:</b> <a href="https://europe-west1-rag-techniques-views-tracker.cloudfunctions.net/rag-techniques-tracker?notebook=agent-memory-techniques--readme&amp;click=related-rag-techniques&amp;target=https%3A%2F%2Fgithub.com%2FNirDiamant%2FRAG_Techniques&amp;retarget=0&amp;text=related-rag-techniques">RAG Techniques</a> · <a href="https://europe-west1-rag-techniques-views-tracker.cloudfunctions.net/rag-techniques-tracker?notebook=agent-memory-techniques--readme&amp;click=related-genai-agents&amp;target=https%3A%2F%2Fgithub.com%2FNirDiamant%2FGenAI_Agents&amp;retarget=0&amp;text=related-genai-agents">GenAI Agents</a> · <a href="https://europe-west1-rag-techniques-views-tracker.cloudfunctions.net/rag-techniques-tracker?notebook=agent-memory-techniques--readme&amp;click=related-agents-towards-production&amp;target=https%3A%2F%2Fgithub.com%2FNirDiamant%2Fagents-towards-production&amp;retarget=0&amp;text=related-agents-towards-production">Agents Towards Production</a> · <a href="https://europe-west1-rag-techniques-views-tracker.cloudfunctions.net/rag-techniques-tracker?notebook=agent-memory-techniques--readme&amp;click=related-prompt-engineering&amp;target=https%3A%2F%2Fgithub.com%2FNirDiamant%2FPrompt_Engineering&amp;retarget=0&amp;text=related-prompt-engineering">Prompt Engineering</a></p>
+
 ---
 
 <p align="center">
@@ -313,6 +315,13 @@ cp .env.example .env
 jupyter notebook all_techniques/01_conversation_buffer_memory/
 ```
 
+The notebooks call `gpt-5.4-mini` (notebook 05 uses `gpt-5.4`) and `claude-sonnet-5`. Each notebook names its model once near the top (`MODEL` or `CHAT_MODEL`), so a model change is a one-line edit.
+
+What was tested on Python 3.11 (October 2026):
+- **Run end to end against the OpenAI API:** 04, 05, 09-15, 17-22, 25, 26 and 29.
+- **Run end to end against a local mock of the Anthropic Messages API:** the Claude notebooks 01, 02, 03, 06, 07, 08, 16, 23, 28 and 30. No Anthropic credit was available, so their code and requests are checked but Claude's answers are not.
+- **Only parsed:** 24 (needs Neo4j) and 27 (needs a Zep API key).
+
 ---
 
 ## 📁 Project Structure
@@ -364,7 +373,7 @@ Agent_Memory_Techniques/
 
 ---
 
-## 📚 More from the same author
+## 📚 More from DiamantAI
 
 **[RAG Made Simple](https://europe-west1-rag-techniques-views-tracker.cloudfunctions.net/rag-techniques-tracker?notebook=agent-memory-techniques--readme&click=book-footer-rag&target=https%3A%2F%2Fwww.amazon.com%2Fdp%2FB0GWDH8JJL%3Fmaas%3Dmaas_adg_api_580351185840460851_static_9_573%26ref_%3Daa_maas%26tag%3Dmaas%26aa_campaignid%3Drag-en%26aa_adgroupid%3Dgithub-readme%26aa_creativeid%3Dbook-section&retarget=0&text=book-footer-rag)** - Amazon Bestseller in Generative AI · 1,500+ readers · ⭐ 4.6
 
@@ -375,6 +384,8 @@ Agent_Memory_Techniques/
 *To hear when the next book comes out, [follow the author on Amazon](https://europe-west1-rag-techniques-views-tracker.cloudfunctions.net/rag-techniques-tracker?notebook=agent-memory-techniques--readme&click=author-follow-amazon&target=https%3A%2F%2Fwww.amazon.com%2Fstores%2FNir-Diamant%2Fauthor%2FB0DZMTVQHJ&retarget=0&text=author-follow-amazon).*
 
 *Run a course, newsletter, or dev community? You can [earn 25% recommending RAG Made Simple](https://europe-west1-rag-techniques-views-tracker.cloudfunctions.net/rag-techniques-tracker?notebook=agent-memory-techniques--readme&click=affiliate-signup&target=https%3A%2F%2Fnirdiamant.gumroad.com%2Faffiliates&retarget=0&text=affiliate-signup) to your audience.*
+
+**Follow DiamantAI:** [Newsletter](https://europe-west1-rag-techniques-views-tracker.cloudfunctions.net/rag-techniques-tracker?notebook=agent-memory-techniques--readme&click=footer-newsletter&target=https%3A%2F%2Fnewsletter.diamant-ai.com&retarget=0&text=footer-newsletter) · [YouTube](https://europe-west1-rag-techniques-views-tracker.cloudfunctions.net/rag-techniques-tracker?notebook=agent-memory-techniques--readme&click=footer-youtube&target=https%3A%2F%2Fwww.youtube.com%2F%40DiamantAI&retarget=0&text=footer-youtube) · [Discord](https://discord.gg/cA6Aa4uyDX) · [Website](https://europe-west1-rag-techniques-views-tracker.cloudfunctions.net/rag-techniques-tracker?notebook=agent-memory-techniques--readme&click=footer-website&target=https%3A%2F%2Fdiamant-ai.com&retarget=0&text=footer-website) · [Course](https://europe-west1-rag-techniques-views-tracker.cloudfunctions.net/rag-techniques-tracker?notebook=agent-memory-techniques--readme&click=footer-course&target=https%3A%2F%2Fdiamant-ai.com%2Fcourses&retarget=0&text=footer-course)
 
 ## 🤝 Contributing
 
