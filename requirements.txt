@@ -5,7 +5,7 @@
 # rouge-score, nltk, graphiti-core, zep-cloud).
 anthropic>=2.3,<3
 openai>=3.41,<4
-langchain>=1.4,<2
+langchain>=1.4.7,<2
 langchain-classic>=1.0,<2
 langchain-community>=0.4,<0.5
 langchain-openai>=1.7,<2
